@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.4.20)  22 APR 2025 14:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.4.20)  5 MAY 2025 20:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1270,6 +1270,7 @@ Grid set 16 x 16 = 37.34424pt x 52.81543pt
 TextBlockOrigin set to 0pt x 0pt
 )) (./tex/commands.tex
 LaTeX Info: Redefining \u8 on input line 5.
+\c@definition=\count411
 ) (./acronyms.tex) (./symbols.tex)
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
@@ -1322,19 +1323,19 @@ Class scrreprt Info: loading recommended package `bookmark'.
 Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
  (/usr/local/texlive/2025/texmf-dist/tex/latex/bookmark/bkm-pdftex.def
 File: bkm-pdftex.def 2023-12-10 v1.31 bookmark driver for pdfTeX and luaTeX (HO)
-\BKM@id=\count411
+\BKM@id=\count412
 )) (/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count412
+\scratchcounter=\count413
 \scratchdimen=\dimen373
 \scratchbox=\box131
-\nofMPsegments=\count413
-\nofMParguments=\count414
+\nofMPsegments=\count414
+\nofMParguments=\count415
 \everyMPshowfont=\toks63
-\MPscratchCnt=\count415
+\MPscratchCnt=\count416
 \MPscratchDim=\dimen374
-\MPnumerator=\count416
-\makeMPintoPDFobject=\count417
+\MPnumerator=\count417
+\makeMPintoPDFobject=\count418
 \everyMPtoPDFconversion=\toks64
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1348,7 +1349,7 @@ Package grfext Info: Graphics extension search list:
  (/usr/local/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-\c@lstlisting=\count418
+\c@lstlisting=\count419
 Package tocbasic Info: setting babel extension for `lol' on input line 41.
 \scr@dte@lstlisting@maxnumwidth=\skip128
 LaTeX Info: Redefining \microtypecontext on input line 41.
@@ -1607,53 +1608,53 @@ Underfull \hbox (badness 10000) in paragraph at lines 36--39
 [2]
 chapter 2.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 46.
+(Font)              <9> on input line 40.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 46.
+(Font)              <5> on input line 40.
 
 
 [3
 
 ]
-LaTeX Font Info:    Trying to load font information for T1+fvm on input line 54.
+LaTeX Font Info:    Trying to load font information for T1+fvm on input line 48.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/bera/t1fvm.fd
 File: t1fvm.fd 2004/09/07 scalable font definitions for T1/fvm.
 )
 LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
-(Font)              scaled to size 7.65005pt on input line 54.
+(Font)              scaled to size 7.65005pt on input line 48.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `fvm' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
-(Font)              scaled to size 9.30756pt on input line 60.
+(Font)              scaled to size 9.30756pt on input line 54.
 
 
 [4{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/base/8r.enc}]
-<figures/vectorGraphic.pdf, id=196, 509.50853pt x 480.92873pt>
+<figures/vectorGraphic.pdf, id=195, 509.50853pt x 480.92873pt>
 File: figures/vectorGraphic.pdf Graphic file (type pdf)
 <use figures/vectorGraphic.pdf>
-Package pdftex.def Info: figures/vectorGraphic.pdf  used on input line 104.
+Package pdftex.def Info: figures/vectorGraphic.pdf  used on input line 98.
 (pdftex.def)             Requested size: 159.33302pt x 150.3926pt.
+) (./content/relatedwork.tex
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+[5{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc} <./figures/vectorGraphic.pdf>]
 
+[6
 
-
-[5{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}]) (./content/relatedwork.tex
-
-[6 <./figures/vectorGraphic.pdf>]
+]
 chapter 3.
 ) (./content/corechapter.tex
 
-[7
-
-]
+[7]
 
 [8
 
 ]
 chapter 4.
+
+LaTeX Warning: Reference `sect:chaptsect' on page 9 undefined on input line 10.
+
 
 
 [9]
@@ -1661,7 +1662,7 @@ LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 53
  (/usr/local/texlive/2025/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-<figures/V-Modell.pdf, id=241, 716.77687pt x 505.29858pt>
+<figures/V-Modell.pdf, id=238, 716.77687pt x 505.29858pt>
 File: figures/V-Modell.pdf Graphic file (type pdf)
 <use figures/V-Modell.pdf>
 Package pdftex.def Info: figures/V-Modell.pdf  used on input line 71.
@@ -1729,28 +1730,27 @@ chapter B.
 
 ]
 chapter C.
-) (./main.ind
-
-[23{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}]
-
+)
+No file main.ind.
 
 
-[24
-
-
-]) (./main.aux)
+[23{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}] (./main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2020/03/25>
  ***********
+
+
+LaTeX Warning: There were undefined references.
+
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 51104 strings out of 469626
- 1117023 string characters out of 5471004
- 1784314 words of memory out of 5000000
- 76713 multiletter control sequences out of 15000+600000
+ 51103 strings out of 469626
+ 1116889 string characters out of 5471004
+ 1784405 words of memory out of 5000000
+ 76715 multiletter control sequences out of 15000+600000
  707224 words of font info for 189 fonts, out of 8000000 for 9000
  1147 hyphenation exceptions out of 8191
  108i,20n,145p,10936b,1331s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1773,10 +1773,10 @@ pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist,
 pdfTeX warning (dest): name{glo:i11} has been referenced but does not exist, replaced by a fixed one
 
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmro10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb>
-Output written on main.pdf (36 pages, 413170 bytes).
+Output written on main.pdf (35 pages, 413825 bytes).
 PDF statistics:
- 470 PDF objects out of 1000 (max. 8388607)
- 381 compressed objects within 4 object streams
+ 459 PDF objects out of 1000 (max. 8388607)
+ 371 compressed objects within 4 object streams
  78 named destinations out of 1000 (max. 500000)
- 46392 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 46384 words of extra memory for PDF output out of 51595 (max. 10000000)
 
