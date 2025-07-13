@@ -3,101 +3,73 @@
 \chapter{Grundlagen}
 \label{sect:basics}
 
-In diesem Kapitel werden wir die, für die Entwicklung eines Frameworks im Bereich der Architekturvalidierung, notwendigen Konzepte und Technologien systematisch einführen. Zunächst gehen wir auf Middleware-Systeme in der Fahrzeugtechnik ein, wo wir deren Definition, typische Aufgaben sowie deren Bedeutung in der modernen Farhzeugtechnik zu erläutern. Basierend auf diesem Wissen folgt eine Darstellung der Software-Architekturen - inklusive eines Überblicks auf ASOA - in Bereich der Automobilindustrie: Wir beschreiben E/E-Architektur zudem diskutieren wir über die Rolle funktionaler und nicht-funktionaler Anforderung bei der Softwareentwicklung. Abschließend behandeln wir die Validierung dieser Architekturen, wobei sowohl die funktionale als auch ressourcenbezogenen Validierungsarten beleuchtet werden und die Relevanz der Automatisierung hierbei verdeutlicht wird.  
+Dieses Kapitel führt in die für das Framework relevanten Konzepte und Technologien ein. Zunächst wird der Begriff der E/E-Architektur samt ihrer Evolution und ihres Aufbaus erläutert. Anschließend wird die Softwarearchitektur behandelt: Nach der Definition grundlegender Begriffe werden die Prinzipien der Serviceorientierten Architektur vorgestellt und darauf aufbauend die Rolle von Middleware in der Fahrzeugtechnik beleuchtet. Ein weiterer Abschnitt erläutert die Motivation, Ziele und Methoden zur Validierung von Architekturen. Den Abschluss bildet die Vorstellung des für die Implementierung verwendeten Webentwicklungs-Stacks.
+\section{Automobile E/E-Architektur}
+\label{sect:eearchitecture}
 
-Diese Konzepte und Technologien bilden das Fundament für die anschließende Konzeption und Implementierung des Validierungs-Frameworks in den nachfolgenden Kapiteln
+Für alle softwaregesteuerten Funktionen innerhalb eines Fahrzeuges bildet die \gls{eea} das physikalische und logische Fundament. Sie definiert die grundlegende Organisation von Hardwarekomponenten wie \gls{ecu}, Sensoren, Energieversorgungssystemen und Kabelbäumen und steuert deren Kommunikation und Interaktion, um die erwarteten Funktionen zu realisieren \cite{jiang2019vehicle}. Diese Architektur hat im Laufe der Zeit mehrere Varianten durchlaufen und wird stetig weiterentwickelt. Im Folgenden werden die evolutionären Stufen der \gls{eea} genauer betrachtet.
 
-% Jedes Kapitel/Abschnitt sollte mit einem (zumindest kurzen) einführenden Text beginnen der 
-% erklärt worum es in diesem Kapitel geht (siehe About Chapters and Sections)
-% Each chapter should start with an (short) introduction explaining what the chapter is about 
-% (see About Chapters and Sections)
+\subsection{Evolution der Architekturentwicklung}
 
+Ursprünglich waren Fahrzeuge hauptsächlich mechanische Produkte, was sich jedoch mit der Einführung von Elektronik, wie Motorsteuergeräte und Airbags, änderte und die Ära der Elektrifizierung innerhalb der Automobilindustrie begann. Zunächst waren, aufgrund der geringen Anzahl, die Verbindungen zwischen den elektronischen Komponenten meist Punkt-zu-Punkt, sprich Komponenten wurden direkt miteinander verbunden. Dies führte jedoch durch die steigende Anzahl an \glspl{ecu}, zu einem Anstieg der Komplexität und des Kabelbaums. Um die Kommunikationseffizienz zu verbessern und die Komplexität zu reduzieren, wurden \gls{can}-Busse eingeführt. In der Folge wurde auch an Technologien wie \gls{lin} und FlexRay entwickelt und eingesetzt, um die verschiedenen Kommunikationsanforderungen zu erfüllen, sodass Komponenten innerhalb einer Domäne Informationen gemeinsam nutzen.
 
+Das Konzept der Funktionsdomäne rückte, aufgrund der wachsenden Komplexität und Funktionen immer stärker in den Vordergrund. \glspl{ecu} und Funktionen wurden in Domänen wie Fahrwerk, Karosserie und Infotainment unterteilt. Durch die Nachfrage nach domänenübergreifender Kommunikation wurde die Gateway-Funktion, welche zuvor von einzelnen \glspl{ecu} übernommen wurde, zunehmend in einem dedizierten, zentralen Gateway gebündelt.
+Obwohl dieser Ansatz die Mainstream-Lösung war, führte die Zunahme der Funktionen und Rechenanforderungen zu einer starken Zunahme der ECUs. Dies hatte komplexe Kabelbäume mit erhöhtem Gewicht und Kosten zur Folge, außerdem konnte der Ausfall durch das ausfallen des zentralen Gateways zu einem Zusammenbruch des gesamten Netzwerks führen.
 
-% Die Abschnitte des Grundlagenkapitels sind exemplarisch!
-% The sections of the fundamentals chapter are only examples!
+Um diesem Problem entgegenzuwirken, wurden \glspl{dcu} eingeführt, welche Funktionen einiger \glspl{ecu} innerhalb einer jeweiligen Funktionsdomäne integrieren und somit die Anzahl der \glspl{ecu} und die Belastung der Gateways reduzieren. Um die bestmögliche Kommunikation zu garantieren, werden \glspl{dcu} über das Automotive Ethernet mit dem zentralen Gateway verbunden, welches eine höhere Bandbreite bietet.
 
+Ein weiterer Ansatz, der neben der domänenbasierten Architektur existiert, ist die zonenbasierte Architektur. Um Komplexität und das Gewicht der Verkabelung zu reduzieren, werden Komponenten anstatt nach Funktionen, basierend auf ihrer physischen Position innerhalb des Fahrzeuges unterteilt. Anstatt wie bei \glspl{dcu} die Funktionen einer Domäne zu übernehmen, übernehmen \glspl{zsu} die Funktionen, die in den entsprechenden physischen Zonen stattfinden. Auch hier wird die Kommunikation über das Automotive Ethernet durchgeführt. Dieser Ansatz reduziert die Anzahl der \glspl{ecu} und Kabelaufwand (Anzahl, Länge, Gewicht) und verringert so die Komplexität der E/E-Architektur deutlich
 
+Erst die Evolution der \gls{eea} ermöglicht moderne Softwarekonzepte. Das folgende Unterkapitel beschreibt daher die Softwarearchitekturen, die diese neue Hardware-Basis nutzt.
+%TODO: (Future Trends?)
 
-\section{Middleware-Systeme in der Fahrzeugtechnik}
-\label{sect:middleware}
+\section{Softwarearchitekturen in Fahrzeugen}
+\label{sect:sa}
+Die allgemeine Definition einer Softwarearchitektur ist nach Bass et al. \cite{bass2021} eine systematische Gliederung eines Softwaresystems in einzelne Bausteine, die Festlegung ihrer Schnittstelle sowie die Prinzipien, nach denen diese Komponenten zusammenwirken und organisiert sind. Seitdem sich der Schwerpunkt von Fahrzeugen weg von mechanikzentrierten Systemen bewegt hat und hin zu intelligenten, softwaredefinierten Plattformen, gibt es innerhalb der Automobilindustrie einen großen Fortschritt bezüglich der Softwarefunktionalität. Um bei diesem Fortschritt den Überblick zu behalten, ist eine fundierte Softwarearchitektur unerlässlich.
 
-Fahrzeuge haben sich seit dem ersten Serienauto (Benz Velo, 1894) (TODO:QUELLE), technologisch rasant weiterentwickelt. Ihre immer stärkere Vernetzung und Automatisierung erhöht die Systemkomplexität erheblich(TODO: QUELLE).Software-Middleware übernimmt hier zentrale Aufgaben, um Sensoren, Steueralgorithmen und Aktoren performant und zuverlässig zu verknüpfen.
+Zu Beginn setzte man auf klassische, geschichtete Architekturen wie OSEK/VDX und AUTOSAR Classic, jedoch merkte man mit dem Aufkommen des Konzepts eines \gls{sdv} sowie der steigenden Software-Komplexität, dass die klassische Softwarearchitektur an ihre Grenzen stieß. Es gibt einige Gründe, wie die starre, monolithische Schichtenstruktur: Funktionen sind fest an Schichten gebunden, was Anpassungen einzelner Komponenten oder den Austausch von Modulen kaum umsetzbar machte.
 
-Um zu verstehen, was Automotive Middleware ausmacht, beschäftigen wir uns zunächst mit den grundlegenden Konzepten der Middleware im Fahrzeugkontext. Die Hardware, welche in modernen Fahrzeugen zum einsatz kommen, werden durch die zugrunde liegende E/E-Architektur definiert.
-\begin{definition}{E/E-Architektur}
-	
-\end{definition}
+In diesem Unterkapitel wird ein Einblick in die \glspl{soa} gegeben, die beschriebenen Schwächen der klassischen Softwarearchitektur überwinden. Anschließend wird die Middleware erläutert, die als technische Vermittlungsschicht dient.
 
-% ----------------------------------------------------------------------------------------------------
+\subsection{Serviceorientierte Architektur}
+\label{subsect:soa}
+Die Notwendigkeit, Softwaremodule dynamisch bereitzustellen erfordert einen flexiblen Ansatz. Hier setzt die \gls{soa}, welche bereits in der Webentwicklung fester Bestandteil ist, an. Nach Rumez et al.\cite{rumezOverviewAutomotiveServiceOriented2020} ein Architekturmuster, bei dem Anwendung als lose gekoppelte, wiederverwendbare Dienste organisiert werden. Jeder Dienst bietet eine klar definierte Funktionalität über gut beschriebene Schnittstellen und kann zur Laufzeit von beliebigen Clients zugegriffen werden.
 
-\section{Latex-technicals}
-\label{sect:latex}
+Im Gegensatz zum klassischen signalorientierten Ansatz, bei dem die Konfiguration der Kommunikationspfade vollständig statisch zur Design-Zeit erfolgt, setzt der \gls{soa}-Ansatz auf eine dynamische Konfiguration während der Laufzeit. Durch das dynamische Aufrufen von Diensten zur Laufzeit erhält die Architektur mehr Flexibilität. So lassen sich Funktionen einfacher hinzufügen, entfernen oder bearbeiten, ohne dass eine komplette Neuzuweisung der Software erforderlich ist. Dank der Middleware-Schicht, auf die im nächsten Abschnitt näher eingegangen wird, sind die verschiedenen Anwendungen unabhängig von dem Steuergerät, auf dem ein Dienst läuft, sowie vom zugrunde liegenden Netzwerk aufgebaut. Diese Entkoppelung von der Plattform ermöglicht es der Software, wiederverwendbar und portierbar zu sein. Ein weiteres Merkmal des \gls{soa}-Ansatzes sind Kommunikationsmuster, die Daten nur bei Bedarf übertragen. Im Gegensatz dazu verschickt die klassische Softwarearchitektur in zyklischen Abständen Daten – selbst wenn kein Empfänger vorhanden ist. Dadurch kann die entstehende Netzwerklast auf das Nötigste reduziert werden, was die Effizienz  steigert. Darüber hinaus kapselt jeder Dienst hinter einer Schnittstelle eine klar definierte Funktionalität. So lassen sich diese Dienste in unterschiedliche Kontexte und Projekten wiederverwenden, wodurch der Entwicklungs- und Testaufwand gesenkt wird. Ein weiterer Vorteil ist die Integration externer und On-Demand-Dienste: \gls{soa} unterstützen die dynamische Anbindung von Backend- und Cloud-Diensten, welche weitgehend transparent ist. Außerdem lassen sich \gls{soa} an wachsenden Anforderungen anpassen ohne dass das Gesamte System neu zu strukturieren. Aus den genannten Gründen erweißt sich die \gls{soa} als flexiblere und anpassungsfähiger als die klassische Variante der Softwarearchitektur.
 
-This section intends to introduce the reader without or only few latex knowledge to some basic latex commands.
-It starts with a short introduction on how to get started with Latex and the setup of a latex environment.
-In order to explain some useful features for document creation, Sect.~\ref{sect:citations} presents a citation command and gives some instructions on \textit{bibtex}.
-Consequently, Sect.~\ref{sect:illustrations} explains how illustrations can be added to a document\footnote{A brief explanation on how to use symbols and abbreviations with this template can be found in appendix \ref{app:c}}.
+Um die Vorteile der \gls{soa} realisieren zu können benötigt es eine Zwischenschicht zwischen Anwendung und Netz. Im folgenden Abschnitt wird die Middleware-Schicht untersucht, welche die \gls{soa}-Prinzipen technisch umsetzt. Dabei wird zunächst auf Aufbau und Funktionen eingegangen. Anschließend wird die ASOA-Middleware genauer untersucht.
 
-\subsection{Setting up the environment}
-\label{sect:latexenvironment}
-The creation of documents using Latex can be compared to the creation of programs using a programming language like C.
-This means that the Latex source files are simple text files.
-These files describe the document being constructed and can be \enquote{compiled} to generate the document.
-Accordingly a latex compiler is required by the user to create documents.
-The open source project MiKTeX\footnote{\url{http://miktex.org/about}} includes such compilers.
-This software-package contains everything needed to create Latex files out of this template.
-Please note, that it does not contain all required packages to compile this document.
-However, it is possible to obtain the required packages during latex compilation automatically.
-If this is not initially the case, the feature can be enabled by starting the configuration program located at \enquote{Miktex install directory/miktex/bin/x64/mo\_admin}.
-The option is configurable under the general tab at the section \enquote{package installation}.
-Depending on the enabled/used features (e.\,g., creation of index etc.) this document requires to be created with additional parameters what can easily be done using the \texttt{compile.bat} script, delivered with this template.
+\subsection{Automobile Middleware}
+\label{subsect:middle}
+Innerhalb moderner, verteilter Softwaresysteme ist die Middleware-Schicht eine wichtige Vermittlungsebene. Neely et al. \cite{neely2006adaptive} definieren die Middleware als Schicht zwischen Anwendungssoftware und Systemsoftware. In Systemen mit Netzwerkanbindung vermittelt sie zusätzlich zwischen Anwendungssoftware, Betriebssystem und Netzwerkkommunikationsschichten. Dabei liegt ihre Hauptaufgabe darin, die Komplexität des zugrunde liegenden Systems zu abstrahieren \cite{neely2006adaptive}. Im Bereich der Fahrzeugtechnik wird die Middleware noch einmal in zwei Sub-Schichten unterteilt \cite{kluner2024moderna}:
+\begin{itemize}
+  \item Kommunikations-Middlewares (untere Schicht), die den Datenaustausch zwischen ECUs organisieren und \gls{qos}-Funktionen bereitstellen.
+  \item Architekturplattformen (obere Schicht), die umfassende Frameworks für die Entwicklung und Bereitstellung automobiler Softwaresysteme liefern.
+\end{itemize}
+Nun wird untersucht, wie die Kommunikations-Middlewares und Architekturplattformen konkret arbeiten.
 
-As for programming languages \textit{Integrated Development Environments} (IDE) can support the user during his work.
-An example for such an IDE compatible with MiKTeX is TeXnicCenter.
-The reader might want to take a look at the correspondent website \url{http://www.texniccenter.org/}.
+Als untere Sub-Schicht sorgt die Kommunikations-Middleware dafür, dass sämtliche Details des Datenaustauschs im \gls{ivn} abstrahiert und Anwendungen von der zugrunde liegenden Netzwerktopologie entkoppelt sind. Sie sorgt zudem dafür, dass strukturierte Daten wie z.B. Sensormesswerte automatisch seralisiert und über Ethernet, CAN-Gateway oder Shared-Memory-Kanäle verteilt werden. Dies wird durchgeführt, ohne dass Entwickler sich mit den Kommunikationsprotokollen befassen müssen. Außerdem ermöglicht sie die Definition und Einhaltung von \gls{qos}-Parametern. Des Weiteren sorgt ein intelligentes Routing- und Topologie-Management auf der Netzwerk-Ebene dafür, dass Nachrichten den bestmöglichen Pfad für die Übertragung wählen, während ein Real-Time-Scheduler die Übertragungen koordiniert.
 
+Mit der Kommunikations-Middleware als Basis, löst die Architekturplattform Herausforderungen in Bezug auf die Entwicklung von Automobil-Softwaresystemen. Sie stellt eine umfassende Laufzeitumgebung bereit und bietet Entwicklern standardisierte Dienste und APIs. Das Ziel ist es die bestehende Komplexität weiter zu verringern, sodass Entwickler den Fokus auf die Anwendungslogik setzen können, anstatt sich mit systemnahen Aufgaben zu beschäftigen. Abgesehen von der Kommunikation, gehört zunächst das umsetzen der Software-Designmustern, wie das zuvor angesprochene \gls{soa}-Prinzip, zu den Kernaufgaben. Ebenso Ressourcenmanagement und Orchestrierung , bei der die Ressourcen von inaktiven Diensten freigegeben werden. Das Ziel hierbei ist eine situationsabhängige optimale Ressourcenzuweisung. Als nächstes ist die deterministische Ausführung sowie die Unterstützung bei der Einhaltung von Echtzeitanforderung zu nennen, um Verzögerungen im Softwaresystem zu vermeiden. Des Weiteren bietet sie oft Funktionen zur Cybersicherheit, wie Authentifizierung, Zugriffskontrolle, Verschlüsserung etc. an um Schwachstellen innerhalb des \glspl{ivn} zu reduzieren. Darüber hinaus sorgt die obere Schicht dafür, dass Over-the-Air-Updates, Installation/Deinstallation von Software-Paketen, sowie die Konfiguration von Anwendungen während der laufzeit durchgeführt werden und bietet dementsprechend Funktionen an. Eine weitere wichtige Aufgabe ist die Verwaltung des Systemzustands und die Überwachung des Lebenszyklus von Softwarekomponenten. Nicht zuletzt bietet die Architekturplattform Entwicklungswerkzeuge an, welche für die Entwicklung und Bereitstellung verwendet werden.
 
-Since it has been explained how a Latex environment can be set up the following two sections describe some basic commands which will be needed to create scientific documents.
+\section{Validierung von Architekturen}
+\label{sect:validerung}
 
-\subsection{Citations}
-\label{sect:citations}
+Wie bereits zu Beginn der Arbeit dargelegt, ist die frühzeitige Prüfung von Architekturen von entscheidender Bedeutung. Das technische Ziel der Architekturvalidierung ist daher, die Korrektheit und Konsistenz eines Systementwurfs anhand definierter Qualitätsmethoden, wie  ISO 26262 für funktionale Sicherheit oder ISO 25010 was sind die Zielefür Softwarequalität, zu bewerten, noch bevor die Implementierung beginnt \cite{venkitachalam2015}. Dieses Ziel lässt sich in die folgenden Teilziele unterteilen: Früherkennung von Fehlern, Kostenreduzierung, Sicherstellung von Qualität und Standardkonformität, Verifikation des Systemverhaltens und der Anforderungen, Beherrschung der Systemkomplexität und Verbesserung des Verständnisses\cite{venkitachalam2015} \cite{kang2019formal} \cite{bucher2019crosslayera}.
+Im folgenden werden die unterschiedlichen Ansätze zum validieren der Architekturen genauer betrachtet.
+\subsection{Validierungsverfahren}
 
-Latex is widely used to write scientific papers or theses.
-A general commonality of such documents is the need to refer to work provided by other parties.
-To cope with this need latex provides in combination with bibtex\footnote{bibtex is used to generate the bibliography} the \textbackslash cite\{reference-tag\} command.
-During the creation of a latex document occurrences of the \textbackslash cite\{\} command are automatically replaced with squared brackets and a generated tag in between.
-Those tags are listed in the bibliography with information about author, publisher, etc. referring to the literature information was taken from.
-For instance, the command \textbackslash cite\{columbia\} will be transformed during creation of this latex document into \cite{columbia}.
-This transformation requires that there is a correspondent entry for the \enquote{columbia} reference-tag in the \enquote{references.bib} file which comes with this latex template\footnote{In case a web content is referenced, a timestamp indicating the content was consulted shall be part of the bibliography entry. 
-Moreover, offline copies of the contents need to be provided. This ensures that readers will be able to understand your work in the future when cited web content may have changed or be unavailable.}.
+Es existieren veschiedene Ansätze zur Validierung eingesetzt, um die Gültigkeit von automobilen Systemen zu gewährleisten. Diese lassen sich in Vier Kategorien unterteilen\cite{kollmann2010comparative} \cite{venkitachalam2015} \cite{weissnegger2016automatic}:
 
-The next latex feature introduced in this document is the possibility to use illustrations, which is the topic of the following section.
+\begin{itemize}
+  \item Analytische Validierung
+        \begin{itemize}
+          \item [] Bei diesem Ansatz werden formale mathematische Methoden, wie Model Checking oder SymTA/s, um garantierte Ober-/Untergrenzen für bestimmte Systemeigenschaften zu berechnen, insbesondere bei Echzeitverhalten. Mit analytischen Methoden lässt sich auch das Abdeckungsproblem (coverage problem) lösen, in dem sie einen Worst Case konstruieren und die entsprechende Grenze berechnen \cite{kollmann2010comparative}. Nachteil dieser Ansätze ist jedoch, dass sie eher zu pessimistischen Ergebnissen tendieren oder Probleme haben,komplexe Systemkontexte wie Offsets oder Korrelation von Aufgaben zu berücksichtigen \cite{kollmann2010comparative}.
+        \end{itemize}
+  \item Simulatonsbasierte Validierung
+        \begin{itemize}
+          \item [] Dieser Ansatz beinhaltet die Erstellung von ausführbaren Modellen der Systemarchitektur und deren Simulation. Dabei wird das Verhalten des Systems beobachtet, um detaillierten Einblick bei Interaktionen und möglichen Nebenwirkungen zu gewinnen \cite{bucher2019crosslayera} \cite{kollmann2010comparative}. Da die Abdeckung aller möglichen Szenarien aufwendig und schwierig ist, kann nicht garantiert werden, dass der "Worst-Case" immer gefunden wird.
+        \end{itemize}
+\end{itemize}
 
-\subsection{Illustrations}
-\label{sect:illustrations}
-
-Latex documents may contain pictures to support and visualize explanations.
-They can be added to a document using the following commands:
-
-\begin{flushleft}
-
-\textbackslash begin\{figure\} \\
-	\textbackslash centering \\
-		\textbackslash includegraphics\{path\_to\_picture\} \\
-	\textbackslash caption\{This caption will be shown below the figure\} \\
-	\textbackslash label\{fig:label\_to\_referrence\_the\_figure\} \\
-\textbackslash end\{figure\} \\
-
-\end{flushleft}
-
-
-An example how this looks after creation of the document is shown in Fig.~\ref{fig:logo}.
-\begin{figure}[H]
-	\centering
-		\includegraphics[width=0.40\textwidth]{figures/vectorGraphic.pdf}
-	\caption{Example of a vector graphic}
-	\label{fig:logo}
-\end{figure}
-
-Since this document is not the first and only one providing advice and hints regarding latex and structuring theses, the following chapter presents related work in this field.
+\section{Webentwicklungs-Stack}
