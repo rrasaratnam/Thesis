@@ -59,17 +59,7 @@ Wie bereits zu Beginn der Arbeit dargelegt, ist die frühzeitige Prüfung von Ar
 Im folgenden werden die unterschiedlichen Ansätze zum validieren der Architekturen genauer betrachtet.
 \subsection{Validierungsverfahren}
 
-Es existieren veschiedene Ansätze zur Validierung eingesetzt, um die Gültigkeit von automobilen Systemen zu gewährleisten. Diese lassen sich in Vier Kategorien unterteilen\cite{kollmann2010comparative} \cite{venkitachalam2015} \cite{weissnegger2016automatic}:
+Es existieren veschiedene Ansätze zur Validierung eingesetzt, um die Gültigkeit von automobilen Systemen zu gewährleisten. Diese lassen sich in folgende Kategorien unterteilen\cite{kollmann2010comparative} \cite{venkitachalam2015} \cite{weissnegger2016automatic}:
 
-\begin{itemize}
-  \item Analytische Validierung
-        \begin{itemize}
-          \item [] Bei diesem Ansatz werden formale mathematische Methoden, wie Model Checking oder SymTA/s, um garantierte Ober-/Untergrenzen für bestimmte Systemeigenschaften zu berechnen, insbesondere bei Echzeitverhalten. Mit analytischen Methoden lässt sich auch das Abdeckungsproblem (coverage problem) lösen, in dem sie einen Worst Case konstruieren und die entsprechende Grenze berechnen \cite{kollmann2010comparative}. Nachteil dieser Ansätze ist jedoch, dass sie eher zu pessimistischen Ergebnissen tendieren oder Probleme haben,komplexe Systemkontexte wie Offsets oder Korrelation von Aufgaben zu berücksichtigen \cite{kollmann2010comparative}.
-        \end{itemize}
-  \item Simulatonsbasierte Validierung
-        \begin{itemize}
-          \item [] Dieser Ansatz beinhaltet die Erstellung von ausführbaren Modellen der Systemarchitektur und deren Simulation. Dabei wird das Verhalten des Systems beobachtet, um detaillierten Einblick bei Interaktionen und möglichen Nebenwirkungen zu gewinnen \cite{bucher2019crosslayera} \cite{kollmann2010comparative}. Da die Abdeckung aller möglichen Szenarien aufwendig und schwierig ist, kann nicht garantiert werden, dass der "Worst-Case" immer gefunden wird.
-        \end{itemize}
-\end{itemize}
 
 \section{Webentwicklungs-Stack}

@@ -8,44 +8,55 @@ Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: references.bib
-You've used 10 entries,
+Warning--to sort, need author or key in let
+Warning--to sort, need author or key in 2024arcadia
+Warning--empty author in 2024arcadia
+Warning--empty year in let
+Warning--there's an address but no publisher in roques2016mbse
+Warning--empty pages in roques2016mbse
+Warning--empty number in themathworksinc.2025system
+Warning--empty note in themathworksinc.2025system
+Warning--empty number in vectorinformatikgmbhpreevision
+Warning--empty note in vectorinformatikgmbhpreevision
+You've used 19 entries,
             4793 wiz_defined-function locations,
-            969 strings with 9018 characters,
-and the built_in function-call counts, 9464 in all, are:
-= -- 1037
-> -- 259
-< -- 295
-+ -- 341
-- -- 96
-* -- 729
-:= -- 1576
-add.period$ -- 15
-call.type$ -- 10
-change.case$ -- 64
-chr.to.int$ -- 10
-cite$ -- 10
-duplicate$ -- 195
-empty$ -- 600
-format.name$ -- 173
-if$ -- 1836
+            1019 strings with 10774 characters,
+and the built_in function-call counts, 14570 in all, are:
+= -- 1604
+> -- 364
+< -- 402
++ -- 456
+- -- 131
+* -- 1083
+:= -- 2400
+add.period$ -- 27
+call.type$ -- 19
+change.case$ -- 104
+chr.to.int$ -- 19
+cite$ -- 31
+duplicate$ -- 347
+empty$ -- 1016
+format.name$ -- 242
+if$ -- 2909
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 36
-newline$ -- 75
-num.names$ -- 30
-pop$ -- 72
+missing$ -- 56
+newline$ -- 126
+num.names$ -- 51
+pop$ -- 131
 preamble$ -- 1
-purify$ -- 84
+purify$ -- 142
 quote$ -- 0
-skip$ -- 419
+skip$ -- 667
 stack$ -- 0
-substring$ -- 1036
-swap$ -- 63
-text.length$ -- 51
-text.prefix$ -- 2
+substring$ -- 1436
+swap$ -- 95
+text.length$ -- 79
+text.prefix$ -- 7
 top$ -- 0
-type$ -- 100
-warning$ -- 0
-while$ -- 82
-width$ -- 11
-write$ -- 155
+type$ -- 196
+warning$ -- 10
+while$ -- 121
+width$ -- 20
+write$ -- 277
+(There were 10 warnings)
