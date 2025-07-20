@@ -1,108 +1,67 @@
 % !TEX root = ../main.tex
 
-\chapter{Inhaltsspezifische Überschrift}
-%\chapter{Very Specific Title}
-\label{sect:corechapter}
+\chapter{Konzeption \& Design}
+\label{ch:KuD}
 
-% Kernstück der Arbeit (eventuell auch in mehrere Kapitel unterteilt). Hier wird konkret vorgestellt, was entwickelt wurde und wie dies von statten ging.
-% This chapter (maybe split in multiple) is the main part of the thesis. It presents what was realized, how things were realized, 
-
-As already stated before in chapter , every chapter or section should start with some introducing words.
-Due to the fact that this chapter (or potentially multiple chapters) presents the authors efforts, each section and chapter shall provide analogous to its introduction some concluding words, summarizing the findings and achievements of the specific section or chapter.
+Nachdem in den vorherigen Kapiteln die Grundlagen gelegt und die Lücken der bestehenden Systeme analysiert wurden, wird nun der Entwurf der Lösung thematisiert. In diesem Kapitel wird der Entwurf des Frameworks zur automatisierten Architekturvalidierung von Anforderung bis zum detaillierten Design nachvollziehbar dargelegt. Im ersten Abschnitt werden daher die Spezifikationen der funktionalen und nicht-funktionalen Anforderungen präsentiert. Auf dieser Basis wird anschließend der Architekturentwurf vorgestellt, welcher die Einbettung in das übergeordnete System erläutert. Die nachfolgenden Abschnitte fokussieren diesen Entwurf durch die detaillierte Konzeption der Programmierschnittstelle sowie dem Design der grafischen Benutzeroberfläche.
 
 
-% Alles aus dem Grundlagen-Kapitel kann ohne weitere Erklärung genutzt werden. nicht zu erwarten ist, dass der leser über nicht präsentierte Zusatzinformationen zum Thema verfügt.
-% The information presented before in the background chapter can be used without further explanation. However you should not assume that the reader knows further details on the topic which were not presented in this thesis.
-\section{Different Citation Types}
+\section{Anforderungsanalyse}
+\label{sec:Anforderungsanalyse}
 
-During the writing of a thesis work, ideas and contributions provided by other people then the author have to be declared as such.
-This is done using citations.
-In general, there are two different types of citations.
-The first type of citation is the literal citation.
-It is only used if text is copied directly without modification from others.
-In this case the citation is surrounded by quotes "".
-For instance:
-\begin{center}
-  Wikipedia states that \enquote{Wörtliche Zitate sollten eingesetzt werden, wenn nicht nur der Inhalt der Aussage, sondern auch deren Formulierung von Bedeutung ist} .
-\end{center}
-Nonetheless, the author has to make unambiguously clear where the citation originates from.
-In case of the wikipedia citation above this is done with:  .
+Eine präzise Definition der Anforderungen ist die zwingende Voraussetzung für eine zielgerichtete Entwicklung. Basierend auf der Analyse der bestehenden Systemlücke werden daher die funktionalen und nicht-funktionalen Anforderungen an das zu entwickelnde Framework in Tabelle~\ref{tab:anforderungen} spezifiziert. Diese bilden die verbindliche Grundlage für alle nachfolgenden Design- und Implementierungsentscheidungen.
 
-
-The second citation type is the more frequent used reference using the \textbackslash cite\{\} command presented in Sect.
-This citation type is used if no literal citation is used.
-For instance:
-\begin{center}
-  If not only the content of a statement is of importance but also the original wording, then literal citation using quotes has to be used  .
-\end{center}
-Such references have to follow directly the first statement taken from other sources.
-
-The following example shows how this looks for bigger paragraphs.
-The same colored parts refer to the same source.
-
-\begin{flushleft}
-  \textcolor[rgb]{1,0,0}{Welche Theorien standardmäßig von einem Programm zur Lösung von SMT-Problemen unterstützt werden hängt vom konkret verwendeten Programm ab .
-    Zur Vereinheitlichung der Beschreibung von Theorien, so wie der Eingabe- und Ausgabesprache für Programme die SMT-Probleme lösen wurde der SMT-LIB Standard verfasst.}
-  \textcolor[rgb]{0.2,0.8,0.2}{Aktuell befindet sich dieser von der SMT-LIB Initiative formulierte Standard in Version 2.0 .}
-  \textcolor[rgb]{0,0.8,1}{Zu diesen Theorien gehören die Theorie der Felder (engl. \textit{arrays}), der Bit-Vektoren fester Größe, der booleschen Operatoren, der Fließkommazahlen, der Ganzzahlen, der reellen Zahlen und der Kombination von reellen und ganzen Zahlen.}
-\end{flushleft}
-
-Please ensure that the visual look of the automatically generated bibliography is consistent and the printed information is complete.
-For instance:
-\begin{itemize}
-  \item the separation of words at the end of a line should be adequate
-  \item the ISBN, DOI, etc. are formatted the same way for every bibliography entry
-  \item every web-sources accessing-date is stated
-  \item URLs are displayed the way they are intended to (e.g. underscores in copied links are interpreted by latex as commands and not displayed unless the url is surrounded by \textbackslash url\{\} or backslashes are interpreted as escaping characters and should be replaced with \textbackslash textbackslash)
-\end{itemize}
-It is the responsibility of the author of a thesis to ensure that all relevant information about the used literature is readable in the printed version of the thesis.
-
-The next section gives advice on figures used in the document and extends the citation concept accordingly.
-
-
-\section{Citations and Advice on Illustrations}
-
-Similar to textual content, pictures may originate from other publications, too.
-Thus, they have to be declared as results of work from others.
-In case the figure is not modified in any way this can be done by adding a correspondent citation in the figures caption.
-If the figure has been redrawn or modified the reference can be given as shown below:
-\begin{figure}[H]
+\begin{table}[ht!]
   \centering
-  \includegraphics[width=0.80\textwidth]{figures/V-Modell.pdf}
-  \caption{V-Modell correspondent to ISO 26262-6 (drawing after)}
-  \label{fig:vmodell}
-\end{figure}
+  \footnotesize
+  \begin{tabularx}{\textwidth}{l l X}
+    \toprule
+    \textbf{ID} & \textbf{Anforderung}           & \textbf{Beschreibung}                                                                                                                                                                   \\
+    \midrule
+    \multicolumn{3}{c}{\textit{Funktional}}                                                                                                                                                                                                \\
+    \midrule
+    FA-1        & Algorithmen-API                & Bereitstellung einer API, die es Nutzern ermöglicht, Validierungsalgorithmen zu verwalten (hochladen, bearbeiten, löschen) und auszuführen.                                             \\
+    \midrule
+    FA-2        & Algorithmenverwaltung-GUI      & Bereitstellung einer \gls{gui} zur Verwaltung von Validierungsalgorithmen. Diese muss Funktionen zum Hochladen, Bearbeiten, Löschen sowie zum Starten der Ausführung umfassen.          \\
+    \midrule
+    FA-3        & Ergebniss-GUI                  & Bereitstellung einer \gls{gui} zur visuellen Darstellung der Ergebnisse von Validierungsläufen. Die \gls{gui} muss verschiedene Ausgabeformate (z. B. textuell, grafisch) unterstützen. \\
+    \midrule
+    FA-4        & Erster Validierungsalgorithmus & Bereitstellung eines ersten Validierungsalgorithmus, der eine grundlegende Architekturprüfung durchführt.                                                                               \\
+    \bottomrule
+    \multicolumn{3}{c}{\textit{Nicht-Funktional}}                                                                                                                                                                                          \\
+    \midrule
+    NFA-1       & Standardisierte API            & Die zu entwickelnde API muss den Prinzipien des \gls{rest}folgen.                                                                                                                       \\
+    \midrule
+    NFA-2       & Benutzerfreundlichkeit         & Die GUI muss intuitiv bedienbar sein.                                                                                                                                                   \\
+    \bottomrule
+  \end{tabularx}
+  \caption{Anforderungen an das Framework}
+  \label{tab:anforderungen}
+\end{table}
 
-The author might even differentiate between different figure-citation-types.
-Those could be:
-\begin{itemize}
-  \item taken from \textit{(exact copy of the figure)}
-  \item partly taken from \textit{(parts of the figure are taken from the specified source, others were added by the author)}
-  \item adaption/extension of
-  \item redrawing of \textit{(the figure has been redrawn)}
-\end{itemize}
-If such descriptions or correspondent abbreviations are used the author should specify upfront the semantic and syntax at the beginning of the thesis.
-The important thing here is not which words were used but that it is clear which parts are whose work.
-\\\\
-\textsl{\textcolor[rgb]{0.75,0.75,0.75}{It follows an example for a bad structuring of paragraphs and transition between such since the quality of figures does not relate to figure citations.}}
-Also it is not recommendable to use fonts, \textcolor[rgb]{1,1,0}{colors} and other \textsl{\textit{\colorbox[rgb]{1,1,0.6}{\textcolor[rgb]{0.8,1,0.8}{styling}}}} elements (even in figures) which cannot be read easily.
-\\\\
-Figures should always be provided as vector graphics, e.g. *.svg or *.pdf files.
-The benefit of such formats is their scalability without loss of quality.
-Unfortunately, many pictures are not provided as such.
-Hence, schemata etc. need often to be redrawn.
-Some tools supporting the creation of vector graphics are:
-\begin{itemize}
-  \item inkscape (open source)
-  \item powerpoint (create a slide composed of shapes and store it as *.pdf file) or word/excel\\
-        (this should work with open office too)
-  \item to be completed ...
-\end{itemize}
-Please note that importing non vector graphics, e.g. bitmaps, by the mentioned tools will not convert them into vector graphics.
-Another aspect which should be addressed regarding figures in latex documents is the size of text inside figures.
-Due to scale operations on figures (see \ref{fig:vmodell} where the width of the figure is set to 80 percent of the width of the region where text can be shown) the size of text labels in figures may change.
-However, the size of the smallest text on a figure should never be smaller than the smallest text-size of the rest of the document.
-Moreover the sizes of texts on figures should not change arbitrary between illustrations.
+Im Folgenden wird die Notwendigkeit für jede dieser Anforderungen näher erläutert.
 
-After this part of many theses follows an evaluation.
-Some important points regarding the evaluation part are mentioned in the following chapter.
+\subsection*{Algorithmen-\gls{api}}
+
+Ein zentrales Element des Frameworks ist die Bereitstellung der \gls{api}, um die Validierungsalgorithmen an das ArchitekturTool binden zu können (FA-1). Diese Funktion ist die Grundvoraussetzung, um das System, wie im Ziel der Arbeit gefordert, erweiterbar zu gestalten. Um die Integration weiterer bzw. Anpassung bestehender Funktionalitäten für Entwickler zu vereinfachen und eine hohe Kompatibilität zu gewährleisten, wird zudem die Einhaltung des \gls{rest}-Standards gefordert (NFA-1). Dieser etablierte Standard fördert eine lose Kopplung zwischen Framework und den angebundenen Algorithmen und ermöglicht eine schnelle Einarbeitung für Entwickler, die nicht vertraut sind mit dem Programm.
+
+\subsection*{Grafische Benutzeroberfläche}
+
+Für die Interaktion mit dem Nutzer ist eine grafische Benutzeroberfläche zur Verwaltung der Algorithmen essenziell (FA-2). Sie muss alle notwendigen Funktionen wie das Hochladen und Ausführen der Validierungsalgorithmen ermöglichen. Um einen reibungslosen Ablauf beim benutzen des Tools zu gewährleisten, muss die Bedienung intuitiv und selbterklärend sein (NFA-2). Die Benutzerfreundlichkeit ist entscheidend für die Ingenieure und Entwickler im Arbteitsalltag. Des Weiteren müssen die Ergebnisse der Architekturvaliderungen visuell aufbereitet und ausgegeben werden (FA-3). Ohne eine Visualisierung der Ergebnisse ist es für den Nutzer schwer ersichtlich, was genau die Validierung ergeben hat. Die Unterstützung verschiedener Visualisierungsarten, wie textueller oder grafischer Ausgaben, ermöglichen es dem Nutzer, die Fehlerursache bzw. den Engpass effizient zu identifizieren.
+
+\subsection*{Erster Validierungsalgorithmus}
+
+Das Anbinden eines ersten Validierungsalgorithmus (FA-4) ist aus mehreren Gründen wichtig. Zum einen lässt sich damit das Framework auf Korrektheit prüfen, sprich es dient als Proof of Concept. Mit einem Validierungsalgorithmus lässt sich zum einen prüfen, ob das Hochladen, Bearbeiten und Ausführen der \gls{api} wie gefordert funktioniert. Zum anderen können  zukünftige Ingenieure und Entwickler den Algorithmus als Referenz nutzen um weitere Algorithmen anzubinden.Schließlich ermöglicht dieser erste Algorithmus die Durchführung von aussagekräftigen Tests und bildet die Grundlage für die Evaluation dieser Arbeit.
+
+\section{Systemarchitektur}
+
+\section{Konzeption der Komponenten}
+
+\subsection{Programmierschnittstelle}
+
+
+\subsection{Grafische Benutzeroberfläche}
+
+
+
+\subsection{Validierungsalgorithmus}

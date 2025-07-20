@@ -727,11 +727,6 @@ INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmri10.tfm
 INPUT ./content/corechapter.tex
 INPUT ./content/corechapter.tex
 INPUT content/corechapter.tex
-INPUT ./figures/V-Modell.pdf
-INPUT ./figures/V-Modell.pdf
-INPUT ./figures/V-Modell.pdf
-INPUT ./figures/V-Modell.pdf
-INPUT ./figures/V-Modell.pdf
 INPUT ./content/evaluation.tex
 INPUT ./content/evaluation.tex
 INPUT content/evaluation.tex
