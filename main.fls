@@ -727,6 +727,11 @@ INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmri10.tfm
 INPUT ./content/corechapter.tex
 INPUT ./content/corechapter.tex
 INPUT content/corechapter.tex
+INPUT ./figures/04Konzeption/Blockdiagram.png
+INPUT ./figures/04Konzeption/Blockdiagram.png
+INPUT ./figures/04Konzeption/Blockdiagram.png
+INPUT ./figures/04Konzeption/Blockdiagram.png
+INPUT ./figures/04Konzeption/Blockdiagram.png
 INPUT ./content/evaluation.tex
 INPUT ./content/evaluation.tex
 INPUT content/evaluation.tex

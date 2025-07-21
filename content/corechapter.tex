@@ -55,7 +55,36 @@ Das Anbinden eines ersten Validierungsalgorithmus (FA-4) ist aus mehreren Gründ
 
 \section{Systemarchitektur}
 
+Bei dem bestehenden ArchitekturTool handelt es sich um eine dockerisierte Webanwendung, deren Architektur auf einem React-Frontend, einem Node.js-Backend mit dem Express-Framework und einer PostgreSQL-Datenbank mit Prisma-ORM basiert. Um die geforderte Architekturvalidierung zu realisieren, wird diese Architektur, wie in Abbildung~\ref{fig:blockdiagram} dargestellt, um eine dedizierte Validierungs-\gls{api} sowie um zugehörige Frontend-Module erweitert.
+
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{figures/04Konzeption/Blockdiagram.png}
+  \caption{Blockdiagramm des ArchitekturTool's}
+  \label{fig:blockdiagram}
+\end{figure}
+
+
+Wie im Blockdiagramm dargestellt, lässt sich die Erweiterung in vier Hauptbereiche unterteilen:
+
+\subsection*{Algorithmenverwaltung (Frontend)}
+
+Diese Komponente bildet die zentrale Verwaltungseinheit für den Nutzer. Es stellt eine Benutzeroberfläche zur Verfügung, um Validierungsalgorithmen zu verwalten (hochladen, bearbeiten, löschen). Darüber hinaus ermöglicht es dem Nutzer, einen hochgeladenen Algorithmus und eine im ArchitekturTool spezifizierte Sicht auszuwählen und einen Validierungslauf zu starten.
+
+\subsection*{Ergebnisvisualisierung (Frontend)}
+
+Diese Komponente ist ausschließlich für die Darstellung der Validierungsergebnisse zuständig. Es bereitet die Ergebnisse eines Validierungslauf auf und stellt sie dem Nutzer, je nach Definierung, in textueller, beispielsweise als Fehlerlist, oder als grafischer Visualisierung, zum Beispiel als Balkendiagramm,  vor.
+
+\subsection*{Validierungsalgorithmus-API (Backend)}
+
+
+
+\subsection*{Validierung-Ausführen (Backend)}
+
 \section{Konzeption der Komponenten}
+
+
 
 \subsection{Programmierschnittstelle}
 

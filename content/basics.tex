@@ -9,7 +9,7 @@ Dieses Kapitel führt in die für das Framework relevanten Konzepte und Technolo
 
 Für alle softwaregesteuerten Funktionen innerhalb eines Fahrzeuges bildet die \gls{eea} das physikalische und logische Fundament. Sie definiert die grundlegende Organisation von Hardwarekomponenten wie \gls{ecu}, Sensoren, Energieversorgungssystemen und Kabelbäumen und steuert deren Kommunikation und Interaktion, um die erwarteten Funktionen zu realisieren \cite{jiang2019vehicle}. Diese Architektur hat im Laufe der Zeit mehrere Varianten durchlaufen und wird stetig weiterentwickelt. Im Folgenden werden die evolutionären Stufen der \gls{eea} genauer betrachtet.
 
-\subsection{Evolution der Architekturentwicklung}
+\subsection*{Evolution der Architekturentwicklung}
 
 Ursprünglich waren Fahrzeuge hauptsächlich mechanische Produkte, was sich jedoch mit der Einführung von Elektronik, wie Motorsteuergeräte und Airbags, änderte und die Ära der Elektrifizierung innerhalb der Automobilindustrie begann. Zunächst waren, aufgrund der geringen Anzahl, die Verbindungen zwischen den elektronischen Komponenten meist Punkt-zu-Punkt, sprich Komponenten wurden direkt miteinander verbunden. Dies führte jedoch durch die steigende Anzahl an \glspl{ecu}, zu einem Anstieg der Komplexität und des Kabelbaums. Um die Kommunikationseffizienz zu verbessern und die Komplexität zu reduzieren, wurden \gls{can}-Busse eingeführt. In der Folge wurde auch an Technologien wie \gls{lin} und FlexRay entwickelt und eingesetzt, um die verschiedenen Kommunikationsanforderungen zu erfüllen, sodass Komponenten innerhalb einer Domäne Informationen gemeinsam nutzen.
 
@@ -57,7 +57,7 @@ Mit der Kommunikations-Middleware als Basis, löst die Architekturplattform Hera
 
 Wie bereits zu Beginn der Arbeit dargelegt, ist die frühzeitige Prüfung von Architekturen von entscheidender Bedeutung. Das technische Ziel der Architekturvalidierung ist daher, die Korrektheit und Konsistenz eines Systementwurfs anhand definierter Qualitätsmethoden, wie  ISO 26262 für funktionale Sicherheit oder ISO 25010 was sind die Zielefür Softwarequalität, zu bewerten, noch bevor die Implementierung beginnt \cite{venkitachalam2015}. Dieses Ziel lässt sich in die folgenden Teilziele unterteilen: Früherkennung von Fehlern, Kostenreduzierung, Sicherstellung von Qualität und Standardkonformität, Verifikation des Systemverhaltens und der Anforderungen, Beherrschung der Systemkomplexität und Verbesserung des Verständnisses\cite{venkitachalam2015} \cite{kang2019formal} \cite{bucher2019crosslayera}.
 Im folgenden werden die unterschiedlichen Ansätze zum validieren der Architekturen genauer betrachtet.
-\subsection{Validierungsverfahren}
+\subsection*{Validierungsverfahren}
 
 Es existieren veschiedene Ansätze zur Validierung eingesetzt, um die Gültigkeit von automobilen Systemen zu gewährleisten. Diese lassen sich in folgende Kategorien unterteilen\cite{kollmann2010comparative} \cite{venkitachalam2015} \cite{weissnegger2016automatic}:
 
