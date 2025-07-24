@@ -18,45 +18,45 @@ Warning--empty number in themathworksinc.2025system
 Warning--empty note in themathworksinc.2025system
 Warning--empty number in vectorinformatikgmbhpreevision
 Warning--empty note in vectorinformatikgmbhpreevision
-You've used 19 entries,
+You've used 27 entries,
             4793 wiz_defined-function locations,
-            1019 strings with 10774 characters,
-and the built_in function-call counts, 14570 in all, are:
-= -- 1604
-> -- 364
-< -- 402
-+ -- 456
-- -- 131
-* -- 1083
-:= -- 2400
-add.period$ -- 27
-call.type$ -- 19
-change.case$ -- 104
-chr.to.int$ -- 19
-cite$ -- 31
-duplicate$ -- 347
-empty$ -- 1016
-format.name$ -- 242
-if$ -- 2909
+            1083 strings with 12882 characters,
+and the built_in function-call counts, 24743 in all, are:
+= -- 2739
+> -- 607
+< -- 686
++ -- 771
+- -- 220
+* -- 1960
+:= -- 3999
+add.period$ -- 42
+call.type$ -- 27
+change.case$ -- 162
+chr.to.int$ -- 27
+cite$ -- 39
+duplicate$ -- 538
+empty$ -- 1719
+format.name$ -- 404
+if$ -- 4948
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 56
-newline$ -- 126
-num.names$ -- 51
-pop$ -- 131
+missing$ -- 96
+newline$ -- 188
+num.names$ -- 75
+pop$ -- 193
 preamble$ -- 1
-purify$ -- 142
+purify$ -- 216
 quote$ -- 0
-skip$ -- 667
+skip$ -- 1020
 stack$ -- 0
-substring$ -- 1436
-swap$ -- 95
-text.length$ -- 79
-text.prefix$ -- 7
+substring$ -- 2806
+swap$ -- 169
+text.length$ -- 137
+text.prefix$ -- 8
 top$ -- 0
-type$ -- 196
+type$ -- 278
 warning$ -- 10
-while$ -- 121
-width$ -- 20
-write$ -- 277
+while$ -- 208
+width$ -- 29
+write$ -- 420
 (There were 10 warnings)

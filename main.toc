@@ -1,31 +1,30 @@
 \babel@toc {ngerman}{}\relax 
 \babel@toc {ngerman}{}\relax 
-\contentsline {chapter}{\numberline {1}Einleitung}{1}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Aufgabenstellung}{1}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Gliederung}{1}{section.1.2}%
-\contentsline {chapter}{\numberline {2}Grundlagen}{3}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Automobile E/E-Architektur}{3}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Softwarearchitekturen in Fahrzeugen}{4}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}Serviceorientierte Architektur}{5}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}Automobile Middleware}{6}{subsection.2.2.2}%
-\contentsline {section}{\numberline {2.3}Validierung von Architekturen}{7}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Webentwicklungs-Stack}{7}{section.2.4}%
-\contentsline {chapter}{\numberline {3}Stand der Technik}{9}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Etablierte Werkzeuge und Plattformen}{9}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Vector PREEvision}{9}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Mathworks Simulink + System Composer}{10}{subsection.3.1.2}%
-\contentsline {subsection}{\numberline {3.1.3}Eclipse Capella}{11}{subsection.3.1.3}%
-\contentsline {section}{\numberline {3.2}Validierungsverfahren im Detail}{12}{section.3.2}%
-\contentsline {chapter}{\numberline {4}Konzeption \& Design}{15}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Anforderungsanalyse}{15}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Systemarchitektur}{17}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Konzeption der Komponenten}{18}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Programmierschnittstelle}{18}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Grafische Benutzeroberfläche}{18}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}Validierungsalgorithmus}{18}{subsection.4.3.3}%
-\contentsline {chapter}{\numberline {5}Evaluation}{19}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Conclusion}{21}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Future Work}{21}{section.6.1}%
-\contentsline {chapter}{Literaturverzeichnis}{23}{chapter*.22}%
-\contentsline {chapter}{\numberline {A}Appendix1}{27}{appendix.A}%
+\contentsline {chapter}{\numberline {1}Grundlagen}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Automobile E/E-Architektur}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Softwarearchitekturen in Fahrzeugen}{2}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Serviceorientierte Architektur}{3}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Automobile Middleware}{4}{subsection.1.2.2}%
+\contentsline {section}{\numberline {1.3}Validierung von Architekturen}{5}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Webentwicklungs-Stack}{6}{section.1.4}%
+\contentsline {chapter}{\numberline {2}Stand der Technik}{9}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Etablierte Tools und Plattformen}{9}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Vector PREEvision}{9}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Mathworks Simulink + System Composer}{10}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Eclipse Capella}{11}{subsection.2.1.3}%
+\contentsline {section}{\numberline {2.2}Validierungsverfahren im Detail}{12}{section.2.2}%
+\contentsline {chapter}{\numberline {3}Konzept \& Design}{15}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Anforderungsanalyse}{15}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Systemarchitektur}{17}{section.3.2}%
+\contentsline {section}{\numberline {3.3}API zur Algorithmenverwaltung}{18}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}CREATE - \texttt {POST /api/v2/algorithm}}{19}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}READ - \texttt {GET /api/v2/algorithms}}{19}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}UPDATE - \texttt {PATCH /api/v2/algorithm/:id}}{19}{subsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.3.4}DELETE - \texttt {DELETE /api/v2/algorithm/:id}}{20}{subsection.3.3.4}%
+\contentsline {section}{\numberline {3.4}Grafische Benutzeroberfläche}{20}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Algorithmenverwaltung}{20}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}(Ergebnis-)Visualisierung + Verlauf}{21}{subsection.3.4.2}%
+\contentsline {section}{\numberline {3.5}Algorithmus-Ausführung}{22}{section.3.5}%
+\contentsline {chapter}{Literaturverzeichnis}{25}{chapter*.27}%
+\contentsline {chapter}{\numberline {A}Appendix1}{29}{appendix.A}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

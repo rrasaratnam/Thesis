@@ -12,6 +12,14 @@
 {Arcadia (Ingenieurwesen)}.
 \newblock {In: }\emph{Wikipedia}  (2024), Dezember
 
+\bibitem[AFPB13]{ahrens2013objective}
+\textsc{Ahrens}, Dirk ; \textsc{Frey}, Andreas ; \textsc{Pfeiffer}, Andreas  ; \textsc{Bertram}, Torsten:
+\newblock Objective Evaluation of Software Architectures in Driver Assistance Systems.
+\newblock {In: }\emph{Computer Science - Research and Development} 28 (2013), Februar, Nr. 1, S. 23--43.
+\newblock \url{http://dx.doi.org/10.1007/s00450-011-0185-x}. --
+\newblock DOI 10.1007/s00450--011--0185--x. --
+\newblock ISSN 1865--2042
+
 \bibitem[AHFK22]{askaripoor2022architecture}
 \textsc{Askaripoor}, Hadi ; \textsc{Hashemi~Farzaneh}, Morteza  ; \textsc{Knoll}, Alois:
 \newblock E/{{E Architecture Synthesis}}: {{Challenges}} and {{Technologies}}.
@@ -35,10 +43,36 @@
 \newblock DOI 10.11128/sne.29.tn.10472. --
 \newblock ISSN 23059974, 23060271
 
+\bibitem[Bro06]{broy2006}
+\textsc{Broy}, Manfred:
+\newblock Challenges in Automotive Software Engineering.
+\newblock {In: }\emph{Proceedings of the 28th International Conference on {{Software}} Engineering}.
+\newblock New York, NY, USA : Association for Computing Machinery, Mai 2006 ({{ICSE}} '06). --
+\newblock ISBN 978--1--59593--375--1, S. 33--42
+
+\bibitem[BSPL21]{bandur2021making}
+\textsc{Bandur}, Victor ; \textsc{Selim}, Gehan ; \textsc{Pantelic}, Vera  ; \textsc{Lawford}, Mark:
+\newblock Making the {{Case}} for {{Centralized Automotive E}}/{{E Architectures}}.
+\newblock {In: }\emph{IEEE Transactions on Vehicular Technology} 70 (2021), Februar, Nr. 2, S. 1230--1245.
+\newblock \url{http://dx.doi.org/10.1109/TVT.2021.3054934}. --
+\newblock DOI 10.1109/TVT.2021.3054934. --
+\newblock ISSN 1939--9359
+
 \bibitem[Cha20]{chatterjee2020applications}
 \textsc{Chatterjee}, Joyeeta:
 \newblock \emph{Applications of {{MathWorks Tools}} in {{Model-Based Systems Engineering}}}.
 \newblock Eindhoven, Eindhoven University of Technology, Diplomarbeit, November 2020
+
+\bibitem[CK20]{cebotari2020}
+\textsc{Cebotari}, Vadim ; \textsc{Kugele}, Stefan:
+\newblock Playground for {{Early Automotive Service Architecture Design}} and {{Evaluation}}.
+\newblock {In: }\emph{2020 {{IEEE Intelligent Vehicles Symposium}} ({{IV}})}, 2020. --
+\newblock ISSN 2642--7214, S. 1349--1356
+
+\bibitem[HSS{\etalchar{+}}22]{henle2022}
+\textsc{Henle}, Jacqueline ; \textsc{Stoffel}, Martin ; \textsc{Schindewolf}, Marc ; \textsc{N{\"a}gele}, Ann-Therese  ; \textsc{Sax}, Eric:
+\newblock Architecture Platforms for Future Vehicles: A Comparison of {{ROS2}} and {{Adaptive AUTOSAR}}.
+\newblock {In: }\emph{2022 {{IEEE}} 25th {{International Conference}} on {{Intelligent Transportation Systems}} ({{ITSC}})}, 2022, S. 3095--3102
 
 \bibitem[Jia19]{jiang2019vehicle}
 \textsc{Jiang}, Shugang:
@@ -54,10 +88,21 @@
 \newblock \emph{Modern {{Middlewares}} for {{Automated Vehicles}}: {{A Tutorial}}}.
 \newblock https://arxiv.org/abs/2412.07817v1, Dezember 2024
 
-\bibitem[KPKS10]{kollmann2010comparative}
-\textsc{Kollmann}, Steffen ; \textsc{Pollex}, Victor ; \textsc{Kempf}, Kilian  ; \textsc{Slomka}, Frank:
-\newblock Comparative {{Application}} of {{Real-Time Verification Methods}} to an {{Automotive Architecture}}.
-\newblock   (2010)
+\bibitem[KOS21]{kugeleModelbasedResourceAnalysis2021}
+\textsc{Kugele}, Stefan ; \textsc{Obergfell}, Philipp  ; \textsc{Sax}, Eric:
+\newblock Model-Based Resource Analysis and Synthesis of Service-Oriented Automotive Software Architectures.
+\newblock {In: }\emph{Software and Systems Modeling} 20 (2021), Dezember, Nr. 6, S. 1945--1975.
+\newblock \url{http://dx.doi.org/10.1007/s10270-021-00896-9}. --
+\newblock DOI 10.1007/s10270--021--00896--9. --
+\newblock ISSN 1619--1366, 1619--1374
+
+\bibitem[KRS{\etalchar{+}}22]{knieke2022managed}
+\textsc{Knieke}, Christoph ; \textsc{Rausch}, Andreas ; \textsc{Schindler}, Mirco ; \textsc{Strasser}, Arthur  ; \textsc{Vogel}, Martin:
+\newblock Managed {{Evolution}} of {{Automotive Software Product Line Architectures}}: {{A Systematic Literature Study}}.
+\newblock {In: }\emph{Electronics} 11 (2022), Juni, Nr. 12, S. 1860.
+\newblock \url{http://dx.doi.org/10.3390/electronics11121860}. --
+\newblock DOI 10.3390/electronics11121860. --
+\newblock ISSN 2079--9292
 
 \bibitem[let]{let}
 \emph{Let Yourself Be Guided with {{Arcadia}}: {{A}} Comprehensive Methodological and Tool-Supported Model-Based Engineering Guidance}.
@@ -103,6 +148,14 @@
 \newblock Forschungsbericht. --
 \newblock ~2 S.
 
+\bibitem[VKC{\etalchar{+}}21]{vogel2021metrics}
+\textsc{Vogel}, Martin ; \textsc{Knapik}, Peter ; \textsc{Cohrs}, Moritz ; \textsc{Szyperrek}, Bernd ; \textsc{Pueschel}, Winfried ; \textsc{Etzel}, Haiko ; \textsc{Fiebig}, Daniel ; \textsc{Rausch}, Andreas  ; \textsc{Kuhrmann}, Marco:
+\newblock Metrics in Automotive Software Development: {{A}} Systematic Literature Review.
+\newblock {In: }\emph{Journal of Software: Evolution and Process} 33 (2021), Februar, Nr. 2.
+\newblock \url{http://dx.doi.org/10.1002/smr.2296}. --
+\newblock DOI 10.1002/smr.2296. --
+\newblock ISSN 2047--7473, 2047--7481
+
 \bibitem[VRST15]{venkitachalam2015}
 \textsc{Venkitachalam}, Hariharan ; \textsc{Richenhagen}, Johannes ; \textsc{Schlosser}, Axel  ; \textsc{Tasky}, Thomas:
 \newblock Metrics for {{Verification}} and {{Validation}} of {{Architecture}} in {{Powertrain Software Development}}.
@@ -110,17 +163,26 @@
 \newblock New York, NY, USA : Association for Computing Machinery, Mai 2015 ({{WASA}} '15). --
 \newblock ISBN 978--1--4503--3444--0, S. 27--33
 
-\bibitem[WPK{\etalchar{+}}16]{weissnegger2016automatic}
-\textsc{Weissnegger}, Ralph ; \textsc{Pistauer}, Markus ; \textsc{Kreiner}, Christian ; \textsc{Schu{\ss}}, Markus ; \textsc{R{\"o}mer}, Kay  ; \textsc{Steger}, Christian:
-\newblock Automatic {{Testbench Generation}} for {{Simulation-based Verification}} of {{Safety-critical Systems}} in {{UML}}:.
-\newblock {In: }\emph{Proceedings of the 6th {{International Joint Conference}} on {{Pervasive}} and {{Embedded Computing}} and {{Communication Systems}}}.
-\newblock Lisbon, Portugal : {SCITEPRESS - Science and Technology Publications}, 2016. --
-\newblock ISBN 978--989--758--195--3, S. 70--75
+\bibitem[WGC{\etalchar{+}}24]{wang2024review}
+\textsc{Wang}, Wenwei ; \textsc{Guo}, Kaidi ; \textsc{Cao}, Wanke ; \textsc{Zhu}, Hailong ; \textsc{Nan}, Jinrui  ; \textsc{Yu}, Lei:
+\newblock Review of {{Electrical}} and {{Electronic Architectures}} for {{Autonomous Vehicles}}: {{Topologies}}, {{Networking}} and {{Simulators}}.
+\newblock {In: }\emph{Automotive Innovation} 7 (2024), Februar, Nr. 1, S. 82--101.
+\newblock \url{http://dx.doi.org/10.1007/s42154-023-00266-9}. --
+\newblock DOI 10.1007/s42154--023--00266--9. --
+\newblock ISSN 2096--4250, 2522--8765
 
 \bibitem[WVK{\etalchar{+}}20]{watkins2020system}
 \textsc{Watkins}, Christopher~B. ; \textsc{Varghese}, Jerry ; \textsc{Knight}, Michael ; \textsc{Petteys}, Becky  ; \textsc{Ross}, Jordan:
 \newblock System {{Architecture Modeling}} for {{Electronic Systems Using MathWorks System Composer}} and {{Simulink}}.
 \newblock {In: }\emph{2020 {{AIAA}}/{{IEEE}} 39th {{Digital Avionics Systems Conference}} ({{DASC}})}, 2020. --
 \newblock ISSN 2155--7209, S. 1--10
+
+\bibitem[ZZL{\etalchar{+}}21]{zhuRequirementsDrivenAutomotiveElectrical2021}
+\textsc{Zhu}, Hailong ; \textsc{Zhou}, Wei ; \textsc{Li}, Zhiheng ; \textsc{Li}, Li  ; \textsc{Huang}, Tao:
+\newblock Requirements-{{Driven Automotive Electrical}}/{{Electronic Architecture}}: {{A Survey}} and {{Prospective Trends}}.
+\newblock {In: }\emph{IEEE Access} 9 (2021), S. 100096--100112.
+\newblock \url{http://dx.doi.org/10.1109/ACCESS.2021.3093077}. --
+\newblock DOI 10.1109/ACCESS.2021.3093077. --
+\newblock ISSN 2169--3536
 
 \end{thebibliography}
