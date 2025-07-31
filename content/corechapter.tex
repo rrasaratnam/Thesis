@@ -3,7 +3,7 @@
 \chapter{Konzept \& Design}
 \label{ch:KuD}
 
-Nachdem in den vorherigen Kapiteln die Grundlagen gelegt und die Lücken der bestehenden Systeme analysiert wurden, wird nun der Entwurf der Lösung thematisiert. In diesem Kapitel wird der Entwurf des Frameworks zur automatisierten Architekturvalidierung von Anforderung bis zum detaillierten Design nachvollziehbar dargelegt. Im ersten Abschnitt werden daher die Spezifikationen der funktionalen und nicht-funktionalen Anforderungen präsentiert. Auf dieser Basis wird anschließend der Architekturentwurf vorgestellt, welcher die Einbettung in das übergeordnete System erläutert. Die nachfolgenden Abschnitte fokussieren diesen Entwurf durch das detaillierte Konzept der \gls{api}, der Algorithmus-Ausführung, dem ersten Validierungsalgorithmus sowie dem Design der \gls{gui}.
+Nachdem in den vorherigen Kapiteln die Grundlagen gelegt und die Lücken der bestehenden Systeme analysiert wurden, wird nun der Entwurf der Lösung thematisiert. In diesem Kapitel wird der Entwurf des Frameworks zur automatisierten Architekturvalidierung von Anforderung bis zum detaillierten Design nachvollziehbar dargelegt. Im ersten Abschnitt werden daher die Spezifikationen der funktionalen und nicht-funktionalen Anforderungen präsentiert. Auf dieser Basis wird anschließend der Architekturentwurf vorgestellt, welcher die Einbettung in das übergeordnete System erläutert. Die nachfolgenden Abschnitte fokussieren diesen Entwurf durch das detaillierte Konzept der \gls{api}, der Validierungs-Engine, dem ersten Validierungsalgorithmus sowie dem Design der \gls{gui}.
 
 
 \section{Anforderungsanalyse}
@@ -11,7 +11,7 @@ Nachdem in den vorherigen Kapiteln die Grundlagen gelegt und die Lücken der bes
 
 Eine präzise Definition der Anforderungen ist die zwingende Voraussetzung für eine zielgerichtete Entwicklung. Basierend auf der Analyse der bestehenden Systemlücke werden daher die funktionalen und nicht-funktionalen Anforderungen an das zu entwickelnde Framework in Tabelle~\ref{tab:anforderungen} spezifiziert. Diese bilden die verbindliche Grundlage für alle nachfolgenden Design- und Implementierungsentscheidungen.
 
-\begin{table}[ht!]
+\begin{table}[h!]
   \centering
   \footnotesize
   \begin{tabularx}{\textwidth}{l l X}
@@ -54,6 +54,7 @@ Für die Interaktion mit dem Nutzer ist eine \gls{gui} zur Verwaltung der Algori
 Das Anbinden eines ersten Validierungsalgorithmus (FA-4) ist aus mehreren Gründen wichtig. Zum einen lässt sich damit das Framework auf Korrektheit prüfen, sprich es dient als Proof of Concept. Mit einem Validierungsalgorithmus lässt sich zum einen prüfen, ob das Hochladen, Bearbeiten und Ausführen der \gls{api} wie gefordert funktioniert. Zum anderen können  zukünftige Ingenieure und Entwickler den Algorithmus als Referenz nutzen um weitere Algorithmen anzubinden.Schließlich ermöglicht dieser erste Algorithmus die Durchführung von aussagekräftigen Tests und bildet die Grundlage für die Evaluation dieser Arbeit.
 
 \section{Systemarchitektur}
+\label{sec:sysarchitektur}
 
 Bei dem bestehenden ArchitekturTool handelt es sich um eine dockerisierte Webanwendung, deren Architektur auf einem React-Frontend, einem Node.js-Backend mit dem Express-Framework und einer PostgreSQL-Datenbank mit Prisma-ORM basiert. Um die geforderte Architekturvalidierung zu realisieren, wird diese Architektur, wie in Abbildung~\ref{fig:blockdiagram} dargestellt, um eine dedizierte Validierungs-\gls{api} sowie um zugehörige Frontend-Module erweitert.
 
@@ -80,7 +81,7 @@ Diese Komponente ist ausschließlich für die Darstellung der Ergebnisse eines V
 
 Die \gls{api} bildet die zentrale serverseitige Schnittstelle zur Verwaltung der Validierungsalgorithmen. Sie stellt REST-Endpunkte bereit, mit denen Algorithmen hinzugefügt, ausgelesen, aktualisiert und entfernt werden können (CRUD\footnote{Create, Read, Update, Delete}-Operationen). Dadurch wird eine flexible und standardisierte Integration neuer Validierungsverfahren ermöglicht.
 
-\subsection*{Validierung-Ausführen (Backend)}
+\subsection*{Validierungs-Engine (Backend)}
 
 Dieser Teil ist für die eigentliche Durchführung bzw. Berechnung zuständig. Dabei wird ein zuvor ausgewählter Validierungsalgorithmus gemeinsam mit einer spezifischen Sicht der Arhcitektur an die Funktion übergeben. Zur Ausführung wird eine isolierte Python-Umgebung genutzt, so erfolgt die Berechnung gekapselt und getrennt vom Hauptprozess des Webservers, was für Sicherheit und Stabilität sorgt.\\
 
@@ -92,36 +93,43 @@ Die beschriebene Systemarchitektur legt damit die technische Grundlage für die 
 %Nachdem im vorherigen Abschnitt die übergeordnete Systemarchitektur und das Zusammenspiel der Hauptkomponenten vorgestellt wurden, befasst sich dieses Kapitel mit der detaillierten Konzeption dieser einzelnen Komponenten. Nacheinander werden der Entwurf der \gls{api}, der Algorithmenverwaltung, der Ergebnisvisualisierung sowie des Ergebnisverlaufs.
 
 \section{API zur Algorithmenverwaltung}
+\label{sec:konzept_api}
 
 Zur Verwaltung der Validierungsalgorithmen wird gemäß der Anforderung FA-1 + NFA-1 eine \gls{rest}-konforme \gls{api} zur Verfügung gestellt. Diese ermöglicht es, Algorithmen hochzuladen, zu bearbeiten, auszulesen und zu löschen. Die \gls{api} bildet die technische Grundlage für die Interaktion zwischen Frontend und Backend und wird so gestaltet, dass sie flexibel erweiterbar und robust gegenüber Fehlern ist. Die Datenbankzugriffe erfolgen über Prisma ORM, während Datei-Uploads über die Middleware \textit{Multer}\footnote{https://www.npmjs.com/package/multer} gehandhabt werden.
 
 Die Funktionalität wird über die nachfolgend beschriebenen Endpunkte realisiert:
 
-\subsection{CREATE - \texttt{POST /api/v2/algorithm}}
+\subsection{CREATE}
+\label{subsec:api_create}
 
 Dieser Endpunkt ermöglicht das Anbinden eines neuen Validierungsalgorithmus. Dazu wird ein Formular aus dem Frontend an das Backend übermittelt, das neben Metadaten wie Name, Beschreibung, Autor, Tags und Parametern auch die eigentlich Datei , wie in aktuellen Fall eine Python-Datei, enthält. Die Datei wird über Multer verarbeitet, wobei ein zuvor konfigurierter Speicherpfad genutzt wird. Dabei wird die hochgeladene Datei mit einem Zeitstempel versehen und im Zielverzeichnis abgespeichert, um eventuelle Namenskonflikte zu vermeiden. Eine Begrenzung der Dateigröße von 10MB schützt vor übergroßen Uploads.
 
 Vor dem Abspeichern der Datei wird geprüft, ob bereits ein Algorithmus mit dem angegebenen Namen existiert. Ist dies der Fall, wird der Vorgang mit einem Fehlerwurf und Statuscode abgebrochen. Anschließend wird anhand der Dateiendung automatisch der Dateityp bestimmt.
 
-Die mitgesendeten Tags und Parameter werden zunächst als JSON geparst. Abschließend wird die Datei auf dem Server abgespeichert und die Metainformationen inklusive Dateipfad über Prisma in der Datenbank festgehalten. Die Response enthalt das neu angelegte Objekt und erfolgreichen Statuscode. Uploadfehler oder fehlerhafte Eingaben werden über entsprechende Statuscodes abgefangen und mit einer passenden Fehlermeldung versendet.
+Die mitgesendeten Tags und Parameter werden zunächst als JSON geparst. Abschließend wird die Datei auf dem Server abgespeichert und die Metainformationen inklusive Dateipfad über Prisma in der Datenbank festgehalten. Die \textit{Response} enthalt das neu angelegte Objekt und erfolgreichen Statuscode. Uploadfehler oder fehlerhafte Eingaben werden über entsprechende Statuscodes abgefangen und mit einer passenden Fehlermeldung versendet.
 
-\subsection{READ - \texttt{GET /api/v2/algorithms}}
+\subsection{READ}
+
 
 Über diesen Endpunkt wird eine vollständige Liste aller, in der Datenbank abgelegten, Validierungsalgorithmen bereitgestellt. Die Daten werden mithilfe von Prisma abgefragt und als JSON an den Client(Frontend) gesendet. Dies ermöglicht die Anzeige aller verfügbaren Validierungsalgorithmen auf der Benutzeroberfläche. Im Fehlerfall wird ein entsprechender Statuscode und Fehlermeldung versendet und protokolliert.
 
-\subsection{UPDATE - \texttt{PATCH /api/v2/algorithm/:id}}
+\subsection{UPDATE}
+
 
 Dieser Endpunkt dient zur Aktualisierung eines bereits bestehenden Algorithmus. Nach Erhalt der \texttt{id} aus der URL wird zunächst geprüft, ob ein entsprechender Eintrag in der Datenbank existiert. Sollte dies nicht der Fall sein, wird der Client mit einem Fehlercode informiert. Die zu aktualisierenden Daten beinhalten alle Felder, die auch bei der Erstellung der Algorithmen verfügbar waren.
 
 Falls beim Aktualisieren eine neue Datei mitgesendet wird, wird zunächst die alte Datei aus dem Dateisystem entfernt. Anschließend wird die neue Datei gespeichert, und sowohl der neue Dateipfad als auch der aktualisierte Dateityp werden im Datenbanksatz aktualisiert. Die eigentliche Datenaktualisierung erfolgt über Prisma. Auch hier wird beim erfolgreichen Aktualisieren das Objekt als JSON zurückgegeben. Andernfalls werden auftretende Fehler, wie beispielsweise beim Dateizugriff, beim Parsen der Daten oder bei der Aktualisierung der Datenbank, abgefangen und protokolliert.
 
-\subsection{DELETE - \texttt{DELETE /api/v2/algorithm/:id}}
+\subsection{DELETE}
+
 
 Der letzte Endpunkt erlaubt das vollständige Entfernen eines Validierungsalgorithmus. Zunächst wird geprüft, ob zur übergebenen \texttt{id} ein Datensatz existiert. Ist dies nicht der Fall, wird eine Fehlermeldung zurückgegeben. Falls der Datensatz vorhanden ist, wird versucht, die zugehörige Datei aus dem Dateisystem zu löschen. Sollte die Datei nicht mehr vorhanden oder nicht zugänglich sein, wird dies in der Konsole als Warnung vermerkt und der Löschvorgang fortgesetzt.
 
-Anschließend wird der entsprechende Eintrag in der Datenbank mithilfe von Prisma entfernt. Die Response enthält eine Bestätigung über die erfolgreiche Löschung.
+Anschließend wird der entsprechende Eintrag in der Datenbank mithilfe von Prisma entfernt. Die \textit{Response} enthält eine Bestätigung über die erfolgreiche Löschung.
 
 \section{Grafische Benutzeroberfläche}
+\label{sec:gui}
+
 
 Um mit dem Framework zu interagieren, wird eine \gls{gui} entwickelt, die es dem Nutzer ermöglicht, Validierungsalgorithmen einfach zu verwalten, auszuführen und die Ergebnisse in passender Form einzusehen. Die \gls{gui} erweitert die zuvor beschriebene \gls{api} zur Algorithmenverwaltung um eine bedienbare Oberfläche, die sowohl technische Konfigurationen als auch visuelle Rückmeldung beinhaltet. Der Fokus liegt auf einer klaren Trennung der Bedienbereiche: zum einen die Verwaltung der Algorithmen und zum anderen die Darstellung der Validierungsergebnisse.
 
@@ -130,6 +138,7 @@ Die \gls{gui} folgt, wie der Rest des ArchitekturTools einem modularen Aufbau. J
 Im Folgenden werden die Konzepte der Algorithmenverwaltung und Ergebnisvisualisierung genauer beschrieben.
 
 \subsection{Algorithmenverwaltung}
+\label{subsec:gui_verwaltung}
 
 Das Ziel dieser Komponente ist es, dem Nutzer eine möglichst intuitive Möglichkeit anzubieten, neue Algorithmen hochzuladen, vorhandene auszuwählen, zu bearbeiten oder zu löschen und schließlich die Validierung in Kombination mit einer ausgewählten Sicht zu starten.
 
@@ -148,10 +157,11 @@ Das modale Fenster übernimmt die Erstellung und Bearbeitung einzelner Algorithm
 Ein zentrales Konzept des Formulars ist die Wiederverwendbarkeit: Das Modal erkennt anhand übergegebener Information (ausgewählter Algorithmus), ob es sich um eine Erstellung oder eine Bearbeitung handelt, und passt den Inhalt des Formulars entsprechend an. So lassen sich bestehende Algorithmen problemlos aktualisieren bzw. vollständig entfernen. Nach Abschluss einer Aktion wird die Auswahl in der Hauptkomponente automatisch aktualisiert, sodass der Nutzer immer mit dem neuesten Datenstand arbeitet.
 
 \subsection{(Ergebnis-)Visualisierung + Verlauf}
+\label{subsec:visualisierung}
 
 Nach dem Start eines Validierungslaufs besteht die zentrale Aufgabe des Tools darin, die erhaltenen Ergebnisse transparent und nutzerfreundlich darzustellen. Die grafische Visualisierungskomponente wird so entwickelt, dass verschiedene Ausgabeformate unterstützt werden und sich automatisch an den vom Algorithmus angegebenen Ergebnisdatentyp anpasst. Ergänzt wird diese Komponente durch einen Verlauf bzw. History, welcher die letzten zehn Validierungsdurchläufe archiviert und so dem Nutzer eine nachträgliche Einsicht sowie den Vergleich verschiedener Läufe ermöglicht. Zusammen bilden diese Komponenten die Grundlage für eine nachvollziehbare und stetig überprüfbare Architekturvalidierung.
 
-\subsubsection*{Ergebnisvisuallisierung}
+\subsubsection*{Ergebnisvisualisierung}
 \label{subsubsec:ergebnisvis}
 
 Die Ergebnisvisualisierung wird so entwickelt, dass sie auf verschiedene Ergebnistypen reagieren kann und diese übersichtlich darstellt. Je nach übermitteltem Typ wird das Ergebnis entweder als formatierter Text oder als Diagramm visualisiert. Die Auswahl der Darstellungsform erfolgt automatisch und wird innerhalb der Komponente entschieden.
@@ -168,7 +178,7 @@ Ergänzend zu der Darstellung aktueller Ergebnisse wird eine Verlaufskomponente 
 
 Das Design dieser Komponente folgt dem aufklappbaren Listenprinzip. Dadurch bleibt die Übersichtlichkeit auch bei mehreren Einträgen bestehen. Durch die Wiederverwendung des bereits beschriebenen Visualisierungskonzept, bleibt die Nutzererfahrung konsistent.
 
-\section{Algorithmus-Ausführung}
+\section{Validierungs-Engine}
 
 Das Ziel dieser Komponente ist es, einen ausgewählten Validierungsalgorithmus mit einer konkreten, im ArchitekturTool bereits spezifizierten, Sicht als Eingabe auszuführen und das Ergebnis danach nutzerfreundlich bereitzustellen. Dafür wird diese Komponente so realisiert, dass sowohl die vorbereitende Datenzusammenführung als auch die Ausführung des Algorithmus sowie die Verarbeitung des Ergebnisses übernimmt.
 

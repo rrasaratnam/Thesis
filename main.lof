@@ -1,11 +1,15 @@
 \babel@toc {ngerman}{}\relax 
 \babel@toc {ngerman}{}\relax 
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Vergleich zwischen funktionsorientierter (Domäne) und positionsorientierter (Zone) E/E-Architektur(Nachgezeichnet von \cite {wang2024review})}}{2}{figure.caption.6}%
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Schematische Darstellung einer serviceorientierten Middleware-Architektur (Nachzeichnung von \cite {neely2006adaptive})}}{5}{figure.caption.7}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Schematische PREEvision Schichtenarchitektur. (Nachzeichnung von \cite {vectorinformatikgmbhpreevision})}}{10}{figure.caption.10}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Verknüpfung einer System Composer Architektur mit einem Simulink Verhaltensmodell. (Entnommen aus \cite {chatterjee2020applications})}}{11}{figure.caption.11}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Das Arcadia-Vorgehensmodell in Capella als vier übereinander gestapelte Architekturebenen (Entnommen aus \cite {let})}}{12}{figure.caption.12}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Schematische PREEvision Schichtenarchitektur. (Nachzeichnung von \cite {vectorinformatikgmbhpreevision})}}{10}{figure.caption.12}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Verknüpfung einer System Composer Architektur mit einem Simulink Verhaltensmodell. (Entnommen aus \cite {chatterjee2020applications})}}{11}{figure.caption.13}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Das Arcadia-Vorgehensmodell in Capella als vier übereinander gestapelte Architekturebenen (Entnommen aus \cite {let})}}{12}{figure.caption.14}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Blockdiagramm des ArchitekturTool's}}{17}{figure.caption.18}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Blockdiagramm des ArchitekturTool's}}{17}{figure.caption.20}%
 \addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {A.1}{\ignorespaces Python-Codegerüst für die Validierungsalgorithmen}}{38}{figure.caption.41}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

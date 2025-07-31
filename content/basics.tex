@@ -3,7 +3,7 @@
 \chapter{Grundlagen}
 \label{sect:basics}
 
-Dieses Kapitel führt in die für das Framework relevanten Konzepte und Technologien ein. Zunächst wird der Begriff der E/E-Architektur samt ihrer Evolution und ihres Aufbaus erläutert. Anschließend wird die Softwarearchitektur behandelt: Nach der Definition grundlegender Begriffe werden die Prinzipien der Serviceorientierten Architektur vorgestellt und darauf aufbauend die Rolle von Middleware in der Fahrzeugtechnik beleuchtet. Ein weiterer Abschnitt erläutert die Motivation, Ziele und Methoden zur Validierung von Architekturen. Den Abschluss bildet die Vorstellung des für die Implementierung verwendeten Webentwicklungs-Stacks.
+Dieses Kapitel führt in die für das Framework relevanten Konzepte und Technologien ein. Zunächst wird der Begriff der \gls{eea} samt ihrer Evolution und ihres Aufbaus erläutert. Anschließend wird die Softwarearchitektur behandelt: Nach der Definition grundlegender Begriffe werden die Prinzipien der Serviceorientierten Architektur vorgestellt und darauf aufbauend die Rolle von Middleware in der Fahrzeugtechnik beleuchtet. Ein weiterer Abschnitt erläutert die Motivation, Ziele und Methoden zur Validierung von Architekturen. Den Abschluss bildet die Vorstellung des für die Implementierung verwendeten Webentwicklungs-Stacks.
 
 
 \section{Automobile E/E-Architektur}
@@ -15,12 +15,31 @@ Für alle softwaregesteuerten Funktionen innerhalb eines Fahrzeuges bildet die \
 
 Ursprünglich waren Fahrzeuge hauptsächlich mechanische Produkte, was sich jedoch mit der Einführung von Elektronik, wie Motorsteuergeräte und Airbags, änderte und die Ära der Elektrifizierung innerhalb der Automobilindustrie begann \cite{jiang2019vehicle}\cite{zhuRequirementsDrivenAutomotiveElectrical2021}. Zunächst waren, aufgrund der geringen Anzahl, die Verbindungen zwischen den elektronischen Komponenten meist Punkt-zu-Punkt, sprich Komponenten wurden direkt miteinander verbunden. Dies führte jedoch durch die steigende Anzahl an \glspl{ecu}, zu einem Anstieg der Komplexität und des Kabelbaums \cite{wang2024review}. Um die Kommunikationseffizienz zu verbessern und die Komplexität zu reduzieren, wurden \gls{can}-Busse eingeführt. In der Folge wurde auch an Technologien wie \gls{lin} und FlexRay entwickelt und eingesetzt, um die verschiedenen Kommunikationsanforderungen zu erfüllen, sodass Komponenten innerhalb einer Domäne Informationen gemeinsam nutzen \cite{wang2024review}\cite{zhuRequirementsDrivenAutomotiveElectrical2021}.
 
-Das Konzept der Funktionsdomäne rückte, aufgrund der wachsenden Komplexität und Funktionen immer stärker in den Vordergrund. \glspl{ecu} und Funktionen wurden in Domänen wie Fahrwerk, Karosserie und Infotainment unterteilt \cite{jiang2019vehicle}. Durch die Nachfrage nach domänenübergreifender Kommunikation wurde die Gateway-Funktion, welche zuvor von einzelnen \glspl{ecu} übernommen wurde, zunehmend in einem dedizierten, zentralen Gateway gebündelt \cite{jiang2019vehicle}\cite{zhuRequirementsDrivenAutomotiveElectrical2021}.
-Obwohl dieser Ansatz die Mainstream-Lösung war, führte die Zunahme der Funktionen und Rechenanforderungen zu einer starken Zunahme der ECUs. Dies hatte komplexe Kabelbäume mit erhöhtem Gewicht und Kosten zur Folge, außerdem konnte der Ausfall durch das ausfallen des zentralen Gateways zu einem Zusammenbruch des gesamten Netzwerks führen.
+\begin{figure}[h!]
+  \centering
+  \begin{subfigure}{.5\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figures/02Grundlagen/Domainbasiert.drawio.png}
+    \caption{Domänenbasierte \gls{eea}}
+    \label{fig:deea}
+  \end{subfigure}%
+  \begin{subfigure}{.5\textwidth}
+    \centering
+    \includegraphics[width=.75\linewidth]{figures/02Grundlagen/Zonenbasiert.drawio.png}
+    \caption{Zonenbasierte \gls{eea}}
+    \label{fig:zeea}
+  \end{subfigure}
+  \caption{Vergleich zwischen funktionsorientierter (Domäne) und positionsorientierter (Zone) E/E-Architektur(Nachgezeichnet von \cite{wang2024review})}
+  \label{fig:eea}
+\end{figure}
+
+
+Das Konzept der Funktionsdomäne rückte, aufgrund der wachsenden Komplexität und Funktionen immer stärker in den Vordergrund.Wie Abbildung~\ref{fig:deea} veranschaulicht, \glspl{ecu} und Funktionen wurden in Domänen wie Fahrwerk, Karosserie und Infotainment unterteilt \cite{jiang2019vehicle}. Durch die Nachfrage nach domänenübergreifender Kommunikation wurde die Gateway-Funktion, welche zuvor von einzelnen \glspl{ecu} übernommen wurde, zunehmend in einem dedizierten, zentralen Gateway gebündelt \cite{jiang2019vehicle}\cite{zhuRequirementsDrivenAutomotiveElectrical2021}.
+Obwohl dieser Ansatz die Mainstream-Lösung war, führte die Zunahme der Funktionen und Rechenanforderungen zu einer starken Zunahme der \glspl{ecu}. Dies hatte komplexe Kabelbäume mit erhöhtem Gewicht und Kosten zur Folge, außerdem konnte der Ausfall durch das ausfallen des zentralen Gateways zu einem Zusammenbruch des gesamten Netzwerks führen.
 
 Um diesem Problem entgegenzuwirken, wurden \glspl{dcu} eingeführt, welche Funktionen einiger \glspl{ecu} innerhalb einer jeweiligen Funktionsdomäne integrieren und somit die Anzahl der \glspl{ecu} und die Belastung der Gateways reduzieren \cite{bandur2021making}\cite{jiang2019vehicle}\cite{wang2024review}. Um die bestmögliche Kommunikation zu garantieren, werden \glspl{dcu} über das Automotive Ethernet mit dem zentralen Gateway verbunden, welches eine höhere Bandbreite bietet.
 
-Ein weiterer Ansatz, der neben der domänenbasierten Architektur existiert, ist die zonenbasierte Architektur. Um Komplexität und das Gewicht der Verkabelung zu reduzieren, werden Komponenten anstatt nach Funktionen, basierend auf ihrer physischen Position innerhalb des Fahrzeuges unterteilt \cite{wang2024review}\cite{jiang2019vehicle}. Anstatt wie bei \glspl{dcu} die Funktionen einer Domäne zu übernehmen, übernehmen \glspl{zsu} die Funktionen, die in den entsprechenden physischen Zonen stattfinden. Auch hier wird die Kommunikation über das Automotive Ethernet durchgeführt. Dieser Ansatz reduziert die Anzahl der \glspl{ecu} und Kabelaufwand (Anzahl, Länge, Gewicht) und verringert so die Komplexität der E/E-Architektur deutlich.
+Ein weiterer Ansatz, der neben der domänenbasierten Architektur existiert, ist die zonenbasierte Architektur. Um Komplexität und das Gewicht der Verkabelung zu reduzieren, werden Komponenten anstatt nach Funktionen, basierend auf ihrer physischen Position innerhalb des Fahrzeuges unterteilt \cite{wang2024review}\cite{jiang2019vehicle}. Abbildung~\ref{fig:zeea} zeigt diesen Ansatz, bei dem \glspl{zsu} die Funktionen übernehmen, die in den entsprechenden physischen Zonen stattfinden. Auch hier wird die Kommunikation über das Automotive Ethernet durchgeführt. Dieser Ansatz reduziert die Anzahl der \glspl{ecu} und Kabelaufwand (Anzahl, Länge, Gewicht) und verringert so die Komplexität der \gls{eea} deutlich.
 
 Erst die Evolution der \gls{eea} ermöglicht moderne Softwarekonzepte. Das folgende Unterkapitel beschreibt daher die Softwarearchitekturen, die diese neue Hardware-Basis nutzt.
 %TODO: (Future Trends?)
@@ -45,14 +64,21 @@ Um die Vorteile der \gls{soa} realisieren zu können benötigt es eine Zwischens
 \label{subsect:middle}
 Innerhalb moderner, verteilter Softwaresysteme ist die Middleware-Schicht eine wichtige Vermittlungsebene. Neely et al. \cite{neely2006adaptive} definieren die Middleware als Schicht zwischen Anwendungssoftware und Systemsoftware. In Systemen mit Netzwerkanbindung vermittelt sie zusätzlich zwischen Anwendungssoftware, Betriebssystem und Netzwerkkommunikationsschichten. Dabei liegt ihre Hauptaufgabe darin, die Komplexität des zugrunde liegenden Systems zu abstrahieren. Im Bereich der Fahrzeugtechnik wird die Middleware noch einmal in zwei Sub-Schichten unterteilt \cite{kluner2024moderna}:
 \begin{itemize}
-  \item Kommunikations-Middlewares (untere Schicht), die den Datenaustausch zwischen ECUs organisieren und \gls{qos}-Funktionen bereitstellen.
+  \item Kommunikations-Middlewares (untere Schicht), die den Datenaustausch zwischen \glspl{ecu} organisieren und \gls{qos}-Funktionen bereitstellen.
   \item Architekturplattformen (obere Schicht), die umfassende Frameworks für die Entwicklung und Bereitstellung automobiler Softwaresysteme liefern.
 \end{itemize}
 Nun wird untersucht, wie die Kommunikations-Middlewares und Architekturplattformen konkret arbeiten.
 
-Als untere Sub-Schicht sorgt die Kommunikations-Middleware dafür, dass sämtliche Details des Datenaustauschs im \gls{ivn} abstrahiert und Anwendungen von der zugrunde liegenden Netzwerktopologie entkoppelt sind. Sie sorgt zudem dafür, dass strukturierte Daten wie z.B. Sensormesswerte automatisch seralisiert und über Ethernet, CAN-Gateway oder Shared-Memory-Kanäle verteilt werden. Außerdem ermöglicht sie die Definition und Einhaltung von \gls{qos}-Parametern. Des Weiteren sorgt ein intelligentes Routing- und Topologie-Management auf der Netzwerk-Ebene dafür, dass Nachrichten den bestmöglichen Pfad für die Übertragung wählen, während ein Real-Time-Scheduler die Übertragungen koordiniert.
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{figures/02Grundlagen/Middleware_Scheme.drawio.png}
+  \caption{Schematische Darstellung einer serviceorientierten Middleware-Architektur (Nachzeichnung von \cite{neely2006adaptive})}
+  \label{fig:middleware}
+\end{figure}
 
-Mit der Kommunikations-Middleware als Basis, löst die Architekturplattform Herausforderungen in Bezug auf die Entwicklung von Automobil-Softwaresystemen. Sie stellt eine umfassende Laufzeitumgebung bereit und bietet Entwicklern standardisierte Dienste und APIs. Das Ziel ist es die bestehende Komplexität weiter zu verringern, sodass Entwickler den Fokus auf die Anwendungslogik setzen können, anstatt sich mit systemnahen Aufgaben zu beschäftigen. Abgesehen von der Kommunikation, gehört zunächst das umsetzen der Software-Designmustern, wie das zuvor angesprochene \gls{soa}-Prinzip, zu den Kernaufgaben. Ebenso Ressourcenmanagement und Orchestrierung , bei der die Ressourcen von inaktiven Diensten freigegeben werden. Das Ziel hierbei ist eine situationsabhängige optimale Ressourcenzuweisung. Als nächstes ist die deterministische Ausführung sowie die Unterstützung bei der Einhaltung von Echtzeitanforderung zu nennen, um Verzögerungen im Softwaresystem zu vermeiden. Des Weiteren bietet sie oft Funktionen zur Cybersicherheit, wie Authentifizierung, Zugriffskontrolle, Verschlüsserung etc. an um Schwachstellen innerhalb des \glspl{ivn} zu reduzieren. Darüber hinaus sorgt die obere Schicht dafür, dass Over-the-Air-Updates, Installation/Deinstallation von Software-Paketen, sowie die Konfiguration von Anwendungen während der laufzeit durchgeführt werden und bietet dementsprechend Funktionen an. Eine weitere wichtige Aufgabe ist die Verwaltung des Systemzustands und die Überwachung des Lebenszyklus von Softwarekomponenten. Nicht zuletzt bietet die Architekturplattform Entwicklungstools an, welche für die Entwicklung und Bereitstellung verwendet werden.
+Als untere Sub-Schicht sorgt die Kommunikations-Middleware die in Abbildung~\ref{fig:middleware} aus der Zentrale-Middleware und Netzwerktransport besteht, dafür, dass sämtliche Details des Datenaustauschs im \gls{ivn} abstrahiert und Anwendungen von der zugrunde liegenden Netzwerktopologie entkoppelt sind. Sie sorgt zudem dafür, dass strukturierte Daten wie z.B. Sensormesswerte automatisch seralisiert und über Ethernet, CAN-Gateway oder Shared-Memory-Kanäle verteilt werden. Außerdem ermöglicht sie die Definition und Einhaltung von \gls{qos}-Parametern. Des Weiteren sorgt ein intelligentes Routing- und Topologie-Management auf der Netzwerk-Ebene dafür, dass Nachrichten den bestmöglichen Pfad für die Übertragung wählen, während ein Real-Time-Scheduler die Übertragungen koordiniert.
+
+Mit der Kommunikations-Middleware als Basis, löst die Architekturplattform Herausforderungen in Bezug auf die Entwicklung von Automobil-Softwaresystemen. Sie stellt eine umfassende Laufzeitumgebung bereit und bietet Entwicklern standardisierte Dienste und APIs. Das Ziel ist es die bestehende Komplexität weiter zu verringern, sodass Entwickler den Fokus auf die Anwendungslogik setzen können, anstatt sich mit systemnahen Aufgaben zu beschäftigen. Abgesehen von der Kommunikation, gehört zunächst das umsetzen der Software-Designmustern, wie das zuvor angesprochene \gls{soa}-Prinzip, zu den Kernaufgaben. Ebenso Ressourcenmanagement und Orchestrierung , bei der die Ressourcen von inaktiven Diensten freigegeben werden. Das Ziel hierbei ist eine situationsabhängige optimale Ressourcenzuweisung. Als nächstes ist die deterministische Ausführung sowie die Unterstützung bei der Einhaltung von Echtzeitanforderung zu nennen, um Verzögerungen im Softwaresystem zu vermeiden. Des Weiteren bietet sie oft Funktionen zur Cybersicherheit, wie Authentifizierung, Zugriffskontrolle, Verschlüsserung etc. an um Schwachstellen innerhalb des \glspl{ivn} zu reduzieren. Darüber hinaus sorgt die obere Schicht dafür, dass Over-the-Air-Updates, Installation/Deinstallation von Software-Paketen, sowie die Konfiguration von Anwendungen während der laufzeit durchgeführt werden und bietet dementsprechend Funktionen an. Eine weitere wichtige Aufgabe ist die Verwaltung des Systemzustands und die Überwachung des Lebenszyklus von Softwarekomponenten. Nicht zuletzt bietet die Architekturplattform Entwicklungstools an, welche für die Entwicklung und Bereitstellung verwendet werden.dargestellt
 
 \section{Validierung von Architekturen}
 \label{sect:validerung}
