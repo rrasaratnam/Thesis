@@ -6,7 +6,7 @@
 
 In diesem Kapitel wird die Umsetzung der in Kapitel~\ref{ch:KuD} definierten Konzepte und Designentscheidungen für das Framework im Detail beschrieben. Die Implementierung erfolgt als Erweiterung des bestehenden ArchitekturTools und nutzt dessen etablierten Technologie-Stack.
 
-Zunächst wird die Backend-Implementierung vorgestellt, die sowohl die \gls{api} zur Verwaltung der Algorithmen als auch die Engine zur Ausführung der Validierungsläufe enthält. Danach wird die Implementierung der \gls{gui} erläutert, welche die Komponenten zur Algorithmenverwaltung und zur Visualisierung der Ergebnisse beinhaltet. Abschließend wird die Implementierung des ersten Validierungsalgorithmus erläutert, dessen Durchführung im Rahmen der Evaluation als Proof of Concept für die Funktionsfähigkeit des Frameworks dient.
+Zunächst wird die Backend-Implementierung vorgestellt, die sowohl die \gls{api} zur Verwaltung der Algorithmen als auch die Engine zur Ausführung der Validierungsläufe enthält. Danach wird die Implementierung der \gls{gui} erläutert, welche die Komponenten zur Algorithmenverwaltung und zur Visualisierung der Ergebnisse beinhaltet. Abschließend wird die Implementierung des ersten Validierungsalgorithmus erläutert, dessen Durchführung im Rahmen der Evaluation als \gls{poc} für die Funktionsfähigkeit des Frameworks dient.
 
 \section{Backend}
 \label{sec:backendimp}
@@ -20,7 +20,7 @@ Um dem Frontend die Interaktion und Verwaltung der Validierungsalgorithmen zu er
 
 \subsubsection*{CREATE - \texttt{POST /api/v2/algorithm}}
 
-Zum Anbinden neuer Validierungsalgorithmen dient der \texttt{POST}-Endpunkt. Zunächst wird eine ankommende Anfrage von der \textit{Multer}\footnote{https://www.npmjs.com/package/multer}-Middleware verarbeitet, welche die hochgeladene Datei aus der \texttt{multipart/form-data}-Anfrage extrahiert und in dem vordefinierten Verzeichnis (\texttt{/uploads/algorithm}) serverseitig speichert. Die Eindeutigkeit der Algorithmen wird gewährleistet, in dem vor dem Speichern mit der von Prisma zur Verfügung gestellten Methode \texttt{prisma\_db.algorithm.findFirst()} geprüft, ob ein Algorithmus mit dem übergebenen Namen bereits in der \texttt{algorithm}-Datenbanktabelle existiert. Falls dies der Fall ist, wird die Anfrage mit dem Statuscode 409 Conflict abgelehnt. Andernfalls werden die Metadaten zusammen mit dem Dateipfad durch \texttt{prisma\_db.algorithm.create()} in der Datenbanktabelle abgelegt und der neu erstellte Datensatz mit dem Created-Statuscode als \textit{Response} zurückgegeben.
+Zum Anbinden neuer Validierungsalgorithmen dient der \texttt{POST}-Endpunkt. Zunächst wird ein ankommender Request von der \textit{Multer}\footnote{https://www.npmjs.com/package/multer}-Middleware verarbeitet, welche die hochgeladene Datei aus der \texttt{multipart/form-data}-Request extrahiert und in dem vordefinierten Verzeichnis (\texttt{/uploads/algorithm}) serverseitig speichert. Die Eindeutigkeit der Algorithmen wird gewährleistet, in dem vor dem Speichern mit der von Prisma zur Verfügung gestellten Methode \texttt{prisma\_db.algorithm.findFirst()} geprüft, ob ein Algorithmus mit dem übergebenen Namen bereits in der \texttt{algorithm}-Datenbanktabelle existiert. Falls dies der Fall ist, wird der Request mit dem Statuscode 409 Conflict abgelehnt. Andernfalls werden die Metadaten zusammen mit dem Dateipfad durch \texttt{prisma\_db.algorithm.create()} in der Datenbanktabelle abgelegt und der neu erstellte Datensatz mit dem Created-Statuscode als \textit{Response} zurückgegeben.
 
 \subsubsection*{READ - \texttt{GET /api/v2/algorithms}}
 
@@ -28,7 +28,7 @@ Um alle verfügbaren Algorithmen im Frontend darzustellen, stellt der \texttt{GE
 
 \subsubsection*{UPDATE - \texttt{PATCH /api/v2/algorithm/:id}}
 
-Zur Aktualisierung eines bestehenden Validierungsalgorithmus wird der \texttt{PATCH}-Endpunkt genutzt. Anhand der in der \textit{URL}\footnote{Uniform Resource Locator} übergebenen \texttt{:id} wird der zugehörige Datensatz mittels \texttt{prisma\_db.algorithm.findunique()} aus der \texttt{algorithm}-Tabelle abgerufen. Wird im Rahmen der Anfrage eine neue Datei hochgeladen, wird die alte, zugehörige Datei zunächst mit der Node.js-Funktion \texttt{fs.unlinkSync} vom Server gelöscht, um Dateien ohne Zugehörigkeit zu vermeiden. Anschließend werden die aktualisierten Metadaten sowie der neue Dateipfad mithilfe von \texttt{prisma\_db.\\ algorithm.update()} in der \texttt{algorithm}-Tabelle gespeichert.
+Zur Aktualisierung eines bestehenden Validierungsalgorithmus wird der \texttt{PATCH}-Endpunkt genutzt. Anhand der in der \textit{URL}\footnote{Uniform Resource Locator} übergebenen \texttt{:id} wird der zugehörige Datensatz mittels \texttt{prisma\_db.algorithm.findunique()} aus der \texttt{algorithm}-Tabelle abgerufen. Wird im Rahmen des Requests eine neue Datei hochgeladen, wird die alte, zugehörige Datei zunächst mit der Node.js-Funktion \texttt{fs.unlinkSync} vom Server gelöscht, um Dateien ohne Zugehörigkeit zu vermeiden. Anschließend werden die aktualisierten Metadaten sowie der neue Dateipfad mithilfe von \texttt{prisma\_db.\\ algorithm.update()} in der \texttt{algorithm}-Tabelle gespeichert.
 
 \subsubsection*{DELETE - \texttt{DELETE /api/v2/algorithm/:id}}
 
@@ -41,7 +41,7 @@ Die Durchführung der Validierungsläufe bildet die Schlüsselfunktionalität de
 
 \subsubsection*{Datenaufbereitung und Export}
 
-Nachdem die Anfrage mit den IDs für den Algorithmus und der Architektursicht validiert wurde, stellt die Engine die erforderlichen Komponentendaten bereit. Hierfür wird auf eine angepasste Version des bestehenden \textit{JSON-Exporter} des ArchitekturTool zurückgegriffen.
+Nachdem der Request mit den IDs für den Algorithmus und der Architektursicht validiert wurde, stellt die Engine die erforderlichen Komponentendaten bereit. Hierfür wird auf eine angepasste Version des bestehenden \textit{JSON-Exporter} des ArchitekturTool zurückgegriffen.
 
 Die Engine prüft zunächst, ob die Komponenten der angeforderten Sicht bereits als Datei im JSON-Format auf dem Server liegen. Falls nicht, wird der Exportprozess automatisch gestartet, welcher die Komponentendaten aus der Datenbank extrahiert und in einem sichten-spezifischen Ordner abgelegt. Anschließend werden diese JSON-Dateien eingelesen und zu einem einzigen Architektur-Objekt zusammengefügt, das als Eingabe für den Validierungsalgorithmus dient.
 
@@ -65,9 +65,9 @@ Die Verwaltung der Algorithmen ist die zentrale Interaktionsstelle für den Nutz
 
 \subsubsection*{Hauptkomponente}
 
-Die zentrale Steuereinheit ruft bei ihrer Initialisierung mithilfe der Lebenszyklus-Methode \texttt{componentDidMount} über \textit{axios}\footnote{https://axios-http.com/docs/intro} asynchron jeweils die \texttt{GET}-Anfrage für die Algorithmen und die Architektursichten auf. Die erhaltenen Daten werden lokal im Zustand der Komponente gespeichert und dazu genutzt, die beiden Auswahllisten zu füllen. Die \texttt{onChange}-Handler dieser Listen aktualisieren den Zustand, sobald ein Algorithmus bzw. eine Sicht ausgewählt wurde.
+Die zentrale Steuereinheit ruft bei ihrer Initialisierung mithilfe der Lebenszyklus-Methode \texttt{componentDidMount} über \textit{axios}\footnote{https://axios-http.com/docs/intro} asynchron jeweils die \texttt{GET}-Request die Algorithmen und die Architektursichten auf. Die erhaltenen Daten werden lokal im Zustand der Komponente gespeichert und dazu genutzt, die beiden Auswahllisten zu füllen. Die \texttt{onChange}-Handler dieser Listen aktualisieren den Zustand, sobald ein Algorithmus bzw. eine Sicht ausgewählt wurde.
 
-Ein Klick auf den deidzierten \dq Validieren\dq-Button startet den in Abschnitt~\ref{subsec:engine} beschriebenen Validierungslauf. Dabei wird eine \texttt{POST}-Anfrage mit der \texttt{algorithmId} und \texttt{viewId} als Parameter an den entsprechenden Endpunkt gesendet. Mittels einer Callback-Funktion wird der Fortschritt und das Ergebnis dieses Durchlaufs an die übergeordnete Container-Komponente gesendet.
+Ein Klick auf den deidzierten \glqq Validieren\grqq{}-Button startet den in Abschnitt~\ref{subsec:engine} beschriebenen Validierungslauf. Dabei wird eine \texttt{POST}-Request mit der \texttt{algorithmId} und \texttt{viewId} als Parameter an den entsprechenden Endpunkt gesendet. Mittels einer Callback-Funktion wird der Fortschritt und das Ergebnis dieses Durchlaufs an die übergeordnete Container-Komponente gesendet.
 
 \subsubsection*{Modalfenster}
 
@@ -82,11 +82,11 @@ Die Ziele beim Anbinden neuer Algorithmen sind das vereinfachen und das standard
   \item \textbf{Definierte Ergebnisstruktur:} Das Gerüst gibt durch die Dokumentation eine klare Struktur für das Ergebnis-Dictionary vor. Der Nutzer legt durch die Wahl der Schlüsselbegriffe im zurückgegebenen Dictionary fest, wie das Ergebnis zu interpretieren ist. Diese Struktur ist entscheidend, da sie vom Backend ausgelesen wird, um den Typen des Ergebnisses (\texttt{TEXT} oder \texttt{METRIC}). zu bestimmen. Damit wird es dem Frontend ermöglicht, ohne weitere Konfiguration die passende Visualisierungskomponente zu wählen.
 \end{itemize}
 
-Beim Speichern wird der Code aus dem Editor in ein \texttt{Blob}- und anschließend in eine \texttt{File}-Objekt umgewandelt. Dieses wird zusammen mit den Metadaten aus dem Formular über eine \texttt{POST}- oder \texttt{PATCH}-Anfrage an das Backend gesendet. Zusätzlich ist eine Löschfunktion implementiert, welche mit einer \texttt{DELETE}-Anfrage die entsprechenden Einträge entfernt.
+Beim Speichern wird der Code aus dem Editor in ein \texttt{Blob}- und anschließend in eine \texttt{File}-Objekt umgewandelt. Dieses wird zusammen mit den Metadaten aus dem Formular über eine \texttt{POST}- oder \texttt{PATCH}-Request an das Backend gesendet. Zusätzlich ist eine Löschfunktion implementiert, welche mit einer \texttt{DELETE}-Request die entsprechenden Einträge entfernt.
 
 \subsection{Visualisierung der Ergebnisse}
 \label{subsec:visual}
-Die Darstellung der Ergebnisse ist, ebenso wie die Algorithmenverwaltung, modular aufgebaut, um verschiedene Ergebnistypen und einen Ergebnisverlauf abzubilden. Sie unterteilt sich in die dynamische Darstellung des aktuellen Ergebnisses, mit der zugrundeliegenden Graphenvisualisierung und dem Verlauf der Validierungsdurchläufe.
+Die Darstellung der Ergebnisse ist, ebenso wie die Algorithmenverwaltung, modular aufgebaut, um verschiedene Ergebnistypen und eine Ergebnishistorie abzubilden. Sie unterteilt sich in die dynamische Darstellung des aktuellen Ergebnisses, mit der zugrundeliegenden Graphenvisualisierung und dem Verlauf der Validierungsdurchläufe.
 
 Mithilfe dieser Komponente wird das Validierungsergebnis der aktuellen Ausführung visualisiert. Ihr gerenderter Inhalt wird durch die vom Container übergebenen Props gesteuert.
 
@@ -113,10 +113,27 @@ Der Ablauf innerhalb dieser Komponente ist wie folgt:
 
 Des Weiteren werden UI-Elemente, wie eine Legende, Tooltips beim überfahren mit der Maus sowie beschriftete X-,Y-Achsen, gerendert um eine hohe Benutzerfreundlichkeit und eine einfache Interpretation zu gewährleisten.
 
-\subsubsection*{Ergebnisverlauf}
+\subsubsection*{Eregbnishistorie}
 
 Damit die Verfolgbarkeit der Validierungsergebenisse zu gewährleisten, wird die Komponente für die Darstellung der letzten Zehn Validierungsläufe implementiert. Hierzu wird die \texttt{history}-Prop vom übergeordneten Container empfangen, der diesen Zustand über den \texttt{localStorage}-Service des Webbrowsers auch nach einem Neuladen der Seiter erhält.
 
 Die Ergebnisse werden hierbei in Form einer aufklappbaren Liste präsentiert, um die Benutzeroberfläche übersichtlich zu halten. Listeneinträge zeigen zunächst die wichtigsten Eckdaten bzgl. des Validierungslauf: Name des Algorithmus, die gewählte Architektursicht und dem Zeitstempel der Durchführung. Mit einem Klick auf den jeweiligen Eintrag öffnet sich dieser und visualisiert die vergangenen Ergebnisse mit der selben Darstellung wie bei der Visualisierung der aktuellen Ergebnisse. Dieser Ansatz stellt eine konsistente Nutzererfahrung sicher.
 \section{Validierungsalgorithmus}
 \label{sec:validimp}
+
+Als \gls{poc} für das entwickelte Framework wird ein erster Validierungsalgorithmus implementiert. Bei dem zu realisierenden Algorithmus handelt es sich um einen Traceability-Check. Überprüfungen dieser Art sind während der Systementwicklungsphase von großer wichtigkeit, da sie die Nachverfolgbarkeit zwischen Anforderungen und deren Umsetzung Sicherstellen. Somit lassen sich Anforderungen ohne Umsetzungen sowie Garantien ohne Anforderungen aufdecken. Dabei handelt es sich um einen wichtigen Schritt, um die Vollständigkeit und Korrektheit einer Architektur zu beurteilen. Der Algorithmus wird in das Codegerüst, welches in Abschnitt~\ref{subsec:verwaltung} beschrieben wurde, integriert.
+
+Der Algorithmus wird wie folgt implementiert:
+\begin{enumerate}
+  \item Zunächst werden alle Komponenten des Architektur-Objekts vom Algorithmus durchlaufen. Dabei werden alle Anforderungen und Garantien in zwei verschiedenen Dictionaries gespeichert. Dies ermöglicht später einen effizienten Zugriff und einfache Nachverfolgung der Verbindungen zwischen den beiden.
+  \item Danach werden die gesammelten Daten untersucht. Es werden vier Listen erstellt, in die jeweils Anforderungen und Garantien wie folgt einsortiert werden:
+        \begin{itemize}
+          \item Anforderungen mit zugeordenten Garantien
+          \item Anforderungen ohne zugeordnete Garantien
+          \item Garantien mit zugeordneten Anforderungen
+          \item Garantien ohne zugeordnete Anforderungen
+        \end{itemize}
+  \item Abschließend wird mithilfe diesen vier Listen ein Report erstellt, welcher lesbar und einfach zu verstehen ist. Für jeden Abschnitt werden die entsprechenden Elemente aufgelistet und formartiert, wodurch der Nutzer auf einen Blick erkennen kann, welche Anforderungen noch nicht umgesetzt wurden oder welche Garantien noch keine Anforderung erfüllen.
+\end{enumerate}
+
+Im folgenden Kapitel dient dieser Algorithmus als konkreter Anwendungsfall zur Evaluation des Frameworks. Durch seine Ausführung wird die Funktionsfähigkeits der Erweiterungen nachgewiesen.

@@ -758,6 +758,29 @@ INPUT content/implementation.tex
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/bera/fvmb8t.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/bera/fvmb8t.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/bera/fvmb8r.tfm
+INPUT ./content/evaluation.tex
+INPUT ./content/evaluation.tex
+INPUT content/evaluation.tex
+INPUT ./figures/06Evaluation/Bildschirmfoto vom 2025-08-01 11-36-46.png
+INPUT ./figures/06Evaluation/Bildschirmfoto vom 2025-08-01 11-36-46.png
+INPUT ./figures/06Evaluation/Bildschirmfoto vom 2025-08-01 11-36-46.png
+INPUT ./figures/06Evaluation/Bildschirmfoto vom 2025-08-01 11-36-46.png
+INPUT ./figures/06Evaluation/Bildschirmfoto vom 2025-08-01 11-36-46.png
+INPUT ./figures/06Evaluation/Bildschirmfoto vom 2025-08-01 11-58-21.png
+INPUT ./figures/06Evaluation/Bildschirmfoto vom 2025-08-01 11-58-21.png
+INPUT ./figures/06Evaluation/Bildschirmfoto vom 2025-08-01 11-58-21.png
+INPUT ./figures/06Evaluation/Bildschirmfoto vom 2025-08-01 11-58-21.png
+INPUT ./figures/06Evaluation/Bildschirmfoto vom 2025-08-01 11-58-21.png
+INPUT ./figures/06Evaluation/Bildschirmfoto vom 2025-06-30 09-16-40.png
+INPUT ./figures/06Evaluation/Bildschirmfoto vom 2025-06-30 09-16-40.png
+INPUT ./figures/06Evaluation/Bildschirmfoto vom 2025-06-30 09-16-40.png
+INPUT ./figures/06Evaluation/Bildschirmfoto vom 2025-06-30 09-16-40.png
+INPUT ./figures/06Evaluation/Bildschirmfoto vom 2025-06-30 09-16-40.png
+INPUT ./figures/06Evaluation/Bildschirmfoto vom 2025-06-30 09-17-02.png
+INPUT ./figures/06Evaluation/Bildschirmfoto vom 2025-06-30 09-17-02.png
+INPUT ./figures/06Evaluation/Bildschirmfoto vom 2025-06-30 09-17-02.png
+INPUT ./figures/06Evaluation/Bildschirmfoto vom 2025-06-30 09-17-02.png
+INPUT ./figures/06Evaluation/Bildschirmfoto vom 2025-06-30 09-17-02.png
 INPUT ./main.bbl
 INPUT ./main.bbl
 INPUT main.bbl
@@ -770,6 +793,11 @@ INPUT ./figures/05Implementierung/code.png
 INPUT ./figures/05Implementierung/code.png
 INPUT ./figures/05Implementierung/code.png
 INPUT ./figures/05Implementierung/code.png
+INPUT ./figures/06Evaluation/Bildschirmfoto vom 2025-06-29 13-23-12.png
+INPUT ./figures/06Evaluation/Bildschirmfoto vom 2025-06-29 13-23-12.png
+INPUT ./figures/06Evaluation/Bildschirmfoto vom 2025-06-29 13-23-12.png
+INPUT ./figures/06Evaluation/Bildschirmfoto vom 2025-06-29 13-23-12.png
+INPUT ./figures/06Evaluation/Bildschirmfoto vom 2025-06-29 13-23-12.png
 INPUT ./main.ind
 INPUT ./main.ind
 INPUT main.ind

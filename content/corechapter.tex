@@ -22,9 +22,9 @@ Eine präzise Definition der Anforderungen ist die zwingende Voraussetzung für 
     \midrule
     FA-1        & Algorithmen-API                & Bereitstellung einer API, die es Nutzern ermöglicht, Validierungsalgorithmen zu verwalten (hochladen, bearbeiten, löschen) und auszuführen.                                             \\
     \midrule
-    FA-2        & Algorithmenverwaltung-GUI      & Bereitstellung einer \gls{gui} zur Verwaltung von Validierungsalgorithmen. Diese muss Funktionen zum Hochladen, Bearbeiten, Löschen sowie zum Starten der Ausführung umfassen.          \\
+    FA-2        & GUI-Algorithmenverwaltung      & Bereitstellung einer \gls{gui} zur Verwaltung von Validierungsalgorithmen. Diese muss Funktionen zum Hochladen, Bearbeiten, Löschen sowie zum Starten der Ausführung umfassen.          \\
     \midrule
-    FA-3        & Ergebniss-GUI                  & Bereitstellung einer \gls{gui} zur visuellen Darstellung der Ergebnisse von Validierungsläufen. Die \gls{gui} muss verschiedene Ausgabeformate (z. B. textuell, grafisch) unterstützen. \\
+    FA-3        & GUI-Ergebnisvisualisierung                  & Bereitstellung einer \gls{gui} zur visuellen Darstellung der Ergebnisse von Validierungsläufen. Die \gls{gui} muss verschiedene Ausgabeformate (z. B. textuell, grafisch) unterstützen. \\
     \midrule
     FA-4        & Erster Validierungsalgorithmus & Bereitstellung eines ersten Validierungsalgorithmus, der eine grundlegende Architekturprüfung durchführt.                                                                               \\
     \bottomrule
@@ -51,7 +51,7 @@ Für die Interaktion mit dem Nutzer ist eine \gls{gui} zur Verwaltung der Algori
 
 \subsection*{Erster Validierungsalgorithmus}
 
-Das Anbinden eines ersten Validierungsalgorithmus (FA-4) ist aus mehreren Gründen wichtig. Zum einen lässt sich damit das Framework auf Korrektheit prüfen, sprich es dient als Proof of Concept. Mit einem Validierungsalgorithmus lässt sich zum einen prüfen, ob das Hochladen, Bearbeiten und Ausführen der \gls{api} wie gefordert funktioniert. Zum anderen können  zukünftige Ingenieure und Entwickler den Algorithmus als Referenz nutzen um weitere Algorithmen anzubinden.Schließlich ermöglicht dieser erste Algorithmus die Durchführung von aussagekräftigen Tests und bildet die Grundlage für die Evaluation dieser Arbeit.
+Das Anbinden eines ersten Validierungsalgorithmus (FA-4) ist aus mehreren Gründen wichtig. Zum einen lässt sich damit das Framework auf Korrektheit prüfen, sprich es dient als \gls{poc}. Mit einem Validierungsalgorithmus lässt sich zum einen prüfen, ob das Hochladen, Bearbeiten und Ausführen der \gls{api} wie gefordert funktioniert. Zum anderen können  zukünftige Ingenieure und Entwickler den Algorithmus als Referenz nutzen um weitere Algorithmen anzubinden.Schließlich ermöglicht dieser erste Algorithmus die Durchführung von aussagekräftigen Tests und bildet die Grundlage für die Evaluation dieser Arbeit.
 
 \section{Systemarchitektur}
 \label{sec:sysarchitektur}
@@ -170,7 +170,7 @@ Für die Visualisierung metrischer Daten wird eine eigene Hilfskomponente integr
 
 Wie auch beim dem Modalfenster, folgt diese Komponente einem modularen und erweiterbaren Ansatz, sodass neue Ergebnisformate bei Bedarf ergänzt werden können, ohne das gesamte Framework zu verändern.
 
-\subsubsection*{Ergebnisverlauf}
+\subsubsection*{Ergebnishistorie}
 \label{subsubsec:ergebnisverlauf}
 
 

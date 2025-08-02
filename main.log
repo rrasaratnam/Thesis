@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.5.28)  31 JUL 2025 11:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.5.28)  2 AUG 2025 13:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1581,12 +1581,12 @@ No file main.syi.
 
 ] (./content/basics.tex
 chapter 1.
-<figures/02Grundlagen/Domainbasiert.drawio.png, id=216, 1067.99pt x 597.23125pt>
+<figures/02Grundlagen/Domainbasiert.drawio.png, id=241, 1067.99pt x 597.23125pt>
 File: figures/02Grundlagen/Domainbasiert.drawio.png Graphic file (type png)
 <use figures/02Grundlagen/Domainbasiert.drawio.png>
 Package pdftex.def Info: figures/02Grundlagen/Domainbasiert.drawio.png  used on input line 22.
 (pdftex.def)             Requested size: 199.16931pt x 111.37001pt.
-<figures/02Grundlagen/Zonenbasiert.drawio.png, id=220, 1049.9225pt x 848.16875pt>
+<figures/02Grundlagen/Zonenbasiert.drawio.png, id=245, 1049.9225pt x 848.16875pt>
 File: figures/02Grundlagen/Zonenbasiert.drawio.png Graphic file (type png)
 <use figures/02Grundlagen/Zonenbasiert.drawio.png>
 Package pdftex.def Info: figures/02Grundlagen/Zonenbasiert.drawio.png  used on input line 28.
@@ -1598,7 +1598,7 @@ LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 67
  (/usr/share/texmf/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-<figures/02Grundlagen/Middleware_Scheme.drawio.png, id=308, 838.13126pt x 458.71375pt>
+<figures/02Grundlagen/Middleware_Scheme.drawio.png, id=333, 838.13126pt x 458.71375pt>
 File: figures/02Grundlagen/Middleware_Scheme.drawio.png Graphic file (type png)
 <use figures/02Grundlagen/Middleware_Scheme.drawio.png>
 Package pdftex.def Info: figures/02Grundlagen/Middleware_Scheme.drawio.png  used on input line 74.
@@ -1617,7 +1617,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 100.
 ) (./content/relatedwork.tex [7] [8]
 chapter 2.
-<figures/PREEVISION_LAYER.drawio.png, id=399, 280.04625pt x 336.25626pt>
+<figures/PREEVISION_LAYER.drawio.png, id=424, 280.04625pt x 336.25626pt>
 File: figures/PREEVISION_LAYER.drawio.png Graphic file (type png)
 <use figures/PREEVISION_LAYER.drawio.png>
 Package pdftex.def Info: figures/PREEVISION_LAYER.drawio.png  used on input line 26.
@@ -1631,7 +1631,7 @@ LaTeX Warning: Reference `appendix:preevision_layer_model' on page 9 undefined o
 [9
 
 ]
-<figures/03StandDerTechnik/Simulink_System_Composer.png, id=419, 1368.11125pt x 444.66125pt>
+<figures/03StandDerTechnik/Simulink_System_Composer.png, id=444, 1368.11125pt x 444.66125pt>
 File: figures/03StandDerTechnik/Simulink_System_Composer.png Graphic file (type png)
 <use figures/03StandDerTechnik/Simulink_System_Composer.png>
 Package pdftex.def Info: figures/03StandDerTechnik/Simulink_System_Composer.png  used on input line 40.
@@ -1641,7 +1641,7 @@ Package pdftex.def Info: figures/03StandDerTechnik/Simulink_System_Composer.png 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [10 <./figures/PREEVISION_LAYER.drawio.png>]
-<figures/03StandDerTechnik/phases_arcadia.png, id=439, 1016.79875pt x 769.87625pt>
+<figures/03StandDerTechnik/phases_arcadia.png, id=464, 1016.79875pt x 769.87625pt>
 File: figures/03StandDerTechnik/phases_arcadia.png Graphic file (type png)
 <use figures/03StandDerTechnik/phases_arcadia.png>
 Package pdftex.def Info: figures/03StandDerTechnik/phases_arcadia.png  used on input line 56.
@@ -1661,7 +1661,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 [15
 
 ] [16]
-<figures/04Konzeption/Blockdiagram.png, id=518, 5224.51875pt x 2522.42375pt>
+<figures/04Konzeption/Blockdiagram.png, id=544, 5224.51875pt x 2522.42375pt>
 File: figures/04Konzeption/Blockdiagram.png Graphic file (type png)
 <use figures/04Konzeption/Blockdiagram.png>
 Package pdftex.def Info: figures/04Konzeption/Blockdiagram.png  used on input line 64.
@@ -1691,7 +1691,39 @@ LaTeX Font Info:    Font shape `T1/fvm/b/n' will be
 
 Underfull \vbox (badness 4303) has occurred while \output is active []
 
- [25] [26] [27] [28] [29] [30]) (./main.bbl [31] [32
+ [25] [26] [27] [28] [29] [30] [31]) (./content/evaluation.tex [32]
+chapter 5.
+<figures/06Evaluation/Bildschirmfoto vom 2025-08-01 11-36-46.png, id=684, 803.0pt x 903.375pt>
+File: figures/06Evaluation/Bildschirmfoto vom 2025-08-01 11-36-46.png Graphic file (type png)
+<use figures/06Evaluation/Bildschirmfoto vom 2025-08-01 11-36-46.png>
+Package pdftex.def Info: figures/06Evaluation/Bildschirmfoto vom 2025-08-01 11-36-46.png  used on input line 29.
+(pdftex.def)             Requested size: 199.16931pt x 224.065pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<figures/06Evaluation/Bildschirmfoto vom 2025-08-01 11-58-21.png, id=686, 807.015pt x 905.3825pt>
+File: figures/06Evaluation/Bildschirmfoto vom 2025-08-01 11-58-21.png Graphic file (type png)
+<use figures/06Evaluation/Bildschirmfoto vom 2025-08-01 11-58-21.png>
+Package pdftex.def Info: figures/06Evaluation/Bildschirmfoto vom 2025-08-01 11-58-21.png  used on input line 38.
+(pdftex.def)             Requested size: 199.16931pt x 223.44391pt.
+[33
+
+]
+<figures/06Evaluation/Bildschirmfoto vom 2025-06-30 09-16-40.png, id=692, 1907.125pt x 923.45pt>
+File: figures/06Evaluation/Bildschirmfoto vom 2025-06-30 09-16-40.png Graphic file (type png)
+<use figures/06Evaluation/Bildschirmfoto vom 2025-06-30 09-16-40.png>
+Package pdftex.def Info: figures/06Evaluation/Bildschirmfoto vom 2025-06-30 09-16-40.png  used on input line 49.
+(pdftex.def)             Requested size: 398.33864pt x 192.87341pt.
+<figures/06Evaluation/Bildschirmfoto vom 2025-06-30 09-17-02.png, id=696, 1907.125pt x 923.45pt>
+File: figures/06Evaluation/Bildschirmfoto vom 2025-06-30 09-17-02.png Graphic file (type png)
+<use figures/06Evaluation/Bildschirmfoto vom 2025-06-30 09-17-02.png>
+Package pdftex.def Info: figures/06Evaluation/Bildschirmfoto vom 2025-06-30 09-17-02.png  used on input line 62.
+(pdftex.def)             Requested size: 398.33864pt x 192.87341pt.
+ [34 <./figures/06Evaluation/Bildschirmfoto vom 2025-08-01 11-36-46.png>] [35 <./figures/06Evaluation/Bildschirmfoto vom 2025-08-01 11-58-21.png> <./figures/06Evaluation/Bildschirmfoto vom 2025-06-30 09-16-40.png>]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+) [36 <./figures/06Evaluation/Bildschirmfoto vom 2025-06-30 09-17-02.png>] (./main.bbl [37] [38
 
 ]
 Package microtype Info: Character `029' is missing
@@ -1702,27 +1734,26 @@ Underfull \hbox (badness 6461) in paragraph at lines 62--65
 []\T1/lmr/m/sc/10.95 (+20) Chatterjee\T1/lmr/m/n/10.95 (+20) , Joy-ee-ta:  |   []   |   []   |   []   |   []
  []
 
-[33]
+[39]
 Underfull \hbox (badness 10000) in paragraph at lines 83--85
 []\T1/lmr/m/sc/10.95 (+20) Kang\T1/lmr/m/n/10.95 (+20) , Eun-Young:  |   []   |   []   |   []
  []
 
-[34] [35]) (./content/appendix.tex [36]
+[40] [41]) (./content/appendix.tex [42]
 chapter A.
-<figures/05Implementierung/code.png, id=680, 1973.3725pt x 3165.8275pt>
+<figures/05Implementierung/code.png, id=812, 1973.3725pt x 3165.8275pt>
 File: figures/05Implementierung/code.png Graphic file (type png)
 <use figures/05Implementierung/code.png>
 Package pdftex.def Info: figures/05Implementierung/code.png  used on input line 7.
-(pdftex.def)             Requested size: 345.94759pt x 555.00024pt.
+(pdftex.def)             Requested size: 264.64734pt x 424.57484pt.
+<figures/06Evaluation/Bildschirmfoto vom 2025-06-29 13-23-12.png, id=813, 775.89874pt x 875.27pt>
+File: figures/06Evaluation/Bildschirmfoto vom 2025-06-29 13-23-12.png Graphic file (type png)
+<use figures/06Evaluation/Bildschirmfoto vom 2025-06-29 13-23-12.png>
+Package pdftex.def Info: figures/06Evaluation/Bildschirmfoto vom 2025-06-29 13-23-12.png  used on input line 14.
+(pdftex.def)             Requested size: 398.33864pt x 449.36008pt.
+[43
 
-LaTeX Warning: Float too large for page by 23.59999pt on input line 10.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-) (./main.ind) [37
-
-] [38 <./figures/05Implementierung/code.png>] (./main.aux)
+ <./figures/05Implementierung/code.png>]) (./main.ind) [44 <./figures/06Evaluation/Bildschirmfoto vom 2025-06-29 13-23-12.png>] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/03/25>
@@ -1735,11 +1766,11 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 50379 strings out of 474222
- 1064469 string characters out of 5748733
- 1948975 words of memory out of 5000000
- 71243 multiletter control sequences out of 15000+600000
- 650529 words of font info for 207 fonts, out of 8000000 for 9000
+ 50507 strings out of 474222
+ 1068115 string characters out of 5748733
+ 1947975 words of memory out of 5000000
+ 71329 multiletter control sequences out of 15000+600000
+ 651200 words of font info for 215 fonts, out of 8000000 for 9000
  1147 hyphenation exceptions out of 8191
  110i,21n,145p,10934b,1410s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
@@ -1762,6 +1793,9 @@ pdfTeX warning (dest): name{Hfootnote.13} has been referenced but does not exist
 
 
 pdfTeX warning (dest): name{Hfootnote.12} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{glo:poc} has been referenced but does not exist, replaced by a fixed one
 
 
 pdfTeX warning (dest): name{glo:rest} has been referenced but does not exist, replaced by a fixed one
@@ -1842,10 +1876,10 @@ pdfTeX warning (dest): name{glo:ecu} has been referenced but does not exist, rep
 pdfTeX warning (dest): name{glo:eea} has been referenced but does not exist, replaced by a fixed one
 
 </usr/share/texlive/texmf-dist/fonts/type1/public/bera/fvmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx9.pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr9.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmri9.pfb></usr/share/texmf/fonts/type1/public/lm/lmro10.pfb></usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on main.pdf (50 pages, 1402743 bytes).
+Output written on main.pdf (56 pages, 1963519 bytes).
 PDF statistics:
- 899 PDF objects out of 1000 (max. 8388607)
- 763 compressed objects within 8 object streams
- 191 named destinations out of 1000 (max. 500000)
- 52678 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 1056 PDF objects out of 1200 (max. 8388607)
+ 864 compressed objects within 9 object streams
+ 214 named destinations out of 1000 (max. 500000)
+ 52751 words of extra memory for PDF output out of 61914 (max. 10000000)
 
