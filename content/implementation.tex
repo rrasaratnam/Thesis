@@ -39,6 +39,15 @@ Der \texttt{DELETE}-Endpunkt dient dem vollständigen Löschen eines Algorithmus
 
 Die Durchführung der Validierungsläufe bildet die Schlüsselfunktionalität des Backends. Sie ist dafür zuständig die Daten aufzubereiten, die kontrollierte Ausführung eines isolierten Python-Prozessesund die sowie die Verarbeitung und Abspeicherung der Ergebnisse. Dieser Prozess wird durch einen dedizierten \gls{api}-Endpunkt gestartet.
 
+Der komplette Ablauf eines Validierungslaufs, von der Aufbereitung der Daten über die Ausführung des isolierten Python-Prozess bis hinzur Speicherung des Ergebnisses, ist ein aufeinander abgestimmter Prozess. Abbildung~\ref{fig:seqvalid} verdeutlicht das Zusammenspiel der beteiligten Komponenten.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{figures/05Implementierung/Sequenz_valid.drawio.png}
+  \caption{Verlauf einer Architekturvalidierung im Framework}
+  \label{fig:seqvalid}
+\end{figure}
+
 \subsubsection*{Datenaufbereitung und Export}
 
 Nachdem der Request mit den IDs für den Algorithmus und der Architektursicht validiert wurde, stellt die Engine die erforderlichen Komponentendaten bereit. Hierfür wird auf eine angepasste Version des bestehenden \textit{JSON-Exporter} des ArchitekturTool zurückgegriffen.
@@ -84,6 +93,16 @@ Die Ziele beim Anbinden neuer Algorithmen sind das vereinfachen und das standard
 
 Beim Speichern wird der Code aus dem Editor in ein \texttt{Blob}- und anschließend in eine \texttt{File}-Objekt umgewandelt. Dieses wird zusammen mit den Metadaten aus dem Formular über eine \texttt{POST}- oder \texttt{PATCH}-Request an das Backend gesendet. Zusätzlich ist eine Löschfunktion implementiert, welche mit einer \texttt{DELETE}-Request die entsprechenden Einträge entfernt.
 
+Der vollständige Prozess des Anbinden eines Validierungsalgorithmus, von der Eingabe des Nutzers im Modalfenster bis zum finalen speichern, wird in Abbildung~\ref{fig:anbindung} als Sequenzdiagramm veranschaulicht.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{figures/05Implementierung/Sequenz_Algo_erstellen.drawio.png}
+  \caption{Anbindungsprozess innerhalb des Validierungs-Frameworks}
+  \label{fig:anbindung}
+\end{figure}
+
+Wie in der Abbildung dargestellt, wird vom Frontend aus ein \texttt{POST}-Request an das Backend gesendet. Dabei ist ein wichtiger Aspekt die anschließende Prüfung auf einen Namenskonflikt, bevor der neue Datensatz in der Datenbank abgespeichert wird.
 \subsection{Visualisierung der Ergebnisse}
 \label{subsec:visual}
 Die Darstellung der Ergebnisse ist, ebenso wie die Algorithmenverwaltung, modular aufgebaut, um verschiedene Ergebnistypen und eine Ergebnishistorie abzubilden. Sie unterteilt sich in die dynamische Darstellung des aktuellen Ergebnisses, mit der zugrundeliegenden Graphenvisualisierung und dem Verlauf der Validierungsdurchläufe.
@@ -101,15 +120,22 @@ Der Ansatz des dynamischen Rendern stellt sicher, dass das Frontend flexibel auf
 
 \subsubsection*{Diagramm-Visualisierung}
 
-Die Visualisierung der metrischen Daten baut auf der populären Bibliothek \textit{Recharts}\footnote{https://recharts.org/en-US}, welche mit den gelieferten Daten in eine interaktive und auswertbare grafische Form überführt.
+Die Visualisierung der metrischen Daten baut auf der populären Bibliothek \textit{Recharts}\footnote{https://recharts.org/en-US}, welche mit den gelieferten Daten in eine interaktive und auswertbare grafische Form überführt (Siehe Abbildung~\ref{fig:metricvis}).
 
 Der Ablauf innerhalb dieser Komponente ist wie folgt:
 
 \begin{enumerate}
   \item \textbf{Normalisierung der Daten:} Zunächst werden die eingehenden Daten durch eine Funktion aufbereitet und normalisiert. Diese Funktion extrahiert aus den Datenpunkten eine einheitliche Bezeichnung für die X-Achse, welche entweder aus einem \texttt{timestamp} oder \texttt{name} Feld entnommen wird. Außerdem stellt sie sicher, dass die restlichen numerischen Werte korrekt als verwertbare Datenserie für das Diagramm zur Verfügung stehen.
   \item \textbf{Dynamische Diagramm-Auswahl:} Basierend auf dem\texttt{chartType}-Prop, die vom Validierungsalgorithmus mit dem Ergebnis-Dictionary mitgegeben wird, wählt die Komponente dynamisch die passende Visualisierung aus Recharts aus (\texttt{LineChart, BarChart} oder \texttt{AreaChart}). Dies ermöglicht dem Ersteller des Algorithmus, die am besten geeignete Darstellungsform für die Metrik vorzugeben.
-  \item \textbf{Visualisierung von Grenzwerten:}Ein wichtiges Feature ist es Grenzwerte visuell darzustellen. Wird ein \texttt{threshold} übergeben, rendert die Komponente eine horizontale, gestrichelte Linie in das Diagramm. Dies macht es sofort ersichtlich, ob die Messwerte innerhalb des erwarteten Bereichs liegen. Zudem wurde eine Funktion zur Prüfung jedes einzelnen Datenpunkt eines Liniendiagramms implementiert. Wird der Wert des definierten Grenzwerts überschritten, wird der zugehörige Punkt innerhalb des Diagramms farblich markiert.
+  \item \textbf{Visualisierung von Grenzwerten:}Ein wichtiges Feature ist es Grenzwerte visuell darzustellen. Wird ein \texttt{threshold} übergeben, rendert die Komponente eine horizontale, gestrichelte Linie in das Diagramm. Dies macht es sofort ersichtlich, ob die Messwerte innerhalb des erwarteten Bereichs liegen. Zudem wurde eine Funktion zur Prüfung jedes einzelnen Datenpunkt eines Liniendiagramms implementiert, welches man in Abbildung~\ref{fig:Liniendiagramm} gut erkennen kann. Wird der Wert des definierten Grenzwerts überschritten, wird der zugehörige Punkt innerhalb des Diagramms farblich markiert.
 \end{enumerate}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{figures/06Evaluation/Line.png}
+  \caption{Das Ergebnis als Liniendiagramm samt Grenzwert visualisiert}
+  \label{fig:Liniendiagramm}
+\end{figure}
 
 Des Weiteren werden UI-Elemente, wie eine Legende, Tooltips beim überfahren mit der Maus sowie beschriftete X-,Y-Achsen, gerendert um eine hohe Benutzerfreundlichkeit und eine einfache Interpretation zu gewährleisten.
 

@@ -758,6 +758,21 @@ INPUT content/implementation.tex
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/bera/fvmb8t.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/bera/fvmb8t.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/bera/fvmb8r.tfm
+INPUT ./figures/05Implementierung/Sequenz_valid.drawio.png
+INPUT ./figures/05Implementierung/Sequenz_valid.drawio.png
+INPUT ./figures/05Implementierung/Sequenz_valid.drawio.png
+INPUT ./figures/05Implementierung/Sequenz_valid.drawio.png
+INPUT ./figures/05Implementierung/Sequenz_valid.drawio.png
+INPUT ./figures/05Implementierung/Sequenz_Algo_erstellen.drawio.png
+INPUT ./figures/05Implementierung/Sequenz_Algo_erstellen.drawio.png
+INPUT ./figures/05Implementierung/Sequenz_Algo_erstellen.drawio.png
+INPUT ./figures/05Implementierung/Sequenz_Algo_erstellen.drawio.png
+INPUT ./figures/05Implementierung/Sequenz_Algo_erstellen.drawio.png
+INPUT ./figures/06Evaluation/Line.png
+INPUT ./figures/06Evaluation/Line.png
+INPUT ./figures/06Evaluation/Line.png
+INPUT ./figures/06Evaluation/Line.png
+INPUT ./figures/06Evaluation/Line.png
 INPUT ./content/evaluation.tex
 INPUT ./content/evaluation.tex
 INPUT content/evaluation.tex
@@ -798,6 +813,11 @@ INPUT ./figures/06Evaluation/Bildschirmfoto vom 2025-06-29 13-23-12.png
 INPUT ./figures/06Evaluation/Bildschirmfoto vom 2025-06-29 13-23-12.png
 INPUT ./figures/06Evaluation/Bildschirmfoto vom 2025-06-29 13-23-12.png
 INPUT ./figures/06Evaluation/Bildschirmfoto vom 2025-06-29 13-23-12.png
+INPUT ./figures/Appendix/Balken_Fläche.drawio.png
+INPUT ./figures/Appendix/Balken_Fläche.drawio.png
+INPUT ./figures/Appendix/Balken_Fläche.drawio.png
+INPUT ./figures/Appendix/Balken_Fläche.drawio.png
+INPUT ./figures/Appendix/Balken_Fläche.drawio.png
 INPUT ./main.ind
 INPUT ./main.ind
 INPUT main.ind
