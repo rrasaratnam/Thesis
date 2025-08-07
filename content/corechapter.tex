@@ -24,7 +24,7 @@ Eine präzise Definition der Anforderungen ist die zwingende Voraussetzung für 
     \midrule
     FA-2        & GUI-Algorithmenverwaltung      & Bereitstellung einer \gls{gui} zur Verwaltung von Validierungsalgorithmen. Diese muss Funktionen zum Hochladen, Bearbeiten, Löschen sowie zum Starten der Ausführung umfassen.          \\
     \midrule
-    FA-3        & GUI-Ergebnisvisualisierung                  & Bereitstellung einer \gls{gui} zur visuellen Darstellung der Ergebnisse von Validierungsläufen. Die \gls{gui} muss verschiedene Ausgabeformate (z. B. textuell, grafisch) unterstützen. \\
+    FA-3        & GUI-Ergebnisvisualisierung     & Bereitstellung einer \gls{gui} zur visuellen Darstellung der Ergebnisse von Validierungsläufen. Die \gls{gui} muss verschiedene Ausgabeformate (z. B. textuell, grafisch) unterstützen. \\
     \midrule
     FA-4        & Erster Validierungsalgorithmus & Bereitstellung eines ersten Validierungsalgorithmus, der eine grundlegende Architekturprüfung durchführt.                                                                               \\
     \bottomrule
@@ -53,6 +53,23 @@ Für die Interaktion mit dem Nutzer ist eine \gls{gui} zur Verwaltung der Algori
 
 Das Anbinden eines ersten Validierungsalgorithmus (FA-4) ist aus mehreren Gründen wichtig. Zum einen lässt sich damit das Framework auf Korrektheit prüfen, sprich es dient als \gls{poc}. Mit einem Validierungsalgorithmus lässt sich zum einen prüfen, ob das Hochladen, Bearbeiten und Ausführen der \gls{api} wie gefordert funktioniert. Zum anderen können  zukünftige Ingenieure und Entwickler den Algorithmus als Referenz nutzen um weitere Algorithmen anzubinden.Schließlich ermöglicht dieser erste Algorithmus die Durchführung von aussagekräftigen Tests und bildet die Grundlage für die Evaluation dieser Arbeit.
 
+
+\section{Konzept der Validierungs-Engine}
+\label{sect:K_engine}
+Das zentrale Konzept des entwickelten Frameworks ist die Möglichkeit, beliebige nutzerdefinierte Validierungsalgorithmen auf den im Tool gespeicherten Architektursichten auszuführen. Im Gegensatz zu den proprietären Werkzeugen kann der Nutzer dadurch eigene Prüfverfahren flexibel anbinden, ohne Änderungen am ArchitekturTool selbst vornehmen zu müssen.
+
+Die Validierungsengine übernimmt dabei den gesamten Prozess: Sie führt einen ausgewählten Validierungsalgorithmus mit einer im ArchitekturTool definierten Sicht als Eingabe aus und bereitet das Ergebnis nutzerfreundlich auf. Dazu werden zunächst die erforderlichen Architekturkomponenten, Verbindungen und Schnittstellen der gewählten Sicht aus der Datenbank extrahiert und als strukturierte JSON-Dateien bereitgestellt. Falls die aktuellen Daten noch nicht als Export vorliegen, wird dieser Prozess automatisch angestoßen.
+
+Der Aufbau der Komponente ist so, dass sie losgelöst vom Hauptprozess des Webservers arbeitet. Dazu wird die Ausführung des Algorithmus in einem separaten Python-Prozess gestartet. Dies ermöglicht neben der Nutzung von etablierter Bibliotheken in Bezug auf die Architekturvalidierung auch verbesserte Stabilität und Sicherheit des Gesamtsystems, da potentielle Laufzeitfehler innerhalb des Skripts isoliert behandelt werden.
+
+Zu Beginn jeder Ausführung wird ein Algorithmus und einer Sicht, über das Frontend ausgewählt und an das Backend versendet. Ausgehend von der gewählten Sicht müssen die zugehörigen Architekturkomponenten vor der Ausführung als strukturierte JSON-Dateien vorliegen. Falls dem nicht so ist, wird der Export automatisch angestoßen.
+
+Für diesen Zweck wird eine bestehende Export-Komponente (JSON-Exporter) verwendet, die im Rahmen dieser Arbeit angepasst wurde. Diese ist dafür verantwortlich die in der Datenbank gespeicherten Komponenten, Verbindungen und Schnittstellen zu extrahieren und in ein komponentenbasiertes JSON-Format zu überführen. Dafür wird jede Komponente gemeinsam mit ihren Anforderungen, Garantien und internen Verbindungen exportiert und serverseitig in einer strukturierten Ordnerstruktur abgespeichert. Dieser wird so lange wiederverwendet, bis die zugrunde liegende Architektur verändert wird.
+
+Nachdem alle notwendigen Dateien vorliegen, wird ein JSON-Objekt erzeugt, welches alle Komponenten der gewählten Sicht enthält. Diese Architektur wird als Eingabe an den Python-Prozess gesendet. Während der Ausführung werden sowohl Ausgabe als auch Fehlermeldungen überwacht. Nach erfolgreichem Ausführen des Skripts wird das Ergebnis interpretiert und entweder der textuelle Ausgabe oder als metrische Ausgabe zugewiesen.
+
+Das Ergebnis wird danach gemeinsam mit weiteren Metadaten, wie Ausführungsdauer, Status und eventueller Fehlermeldung in der Datenbank abgespeichert. Diese Informationen stehen danach sowohl für die Ergebnisvisualisierung als auch für die Verlaufsanzeige zur Verfügung.
+
 \section{Systemarchitektur}
 \label{sec:sysarchitektur}
 
@@ -71,7 +88,7 @@ Wie im Blockdiagramm dargestellt, lässt sich die Erweiterung in vier Hauptberei
 
 \subsection*{Algorithmenverwaltung (Frontend)}
 
-Diese Komponente bildet die zentrale Benutzeroberfläche zur Verwaltung der Validierungsalgorithmen. Sie ermöglicht es dem Nutzer, Algorithmen hochzuladen, zu bearbeiten und zu löschen. Darüber hinaus kann über die Oberfläche ein bereits hochgeladener Algorithmus gemeinsam mit einer im Architekturtool definierten Sicht ausgewählt und ein Validierungslauf gestartet werden.
+Diese Komponente bildet die zentrale Benutzeroberfläche zur Verwaltung der Validierungsalgorithmen. Sie ermöglicht es dem Nutzer, Algorithmen hochzuladen, zu bearbeiten und zu löschen. Darüber hinaus kann über die Oberfläche ein bereits hochgeladener Algorithmus gemeinsam mit einer im ArchitekturTool definierten Sicht ausgewählt und ein Validierungslauf gestartet werden.
 
 \subsection*{Ergebnisvisualisierung (Frontend)}
 
@@ -133,7 +150,7 @@ Anschließend wird der entsprechende Eintrag in der Datenbank mithilfe von Prism
 
 Um mit dem Framework zu interagieren, wird eine \gls{gui} entwickelt, die es dem Nutzer ermöglicht, Validierungsalgorithmen einfach zu verwalten, auszuführen und die Ergebnisse in passender Form einzusehen. Die \gls{gui} erweitert die zuvor beschriebene \gls{api} zur Algorithmenverwaltung um eine bedienbare Oberfläche, die sowohl technische Konfigurationen als auch visuelle Rückmeldung beinhaltet. Der Fokus liegt auf einer klaren Trennung der Bedienbereiche: zum einen die Verwaltung der Algorithmen und zum anderen die Darstellung der Validierungsergebnisse.
 
-Die \gls{gui} folgt, wie der Rest des ArchitekturTools einem modularen Aufbau. Jeder Teilbereich, vom Hochladen über das Ausführen eines Algorithmus bis hin zur Visualisierung der Ergebnisse, ist als eigenständige Komponente realisiert. Dadurch wird die Erweiterbarkeit des Tools gewährleistet und eine klare Trennung zwischen den Funktionen ermöglicht.
+Die \gls{gui} folgt, wie der Rest des ArchitekturTool's einem modularen Aufbau. Jeder Teilbereich, vom Hochladen über das Ausführen eines Algorithmus bis hin zur Visualisierung der Ergebnisse, ist als eigenständige Komponente realisiert. Dadurch wird die Erweiterbarkeit des Tools gewährleistet und eine klare Trennung zwischen den Funktionen ermöglicht.
 
 Im Folgenden werden die Konzepte der Algorithmenverwaltung und Ergebnisvisualisierung genauer beschrieben.
 
@@ -177,17 +194,3 @@ Wie auch beim dem Modalfenster, folgt diese Komponente einem modularen und erwei
 Ergänzend zu der Darstellung aktueller Ergebnisse wird eine Verlaufskomponente implementiert, welche die letzten zehn Validierungsläufe in chronologischer Reihenfolge aufführt. Jeder Eintrag enthält Eckdaten zum verwendeten Algorithmus, zur gewählten Sicht sowie den Zeitpunkt, an dem die Validierung durchgeführt wurde. Die entsprechenden Ergebnisse können aufgeklappt werden und in der selben Form wie die Hauptanzeige analysiert werden.
 
 Das Design dieser Komponente folgt dem aufklappbaren Listenprinzip. Dadurch bleibt die Übersichtlichkeit auch bei mehreren Einträgen bestehen. Durch die Wiederverwendung des bereits beschriebenen Visualisierungskonzept, bleibt die Nutzererfahrung konsistent.
-
-\section{Validierungs-Engine}
-
-Das Ziel dieser Komponente ist es, einen ausgewählten Validierungsalgorithmus mit einer konkreten, im ArchitekturTool bereits spezifizierten, Sicht als Eingabe auszuführen und das Ergebnis danach nutzerfreundlich bereitzustellen. Dafür wird diese Komponente so realisiert, dass sowohl die vorbereitende Datenzusammenführung als auch die Ausführung des Algorithmus sowie die Verarbeitung des Ergebnisses übernimmt.
-
-Der Aufbau der Komponente ist so, dass sie losgelöst vom Hauptprozess des Webservers arbeitet. Dazu wird die Ausführung des Algorithmus in einem separaten Python-Prozess gestartet. Dies ermöglicht neben der Nutzung von etablierter Bibliotheken in Bezug auf die Architekturvalidierung auch verbesserte Stabilität und Sicherheit des Gesamtsystems, da potentielle Laufzeitfehler innerhalb des Skripts isoliert behandelt werden.
-
-Zu Beginn jeder Ausführung wird ein Algorithmus und einer Sicht, über das Frontend ausgewählt und an das Backend versendet. Ausgehend von der gewählten Sicht müssen die zugehörigen Architekturkomponenten vor der Ausführung als strukturierte JSON-Dateien vorliegen. Falls dem nicht so ist, wird der Export automatisch angestoßen.
-
-Für diesen Zweck wird eine bestehende Export-Komponente (JSON-Exporter) verwendet, die im Rahmen dieser Arbeit angepasst wurde. Diese ist dafür verantwortlich die in der Datenbank gespeicherten Komponenten, Verbindungen und Schnittstellen zu extrahieren und in ein komponentenbasiertes JSON-Format zu parsen. Dafür wird jede Komponente gemeinsam mit ihren Anforderungen, Garantien und internen Verbindungen exportiert und serverseitig in einer strukturierten Ordnerstruktur abgespeichert. Dieser wird so lange wiederverwendet, bis die zugrunde liegende Architektur verändert wird.
-
-Nachdem alle notwendigen Dateien vorliegen, wird ein JSON-Objekt erzeugt, welches alle Komponenten der gewählten Sicht enthält. Diese Architektur wird als Eingabe an den Python-Prozess gesendet. Während der Ausführung werden sowohl Ausgabe als auch Fehlermeldungen überwacht. Nach erfolgreichem Ausführen des Skripts wird das Ergebnis interpretiert und entweder der textuelle Ausgabe oder als metrische Ausgabe zugewiesen.
-
-Das Ergebnis wird danach gemeinsam mit weiteren Metadaten, wie Ausführungsdauer, Status und eventueller Fehlermeldung in der Datenbank abgespeichert. Diese Informationen stehen danach sowohl für die Ergebnisvisualisierung als auch für den Verlauf zur Verfügung.

@@ -2,7 +2,7 @@
 
 \chapter{Stand der Technik}
 %\chapter{Related Work}
-\label{sect:relatedWork}
+\label{ch:relatedWork}
 
 % Dieses Kapitel kann auch als Abschnitt im vorherigem Grundlagen Kapitel enthalten sein.
 % Dies kann je nach Art der verwandten Arbeit und wie diese mit der aktuellen Arbeit verknüpft ist eine logischere Gliederung darstellen.
@@ -24,11 +24,11 @@ PREEvision ist ein kommerzielles, modellbasiertes Tool zur Entwicklung und Optim
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.5\textwidth]{figures/PREEVISION_LAYER.drawio.png}
-  \caption{Schematische PREEvision Schichtenarchitektur. (Nachzeichnung von \cite{vectorinformatikgmbhpreevision})}
+  \caption{Schematische PREEvision Schichtenarchitektur. (Nachzeichnung von \cite{Vec23})}
   \label{fig:preevision_schicht}
 \end{figure}
 
-Der Schwerpunkt von PREEvision ist jedoch, die auf Abbildung~\ref{fig:preevision_schicht} grob dargestellte Schichtenarchitektur.Die Abbildung zeigt den Weg von der abstrakten Anforderungsebene zur konkreten Implementierung. Ausgehend von den Anforderungen wird eine Logische Funktionsarchitektur entworfen, welche dann in eine \gls{soa} und eine Hardware Architektur überführt wird, bis hin zum physischen Kabelbaum. Dieser durchgängige Ansatz stellt sicher, dass alle Aspekte des Systems, inklusive Diagnostik und Kommunikation, miteinander verbunden sind (Single-Source-of-Truth) \cite{schauffele2016architectural}. Eine detaillierte Abbildung der Schichtenarchitektur ist im Appendix~\ref{appendix:preevision_layer_model} zu finden.
+Der Schwerpunkt von PREEvision ist jedoch, die auf Abbildung~\ref{fig:preevision_schicht} grob dargestellte Schichtenarchitektur.Die Abbildung zeigt den Weg von der abstrakten Anforderungsebene zur konkreten Implementierung. Ausgehend von den Anforderungen wird eine Logische Funktionsarchitektur entworfen, welche dann in eine \gls{soa} und eine Hardware Architektur überführt wird, bis hin zum physischen Kabelbaum. Dieser durchgängige Ansatz stellt sicher, dass alle Aspekte des Systems, inklusive Diagnostik und Kommunikation, miteinander verbunden sind (Single-Source-of-Truth) \cite{schauffele2016architectural}.
 
 
 \subsection{Mathworks Simulink + System Composer}
@@ -42,19 +42,19 @@ Während System Composer für die Modellierung und die Analyse der statischen Sy
   \label{fig:simulink_system_composer}
 \end{figure}
 
-Wie diese enge Integration praktisch umgesetzt wird, ist in Abbildung~\ref{fig:simulink_system_composer} zu erkennen: Eine in System Composer entworfene Architekturkomponente wird direkt mit einem detaillierten Verhaltensmodell in Simulink verknüpft. Der diesem Vorgehen zugrundeliegende Arbeitsablauf folgt dem V-Modell, bei dem das Systemverhalten phasenweise modelliert und validiert wird \cite{themathworksinc.2025system}. Um komplexe und Verhaltensweisen modellieren zu können, werden spezielle Tools innerhalb von Simulink genutzt \cite{chatterjee2020applications}:
+Wie diese enge Integration praktisch umgesetzt wird, ist in Abbildung~\ref{fig:simulink_system_composer} zu erkennen: Eine in System Composer entworfene Architekturkomponente wird direkt mit einem detaillierten Verhaltensmodell in Simulink verknüpft. Der diesem Vorgehen zugrundeliegende Arbeitsablauf folgt dem V-Modell, bei dem das Systemverhalten phasenweise modelliert und validiert wird \cite{The24}. Um komplexe und Verhaltensweisen modellieren zu können, werden spezielle Tools innerhalb von Simulink genutzt \cite{chatterjee2020applications}:
 
 Stateflow dient zur Modellierung der Logik von Systemen mittels Zustandsautomaten, Flussdiagrammen oder Wahrheitstafeln. Es wird insbesondere für die übergeordnete Steuerung (Supervisory Control) und dem Fehlermanagement genutzt \cite{chatterjee2020applications}. Die Fähigkeit, ereignisdiskrete Systeme zu modellieren/ analysieren, wird durch SimEvents ermöglicht. Mithilfe von Nachrichten- und Entitätenbasierten Konzepten können Leistungsmerkmale wie der Durchsatz oder die Latenz optimiert werden \cite{chatterjee2020applications}.
 
-Wie auch bei PREEvision, unterstützt dieser gesamte Ansatz die zentralen System-Engineering Prinzipien: Abstraktion, Dekomposition und Wiederverwendung\cite{themathworksinc.2025system}.
+Wie auch bei PREEvision, unterstützt dieser gesamte Ansatz die zentralen System-Engineering Prinzipien: Abstraktion, Dekomposition und Wiederverwendung\cite{The24}.
 
 \subsection{Eclipse Capella}
-Capella ist ein nicht-kommerzielles Modellierungstool, das auf der Engineering-Methode ARCADIA\footnote{ARChitecture Analysis and Design Integrated Approach} basiert \cite{roques2016mbse}. Diese umfassende Methodik gibt einen klaren, schrittweisen Konstruktionsprozess vor, der den Anwender von der Bedarfsanalyse bis zum detaillierten Architektur-Design führt \cite{let}.
+Capella ist ein nicht-kommerzielles Modellierungstool, das auf der Engineering-Methode ARCADIA\footnote{ARChitecture Analysis and Design Integrated Approach} basiert \cite{roques2016mbse}. Diese umfassende Methodik gibt einen klaren, schrittweisen Konstruktionsprozess vor, der den Anwender von der Bedarfsanalyse bis zum detaillierten Architektur-Design führt \cite{let24}.
 
 \begin{figure}[h!]
   \centering
   \includegraphics[width=.7\textwidth]{figures/03StandDerTechnik/phases_arcadia.png}
-  \caption{Das Arcadia-Vorgehensmodell in Capella als vier übereinander gestapelte Architekturebenen (Entnommen aus \cite{let})}
+  \caption{Das Arcadia-Vorgehensmodell in Capella als vier übereinander gestapelte Architekturebenen (Entnommen aus \cite{let24})}
   \label{fig:capella_modell}
 \end{figure}
 
@@ -64,7 +64,7 @@ Bei Arcadia haben Bedarfsanalyse und Modellierung, Architekturentwicklung und -v
 
 Nachdem System, Hardware und Software modelliert wurden, wird eine logische Architektur entwickelt. Dabei wird nach einem Kompromiss zwischen Entwurfsfaktoren, (nicht-funktionalen) Bedingungen und Ansichten gesucht. Jede Ansicht beschäftigt sich mit bestimmten Aspekten wie funktionale Konsistenz, Schnittstellen, Leistung, Echtzeit, Sicherheit, Integration, Wiederverwendung, Kosten und Risiko.
 
-Abschließend beschreibt die physische Architektur die Umsetzung auf konkrete Hardware- und Softwarekomponenten und sichert durch die Trennung der Aspekte, Schichtenarchitekturen und standardisierte Interaktionsmuster eine effiziente, sichere Entwicklung und IVVQ\footnote{Integration, Verifizierung \& Validierung, Qualifizierungsaktivitäten (Testing)} \cite{let}.
+Abschließend beschreibt die physische Architektur die Umsetzung auf konkrete Hardware- und Softwarekomponenten und sichert durch die Trennung der Aspekte, Schichtenarchitekturen und standardisierte Interaktionsmuster eine effiziente, sichere Entwicklung und IVVQ\footnote{Integration, Verifizierung \& Validierung, Qualifizierungsaktivitäten (Testing)} \cite{let24}.
 
 Während Arcadia die komplette linke Seite des V-Modells abdeckt, deckt das Produktlebenszyklusmanagement (PLM) die rechte Seite des Modells ab und garantiert somit eine vollständige Umsetzung des V-Modells \cite{2024arcadia}.
 
@@ -108,11 +108,9 @@ Ein zentraler Aspekt moderner Architekturtools ist die Fähigkeit, entworfene Mo
   \label{tab:validierungsvergleich}
 \end{table}
 
-Eine kurze Analyse der ausgewählten Tools zeigt, dass jedes von ihnen seine spezifischen Stärken in unterschiedlichen Bereichen der Architekturvalidierung besitzt. Während PREEvision bei E/E-spezifischen Metriken wie Netzwerk- und Ressourcenmetriken sowie Sicherheitsanalysen dominiert \cite{schauffele2016architectural}, liegen die Stärken von Capella in der Sicherstellung der Architekturkonsistenz über mehrere Ebenen hinweg \cite{roques2016mbse}. Als einziges Tool bietet Simulink zudem die Möglichkeit zur dynamischen Validierung des Systemverhaltens mittels ausführbarer Simulation \cite{themathworksinc.2025system}.
+Eine kurze Analyse der ausgewählten Tools zeigt, dass jedes von ihnen seine spezifischen Stärken in unterschiedlichen Bereichen der Architekturvalidierung besitzt. Während PREEvision bei E/E-spezifischen Metriken wie Netzwerk- und Ressourcenmetriken sowie Sicherheitsanalysen dominiert \cite{schauffele2016architectural}, liegen die Stärken von Capella in der Sicherstellung der Architekturkonsistenz über mehrere Ebenen hinweg \cite{roques2016mbse}. Als einziges Tool bietet Simulink zudem die Möglichkeit zur dynamischen Validierung des Systemverhaltens mittels ausführbarer Simulation \cite{The24}.
 
 In der Praxis ergibt sich durch diese hohe Spezialisierung eine zentrale Herausforderung: Keines der Tools deckt alle notwendigen Validierungsverfahren ab. Darüber hinaus sind diese Systeme meist geschlossene Plattformen. Die Anbindung neuer oder unternehmensspezifischer Validierungsalgorithmen, die vom Hersteller nicht vorgesehen sind, ist häufig gar nicht oder nur mit erheblichem Aufwand möglich. Es fehlt an flexiblen und offenen Schnittstellen zur Integration externer Algorithmen.
 
 \break
 Genau an dieser Stelle setzt die Bachelorarbeit an. Ziel dieser Arbeit ist es, das generische, webbasierte \textit{ArchitekturTool} um ein Framework zur automatisierten Architekturvalidierung zu erweitern. Durch die Implementierung einer offenen \gls{api}-Schnittstelle soll die bestehende Lücke hinsichtlich mangelnder Flexibilität geschlossen und die einfache Anbindung beliebiger Validierungsalgorithmen ermöglicht werden.
-%TODO: AUSGEWÄHLTE VALIDIERUNGSVERFAHREN
-%TODO: MEIN BEITRAG

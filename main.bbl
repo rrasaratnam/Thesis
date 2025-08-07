@@ -8,10 +8,6 @@
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
-\bibitem[20224]{2024arcadia}
-{Arcadia (Ingenieurwesen)}.
-\newblock {In: }\emph{Wikipedia}  (2024), Dezember
-
 \bibitem[AFPB13]{ahrens2013objective}
 \textsc{Ahrens}, Dirk ; \textsc{Frey}, Andreas ; \textsc{Pfeiffer}, Andreas  ; \textsc{Bertram}, Torsten:
 \newblock Objective Evaluation of Software Architectures in Driver Assistance Systems.
@@ -58,10 +54,22 @@
 \newblock DOI 10.1109/TVT.2021.3054934. --
 \newblock ISSN 1939--9359
 
+\bibitem[Cap24]{let24}
+\textsc{Capella}, MBSE:
+\newblock \emph{Arcadia}.
+\newblock 2024. --
+\newblock \url{https://mbse-capella.org/arcadia.html} [Zugriff am 06.08.2025]
+
 \bibitem[Cha20]{chatterjee2020applications}
 \textsc{Chatterjee}, Joyeeta:
 \newblock \emph{Applications of {{MathWorks Tools}} in {{Model-Based Systems Engineering}}}.
 \newblock Eindhoven, Eindhoven University of Technology, Diplomarbeit, November 2020
+
+\bibitem[Cha21]{Cha21}
+\textsc{Charette}, Robert~N.:
+\newblock \emph{How Software Is Eating the Car}.
+\newblock 2021. --
+\newblock \url{https://spectrum.ieee.org/software-eating-car} [Zugriff am 06.08.2025]
 
 \bibitem[CK20]{cebotari2020}
 \textsc{Cebotari}, Vadim ; \textsc{Kugele}, Stefan:
@@ -74,14 +82,33 @@
 \newblock Architecture Platforms for Future Vehicles: A Comparison of {{ROS2}} and {{Adaptive AUTOSAR}}.
 \newblock {In: }\emph{2022 {{IEEE}} 25th {{International Conference}} on {{Intelligent Transportation Systems}} ({{ITSC}})}, 2022, S. 3095--3102
 
+\bibitem[{Ins}24]{autotechagil2024}
+\textsc{{Institut für Kraftfahrzeuge (ika), RWTH Aachen}}:
+\newblock \emph{AUTOtech.agil – Entwicklung einer offenen Software- und E/E-Architektur}.
+\newblock 2024. --
+\newblock \url{https://www.ika.rwth-aachen.de/de/kompetenzen/projekte/automatisiertes-fahren/autotech-agil.html} [Zugriff am 06.08.2025]
+
 \bibitem[Jia19]{jiang2019vehicle}
 \textsc{Jiang}, Shugang:
 \newblock Vehicle {{E}}/{{E Architecture}} and {{Its Adaptation}} to {{New Technical Trends}}.
 \newblock {In: }\emph{{{WCX SAE World Congress Experience}}}, 2019, S. 2019--01--0862
 
-\bibitem[Kan19]{kang2019formal}
+\bibitem[Kan19]{Kan19}
 \textsc{Kang}, Eun-Young:
-\newblock \emph{A {{Formal Verification Technique}} for {{Architecture-based Embedded Systems}} in {{EAST-ADL}}}
+\newblock \emph{A Formal Verification Technique for Architecture-based Embedded Systems in EAST-ADL}.
+\newblock 2019. --
+\newblock \url{https://arxiv.org/abs/1903.06241} [Zugriff am 06.08.2025]
+
+\bibitem[KKM24]{architekturtooldocu2024}
+\textsc{Kluener}, David ; \textsc{Kahle}, Julius  ; \textsc{Molz}, Marius:
+\newblock \emph{ArchitekturTool V2 - Documentation}.
+\newblock 2024. --
+\newblock A documentation for the web-based modeling, analysis and management tool “ArchitekturTool”.
+
+\bibitem[KLL{\etalchar{+}}23]{vanKempen2023}
+\textsc{Kempen}, Raphael van ; \textsc{Lampe}, Bastian ; \textsc{Leuffen}, Marc ; \textsc{Wirtz}, Lena ; \textsc{Thomsen}, Fabian ; \textsc{Bilkei-Gorzo}, Gergely ; \textsc{Busch}, Jean-Pierre ; \textsc{Kuck}, Ida ; \textsc{Geller}, Christian ; \textsc{Kehl}, Christian ; \textsc{Uszynski}, Olaf ; \textsc{Wagner-Douglas}, Lotte ; \textsc{Zanger}, Lukas ; \textsc{Eckstein}, Lutz ; \textsc{Klüner}, David ; \textsc{Beerwerth}, Julius ; \textsc{Alrifaee}, Bassam ; \textsc{Kowalewski}, Stefan ; \textsc{Konersmann}, Marco  ; \textsc{Dietmayer}, Klaus:
+\newblock AUTOtech.agil: Architecture and Technologies for Orchestrating Automotive Agility.
+\newblock {In: }\emph{Aachen Colloquium Sustainable Mobility 2023}, 2023
 
 \bibitem[KMK{\etalchar{+}}24]{kluner2024moderna}
 \textsc{Kl{\"u}ner}, David~P. ; \textsc{Molz}, Marius ; \textsc{Kampmann}, Alexandru ; \textsc{Kowalewski}, Stefan  ; \textsc{Alrifaee}, Bassam:
@@ -104,10 +131,6 @@
 \newblock DOI 10.3390/electronics11121860. --
 \newblock ISSN 2079--9292
 
-\bibitem[let]{let}
-\emph{Let Yourself Be Guided with {{Arcadia}}: {{A}} Comprehensive Methodological and Tool-Supported Model-Based Engineering Guidance}.
-\newblock https://mbse-capella.org/arcadia.html,
-
 \bibitem[NDN06]{neely2006adaptive}
 \textsc{Neely}, Steve ; \textsc{Dobson}, Simon  ; \textsc{Nixon}, Paddy:
 \newblock Adaptive Middleware for Autonomic Systems.
@@ -115,6 +138,12 @@
 \newblock \url{http://dx.doi.org/10.1007/BF03219883}. --
 \newblock DOI 10.1007/BF03219883. --
 \newblock ISSN 0003--4347, 1958--9395
+
+\bibitem[PB18]{Pancik2018}
+\textsc{Pančík}, Marek ; \textsc{Bucek}, Jan:
+\newblock {Automotive E/E architectures: Evolution, Complexity and Integration}.
+\newblock {In: }\emph{2018 ELEKTRO}.
+\newblock Mikulov, Czech Republic : IEEE, 2018, 1--6
 
 \bibitem[RGKS20]{rumezOverviewAutomotiveServiceOriented2020}
 \textsc{Rumez}, Marcel ; \textsc{Grimm}, Daniel ; \textsc{Kriesten}, Reiner  ; \textsc{Sax}, Eric:
@@ -128,25 +157,24 @@
 \textsc{Roques}, Pascal:
 \newblock {{MBSE}} with the {{ARCADIA Method}} and the {{Capella Tool}}.
 \newblock {In: }\emph{8th {{European Congress}} on {{Embedded Real Time Software}} and {{Systems}} ({{ERTS}} 2016)}.
-\newblock Toulouse, France, Januar 2016
+\newblock Toulouse, France : ERTS, Januar 2016
 
 \bibitem[Sch16]{schauffele2016architectural}
 \textsc{Sch{\"a}uffele}, J{\"o}rg:
 \newblock E/{{E Architectural Design}} and {{Optimization}} Using {{PREEvision}}.
 \newblock {In: }\emph{{{SAE}} 2016 {{World Congress}} and {{Exhibition}}}, 2016, S. 2016--01--0016
 
-\bibitem[{The}25]{themathworksinc.2025system}
-\textsc{{The MathWorks, Inc.}}:
-\newblock System {{Composer}}™ {{Getting Started Guide}} ({{R2025a}}) / The MathWorks, Inc.
-\newblock 2025. --
-\newblock Forschungsbericht. --
-\newblock ~90 S.
+\bibitem[TM24]{The24}
+\textsc{The~MathWorks}, Inc.:
+\newblock \emph{System Composer User’s Guide}.
+\newblock 2024. --
+\newblock \url{https://de.mathworks.com/help/pdf_doc/systemcomposer/systemcomposer_gs.pdf} [Zugriff am 06.08.2025]
 
-\bibitem[{Vec}]{vectorinformatikgmbhpreevision}
+\bibitem[{Vec}23]{Vec23}
 \textsc{{Vector Informatik GmbH}}:
-\newblock {{PREEvision}} -- {{Model-Based E}}/{{E Development}} from {{Architecture Design}} to {{Series Production}} ({{Fact Sheet}}, {{Version}} 1.1) / Vector Informatik GmbH. --
-\newblock Forschungsbericht. --
-\newblock ~2 S.
+\newblock \emph{PREEvision Fact Sheet}.
+\newblock 2023. --
+\newblock \url{https://cdn.vector.com/cms/content/products/preevision/doc/PREEvision_doc_factsheet_EN.pdf} [Zugriff am 06.08.2025]
 
 \bibitem[VKC{\etalchar{+}}21]{vogel2021metrics}
 \textsc{Vogel}, Martin ; \textsc{Knapik}, Peter ; \textsc{Cohrs}, Moritz ; \textsc{Szyperrek}, Bernd ; \textsc{Pueschel}, Winfried ; \textsc{Etzel}, Haiko ; \textsc{Fiebig}, Daniel ; \textsc{Rausch}, Andreas  ; \textsc{Kuhrmann}, Marco:
@@ -171,11 +199,22 @@
 \newblock DOI 10.1007/s42154--023--00266--9. --
 \newblock ISSN 2096--4250, 2522--8765
 
+\bibitem[Wik24]{2024arcadia}
+\textsc{Wikipedia}:
+\newblock \emph{Arcadia (Ingenieurwesen)}.
+\newblock 2024. --
+\newblock \url{https://de.wikipedia.org/w/index.php?title=Arcadia_(Ingenieurwesen)&oldid=251263488} [Zugriff am 06.08.2025]
+
 \bibitem[WVK{\etalchar{+}}20]{watkins2020system}
 \textsc{Watkins}, Christopher~B. ; \textsc{Varghese}, Jerry ; \textsc{Knight}, Michael ; \textsc{Petteys}, Becky  ; \textsc{Ross}, Jordan:
 \newblock System {{Architecture Modeling}} for {{Electronic Systems Using MathWorks System Composer}} and {{Simulink}}.
 \newblock {In: }\emph{2020 {{AIAA}}/{{IEEE}} 39th {{Digital Avionics Systems Conference}} ({{DASC}})}, 2020. --
 \newblock ISSN 2155--7209, S. 1--10
+
+\bibitem[ZSL22]{zhao2022}
+\textsc{Zhao}, Fuquan ; \textsc{Song}, Haokun  ; \textsc{Liu}, Zongwei:
+\newblock Identification and Analysis of Key Technical Elements and Prospects for Software-Defined Vehicles.
+\newblock {In: }\emph{WCX SAE World Congress Experience 2022}, 2022
 
 \bibitem[ZZL{\etalchar{+}}21]{zhuRequirementsDrivenAutomotiveElectrical2021}
 \textsc{Zhu}, Hailong ; \textsc{Zhou}, Wei ; \textsc{Li}, Zhiheng ; \textsc{Li}, Li  ; \textsc{Huang}, Tao:

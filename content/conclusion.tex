@@ -1,27 +1,28 @@
 % !TEX root = ../main.tex
 
-%\chapter{Fazit}
-\chapter{Conclusion}
-\label{sect:conclusion}
-		
+\chapter{Fazit}
+\label{ch:fazit}
+
 % Gehe auf Ziel, Aufgabenstellung aus Einleitung ein und wiederhole zusammenfassend, wie die Aufgabenstellung erfüllt wurde und was die Ergebnisse sind.
 % Adress the aim and the conceptual formulation of the assignment from the introduction directly and summarise how the formulated goals were reached (or not).
 
-The aim of this document was to provide students at the end of their studies with a template for their written thesis.
-Due to the common lack of experience in the field of academic writing this work is intended to provide a template for structured writing.
-Therefore, this entire document is structured as a thesis should usually be.
 
-Moreover it provides some hints how citations should be used and how figures should be dealt with to achieve high quality versions of latex documents.
-In contrary to this sentence, a conclusion should not introduce new information, about the topics discussed before, which has not yet been presented.
+Das Ziel dieser Arbeit war es, das bestehende webbasierte ArchitekturTool um ein Framework für die automatisierte Architekturvalidierung zu erweitern. Die Aufgabenstellung umfasste vier zentrale Punkte: die Implementierung einer Schnittstelle zur Anbindung von Validierungsalgorithmen, die Entwicklung einer grafischen Benutzeroberfläche zur Durchführung dieser Algorithmen und zur Visualisierung der Ergebnisse sowie die Implementierung eines ersten Validierungsalgorithmus.
 
-The following (optional) section provides some further ideas for potential extension of this work.
+Die Umsetzung dieser Aufgabenstellung erfolgte durch die Entwicklung einer serverseitigen \gls{rest}-\gls{api}, die für die Verwaltung und  Ausführung der Algorithmen zuständig ist, sowie eines komponentenbasierten Frontends, welche die geforderte \gls{gui} zur Verfügung stellt.
 
-%\section{Ausblick} %(optional)
-\section{Future Work} % (optional)
+Das Endresultat ist ein voll funktionsfähiges und erweiterbares Framework. Die Evaluation hat die korrekte Arbeitsweise des Gesamtsystems nachgewiesen: Der in der Aufgabenstellung gefordertem, Traceability-Check-Algorithmus konnte erfolgreich über die \gls{api} angebunden und die \gls{gui} ausgeführt werden. Dessen Ergebnis wurde ebenfalls korrekt dargestellt. Somit wurden alle Punkte der Aufgabenstellung erfolgreich umgesetzt und das Ziel der Arbeit erreicht.
+
+\section{Ausblick} %(optional)
+%\section{Future Work} % (optional)
 
 % Wie könnte es weiter gehen? Dieser Abschnitt kann auch in einem eigenen Kapitel vorhergehen.
 % Short description how this work could be pursued. This can be done in a separate chapter preceding the conclusion, too.
 
-There are many possible ways how this short document could be extended in the future.
-One may think of additional explanations regarding latex and its use, with the extend to an entire latex tutorial.
-A further extension could be the definition of helpful latex commands or a documentation on commonly used latex commands and packages.
+Das entwickelte Framework bildet eine solide Grundlage, die in der Zukunft auf vielfältige Art und Weise erweitert werden kann.
+
+Ein logischer nächster Schritt ist, wie von Beginn an beabsichtigt, die Anbindung weiterer Validierungsalgorithmen. Es könnten weiterführende Algorithmen zur quantitativen Analyse implementiert werden, die beispielsweise die Netzwerkauslastung oder die Ressourcennutzung von Komponenten bewerten.  Ebenfalls bieten sich weitere Sicherheits- und Zuverlässigkeitsanaylsen, um Architkturen frühzeitig auf potenzielle Schwachstellen zu prüfen, an.
+
+Des Weiteren bietet die Ergebnisvisualisierung Ausbaupotenzial. Die bestehende Komponente könnte um eine zusätzliche Visualisierungsform, wie Heatmaps zur Veranschaulichung von Lastenverteilung, erweitert werden. Dies würde die Interpretierbarkeit komplexer Ergebnisse verbessern und die schnelle Identifizierung von Schwachstellen ermöglichen.
+
+Durch die genannten Erweiterungsmöglichkeiten legen auch eine Anpassung der grafischen Benutzeroberfläche nahe. Durch eine eventuelle Nutzerumfrage könnten weitere Funktionen entwickelt werden, um die Benutzerfreundlichkeit auch bei steigender Komplexität auf einem hohen Niveau zu halten.

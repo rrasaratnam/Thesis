@@ -1,45 +1,33 @@
 % !TEX root = ../main.tex
 
 \chapter{Einleitung}
-%\chapter{Introduction}
-\label{sect:introduction}
+\label{ch:introduction}
+Die Autmobilindustrie befindet sich im Wandel, der sich durch den Fokus weg vom mechanikzentrierten Fahrzeug hin zum \gls{sdv} zeigt. Während früher die mechanischen Komponenten ausschlaggebend waren für den Verkauf eines Fahrzeuges, rückt heute die Software immer mehr in den Fokus und wird zum zentralen Differenzierungsmerkmal moderner Fahrzeuge \cite{Cha21}\cite{zhao2022}.
 
-% Thema motivieren, worum geht es und warum ist das wichtig?
-% Motivate the topic, what is this thesis about and why is that important?
+Der Fokus auf \gls{sdv} geht mit der deutlich steigenden Komplexität von \glspl{eea} einher \cite{Cha21}\cite{Pancik2018}. Moderne Fahrzeuge enthalten oft über ein hundert \glspl{ecu}, umfangreiche Verkabelung und unmengen Zeilen von Code . Diese komplexen Architekturen müssen sorgfältig geprüft werden. Da eine späte Fehlererkennung zu erheblichen Kosten führt, sollte dies bereits in frühen Entwicklungsphasen passieren \cite{Cha21}.
 
-An introduction motivates the topic of the thesis and explains the origin of the task. \todo{Motivate the topic, what is this thesis about and why is that important?}
-It starts often with a very general statement followed by explanations which difficulties (of course with relevance to the thesis topic) arise.
-Finally, the difficulties are narrowed down to the topic of the thesis.
-At this point the reader should understand the relevance of the problem being addressed by the thesis.
-An example for an introduction could look like the text following below. \\
+Für die Modellierung und Entwicklung dieser Architekturen gibt es bereits funktionsfähige, jedoch meist kostenpflichtige Tools wie PREEvision zur Verfügung, die als Industriestandard gelten. Allerdings sind fast alle dieser Tools nicht open-source und decken nicht alle Validierungsarten ab \cite{askaripoor2022architecture}\cite{schauffele2016architectural}.
 
-At the end of their bachelor or master studies young students have to write a final thesis.
-For many of them this is their first written academic document of mentionable relevance.
-Thus, those students have no experience with academic writing and therefore require often some basic guidelines.
-Guidelines are usually provided directly by the thesis advisers up front and/or during thesis review.
-Providing such guidelines in a written and structured form to the students results hopefully in less review work for advisor and student, more consistent and clear theses and hence theses of better quality. \todo{Dies ist eine Anmerkung was noch zu machen ist.}
+Hier setzt das \textit{AUTOtech.agil}-Projekt\footnote{https://www.autotechagil.de/} an. Ziel des Projekts ist die Entwickung einer offenen Software- und \gls{eea} für zukünftige Fahrzeuggenerationen \cite{autotechagil2024}\cite{vanKempen2023}. Neben der \gls{soa} \gls{asoa} wurde auch ein webbasiertes Tool zur Spezifikation von funktionalen, Softwarebezogenen und \gls{eea} geforscht. Dieses Tool, das \textit{ArichtekturTool},  soll eine open-source und zukunftsfähige Alternative zu den bestehenden Industriestandards sein.
 
+Jedoch fehlt diesem Tool noch eine Funktion zur automatisierten Architekurvalidierung. Genau hier liegt der Beitrag der vorliegenden Abschlussarbeit: Das ArchitekturTool um eine automatisierte Validierungsfunktion zu erweitern, um dem Endutzer beim Entwicklungsprozess zu unterstützen.
 \section{Aufgabenstellung}
-%\section{Main contributions}
-\label{sect:main_contributions}
-% Was soll gemacht werden?
-% What shall be done within this thesis
-This document aims at providing a basic template for students writing their bachelor or master thesis at \abk{i11}.
-It shall provide a basic overview on how such writings are structured and provide some useful hints.
+\label{sect:aufgabenstellung}
 
-\section{Gliederung}
-%\section{Outline}
+Das Ziel dieser Arbeit ist das ArchitekturTool um die folgenden Funktionen zu erweitern, um eine automatisierte Architekturvalidierung zu ermöglichen. Dazu wird zunächst eine \gls{api} zur Anbindung von Validierungsalgorithmen entwickelt. Anschließend wird eine \gls{gui} umgesetzt, mit der die hinterlegten Validierungsalgorithmen ausgeführt werden können. Zur Analyse beziehungsweise Interpretation der Ergebnis wird zudem eine entsprechende \gls{gui} für die Ergebnisse dieser Algorithmen implementiert. Abschließend wird ein erster Validierungsalgorithmus in die neu entwickelte Umgebung zu hinzuzufügt.
+\section{Aufbau der Arbeit}
+\label{sec:aufbau}
 
-% Wie ist die Arbeit aufgebaut? Dies sollte den roten Faden beschreiben der sich durch die ganze Arbeit zieht und den Zusammenhang der einzelnen Teile verdeutlichen.
-% How is this document structured? 
+Der Aufbau dieser Arbeit ist wie folgt:
 
-The outline of a thesis should point out how the different chapters are related to each other and that the thesis is well structured.
-It should show that the different chapters form a single coherent document.
-An example how such an outline could look like for this document is given below.\\
+Zunächst werden im Kapitel~\ref{ch:basics} die notwendigen Grundlagen zum verständnis der Arbeit behandelt. Dazu gehören eine kurze Einführung in das ArchitekturTool, die Erläuterung der \gls{eea} im Bereich der Automobilindustrie sowie ein Überblick über die relevanten Konzepte, wie \gls{soa} und Middleware innerhalb eines Fahrzeuges. Des Weiteren werden die Motivation und Methoden hinter der Architekturvalidierung sowie der bestehende Webentwicklungs-Stack vorgestellt.
 
-Chapter~\ref{sect:basics} gives an introduction and overview on latex citations and figures to provide some basic knowledge how to handle those latex-constructs.
-The proximate Chap.~\ref{sect:relatedWork} presents an overview of work related to this document.
-Chapter~\ref{sect:corechapter} introduces subsequently how citations have to be used in order to avoid wrong citation styles or even plagiarism.
-It therefore requires information introduced before in chapter \ref{sect:basics}.
-Additionally, this chapter provides some hints dealing with figures in latex and their quality.
-The document is concluded by Chap.~\ref{sect:conclusion} which gives also an outlook how this document could be extended in the future.
+Anschließend wird im Kapitel~\ref{ch:relatedWork} der Stand der Technik betrachtet. Hier werden die in der Industrie verbreiteten Tools und Plattformen zur Architekturmodellierung und -validierung wie PREEvision, Simulink + System Composer und Capella im Detail vorgestellt und im Hinblick auf ihren Validierungsfunktionen verglichen. Abschließend werden die verschiedenen Ansätze zur Architekturvalidierung betrachtet.
+
+Im Kapitel~\ref{ch:KuD} folgt das Konzept und Design des im Rahmen dieser Arbeit entwickelten Frameworks. Ausgehend von einer Anforderungsanalyse werden der Entwurf der Validierungs-Engine, die Systemarchitektur sowie das Konzept der \gls{api} und der \gls{gui} erläutert.
+
+Danach wird im Kapitel~\ref{ch:imp} die praktische Umsetzung beschrieben. Dabei wird sowohl die Backend-Implementierung der Algorithmenverwaltung und Validierungs-Engine als auch die Realisierung der Frontend-Komponenten erläutert. Außerdem wird der erste Validierungsalgorithmus als \gls{poc} vorgestellt.
+
+In Kapitel~\ref{ch:evaluation} wird das entwickelte Framework evaluiert. Mithilfe des ersten Validierungsalgorithmus werde in einem Testszenario die wichtigsten Funktionen geprüft und die Ergebnisse bewertet.
+
+Abschließend werden im \ref{ch:fazit}.Kapitel alle Erkenntnisse zusammengetragen und mit einem Ausblick auf mögliche Weiterentwicklungen hingewiesen.
