@@ -18,15 +18,15 @@
 
 \ifpreamble@DE
 
-\germantrue
-% packages for german language
-\usepackage[english,ngerman]{babel}	
-\usepackage[babel,german=quotes]{csquotes} 
-\usepackage{bibgerm}  % german bibliography
+  \germantrue
+  % packages for german language
+  \usepackage[english,ngerman]{babel}
+  \usepackage[babel,german=quotes]{csquotes}
+  \usepackage{bibgerm}  % german bibliography
 \fi
 
 \ifpreamble@BA
-	\batrue
+  \batrue
 \fi
 
 \pdfminorversion=5
@@ -36,17 +36,17 @@
 % required packages
 \usepackage[nottoc,notlot,notlof]{tocbibind}	% http://www.ctan.org/pkg/tocbibind  - controls the numbering of the table of contents for list of tabular, bibliography...
 \usepackage{scrhack}  % 
-\usepackage{cmap} 
+\usepackage{cmap}
 \usepackage[T1]{fontenc} % split words at the end of the line which contain ü/ä/ö
 \usepackage{ragged2e}
 \usepackage{array}
 \usepackage{multirow}
 \usepackage[pdftex,
-pdfsubject = {{Thesis at the Department of Informatics at RWTH Aachen University}},
-pdfpagelayout=SinglePage,
-pdffitwindow=true,
-bookmarksnumbered,
-hidelinks
+  pdfsubject = {{Thesis at the Department of Informatics at RWTH Aachen University}},
+  pdfpagelayout=SinglePage,
+  pdffitwindow=true,
+  bookmarksnumbered,
+  hidelinks
 ]{hyperref} % richtige Lesezeichen für Acrobat
 \usepackage{graphics}
 \usepackage[automark,autooneside]{scrlayer-scrpage}
@@ -89,8 +89,8 @@ hidelinks
 \usepackage{setspace}
 
 \usepackage[
-nonumberlist, % no pagenumbering
-acronym] % create acronymlist
+  nonumberlist, % no pagenumbering
+  acronym] % create acronymlist
 {glossaries}
 \usepackage{makeidx} % Index
 
@@ -98,7 +98,7 @@ acronym] % create acronymlist
 \setcounter{tocdepth}{3}    % adds sub-...-subsections up to the specified depth to the list of contents
 
 \input{glyphtounicode}
-\pdfgentounicode=1 
+\pdfgentounicode=1
 
 % Acronyms
 %\ifpreamble@DE 
@@ -114,11 +114,11 @@ acronym] % create acronymlist
 
 
 \makeglossaries
-\makeindex 
+\makeindex
 
 \usepackage[absolute,overlay]{textpos}
-  \setlength{\TPHorizModule}{1mm}
-  \setlength{\TPVertModule}{1mm}
+\setlength{\TPHorizModule}{1mm}
+\setlength{\TPVertModule}{1mm}
 
 % Disable single lines at the start of a paragraph (Schusterjungen)
 \clubpenalty = 10000
@@ -130,8 +130,8 @@ acronym] % create acronymlist
   \hypersetup{
     pdftitle = {\englishtitle},
     pdfauthor = {\authorname}
-}
+  }
 }
 \makeatother
-            
+
 \endinput

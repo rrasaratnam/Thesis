@@ -653,19 +653,6 @@ INPUT /usr/share/texmf/tex/latex/lm/t1lmss.fd
 INPUT /usr/share/texmf/tex/latex/lm/t1lmss.fd
 INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmss10.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmssbx10.tfm
-INPUT ./eidesstattlicheVersicherungZPA.pdf
-INPUT ./eidesstattlicheVersicherungZPA.pdf
-INPUT ./eidesstattlicheVersicherungZPA.pdf
-INPUT ./eidesstattlicheVersicherungZPA.pdf
-INPUT ./eidesstattlicheVersicherungZPA.pdf
-INPUT ./eidesstattlicheVersicherungZPA.pdf
-INPUT ./eidesstattlicheVersicherungZPA.pdf
-INPUT ./eidesstattlicheVersicherungZPA.pdf
-INPUT ./eidesstattlicheVersicherungZPA.pdf
-INPUT ./eidesstattlicheVersicherungZPA.pdf
-INPUT ./eidesstattlicheVersicherungZPA.pdf
-INPUT ./eidesstattlicheVersicherungZPA.pdf
-INPUT ./eidesstattlicheVersicherungZPA.pdf
 INPUT ./tex/versicherung.tex
 INPUT ./tex/versicherung.tex
 INPUT tex/versicherung.tex
@@ -683,7 +670,13 @@ INPUT ./main.lof
 INPUT ./main.lof
 INPUT main.lof
 OUTPUT main.lof
+INPUT ./main.acr
+INPUT ./main.acr
+INPUT main.acr
 INPUT /usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc
+INPUT ./main.syi
+INPUT ./main.syi
+INPUT main.syi
 INPUT ./content/introduction.tex
 INPUT ./content/introduction.tex
 INPUT content/introduction.tex
@@ -838,6 +831,11 @@ INPUT ./figures/Appendix/Balken_Fläche.drawio.png
 INPUT ./figures/Appendix/Balken_Fläche.drawio.png
 INPUT ./figures/Appendix/Balken_Fläche.drawio.png
 INPUT ./figures/Appendix/Balken_Fläche.drawio.png
+INPUT ./figures/Appendix/Bildschirmfoto vom 2025-08-10 14-10-31.png
+INPUT ./figures/Appendix/Bildschirmfoto vom 2025-08-10 14-10-31.png
+INPUT ./figures/Appendix/Bildschirmfoto vom 2025-08-10 14-10-31.png
+INPUT ./figures/Appendix/Bildschirmfoto vom 2025-08-10 14-10-31.png
+INPUT ./figures/Appendix/Bildschirmfoto vom 2025-08-10 14-10-31.png
 INPUT ./main.ind
 INPUT ./main.ind
 INPUT main.ind

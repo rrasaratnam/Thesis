@@ -11,10 +11,10 @@
 
 % Kurz vorstellen was es noch in dem Gebiet gibt und worin sich diese Arbeit davon unterscheidet
 % Short presentation/summary of what has been done already in the research area and how it differs from the current thesis.
-In diesem Kapitel werden die bestehenden Tools zum Spezifizieren von Architekturen im Bereich der Fahrzeugindustrie sowie die von ihnen verwendeten Verfahren zur Architekturvalidierung. Dies ermöglicht ein besseres Verständnis für den Beitrag, den die Abschlussarbeit leistet.
+In diesem Kapitel werden die bestehenden Tools zum Spezifizieren von Architekturen im Bereich der Fahrzeugindustrie sowie die von ihnen verwendeten Verfahren zur Architekturvalidierung vorgestellt. Dies ermöglicht ein besseres Verständnis für den Beitrag, den die Abschlussarbeit leistet.
 
 \section{Etablierte Tools und Plattformen}
-Um die zunehmende Komplexität der \glspl{eea} in modernen Fahrzeugen mit Blick auf autonome Fahrfunktionen und Fahrassistenzsystemen zu bewältigen, wird aktiv an Software gearbeitet, die es Entwicklern und Ingenieuren ermöglicht, funktionale, softwarebezogene und \glspl{eea} zu modellieren bzw. zu spezifizieren \cite{askaripoor2022architecture} \cite{schauffele2016architectural}. Im folgenden werden die Tools PREEvision und Simulink + System Composer, welche als Industriestandard gelten, und Capella als kostenlose Alternative analysiert.
+Um die zunehmende Komplexität der \glspl{eea} in modernen Fahrzeugen mit Blick auf autonome Fahrfunktionen und Fahrassistenzsystemen zu bewältigen, wird aktiv an Software gearbeitet, die es Entwicklern und Ingenieuren ermöglicht, funktionale, softwarebezogene und \glspl{eea} zu modellieren bzw. zu spezifizieren \cite{askaripoor2022architecture} \cite{schauffele2016architectural}. Im folgenden werden die Tools PREEvision und Simulink + System Composer, die als Industriestandard gelten, und Capella als kostenlose Alternative analysiert.
 
 
 \subsection{Vector PREEvision}
@@ -28,12 +28,12 @@ PREEvision ist ein kommerzielles, modellbasiertes Tool zur Entwicklung und Optim
   \label{fig:preevision_schicht}
 \end{figure}
 
-Der Schwerpunkt von PREEvision ist jedoch, die auf Abbildung~\ref{fig:preevision_schicht} grob dargestellte Schichtenarchitektur.Die Abbildung zeigt den Weg von der abstrakten Anforderungsebene zur konkreten Implementierung. Ausgehend von den Anforderungen wird eine Logische Funktionsarchitektur entworfen, welche dann in eine \gls{soa} und eine Hardware Architektur überführt wird, bis hin zum physischen Kabelbaum. Dieser durchgängige Ansatz stellt sicher, dass alle Aspekte des Systems, inklusive Diagnostik und Kommunikation, miteinander verbunden sind (Single-Source-of-Truth) \cite{schauffele2016architectural}.
+Der Schwerpunkt von PREEvision ist jedoch, die auf Abbildung~\ref{fig:preevision_schicht} dargestellte Schichtenarchitektur. Die Abbildung zeigt den Weg von der abstrakten Anforderungsebene zur konkreten Implementierung. Ausgehend von den Anforderungen wird eine Logische Funktionsarchitektur entworfen, die dann in eine \gls{soa} und eine Hardware Architektur überführt wird, bis hin zum physischen Kabelbaum. Dieser durchgängige Ansatz stellt sicher, dass alle Aspekte des Systems, inklusive Diagnostik und Kommunikation, miteinander verbunden sind (Single-Source-of-Truth) \cite{schauffele2016architectural}.
 
 
 \subsection{Mathworks Simulink + System Composer}
 Simulink und System Composer sind kommerzielle Tools, die eng miteinander integriert sind, um \gls{mbse} zu unterstützen \cite{watkins2020system}.
-Während System Composer für die Modellierung und die Analyse der statischen System- und Softwarearchitektur verwendet wird, liegt der Fokus von Simulink in der Simulation des dynamischen Verhaltens dieser Architekturen. Dieses Zusammenspiel ermöglicht einen Übergang von dem reinen Architekturentwurf zu dem konkreten, ausführbaren Designmodell \cite{chatterjee2020applications}.
+Während System Composer für die Modellierung und  Analyse der statischen System- und Softwarearchitektur verwendet wird, liegt der Fokus von Simulink in der Simulation des dynamischen Verhaltens dieser Architekturen. Dieses Zusammenspiel ermöglicht einen Übergang von dem reinen Architekturentwurf zu dem konkreten, ausführbaren Designmodell \cite{chatterjee2020applications}.
 
 \begin{figure}[h!]
   \centering
@@ -42,11 +42,11 @@ Während System Composer für die Modellierung und die Analyse der statischen Sy
   \label{fig:simulink_system_composer}
 \end{figure}
 
-Wie diese enge Integration praktisch umgesetzt wird, ist in Abbildung~\ref{fig:simulink_system_composer} zu erkennen: Eine in System Composer entworfene Architekturkomponente wird direkt mit einem detaillierten Verhaltensmodell in Simulink verknüpft. Der diesem Vorgehen zugrundeliegende Arbeitsablauf folgt dem V-Modell, bei dem das Systemverhalten phasenweise modelliert und validiert wird \cite{The24}. Um komplexe und Verhaltensweisen modellieren zu können, werden spezielle Tools innerhalb von Simulink genutzt \cite{chatterjee2020applications}:
+Wie diese enge Integration praktisch umgesetzt wird, ist in Abbildung~\ref{fig:simulink_system_composer} zu sehen: Eine in System Composer entworfene Architekturkomponente wird direkt mit einem detaillierten Verhaltensmodell in Simulink verknüpft. Der diesem Vorgehen zugrundeliegende Arbeitsablauf folgt dem V-Modell\footnote{}, bei dem das Systemverhalten phasenweise modelliert und validiert wird \cite{The24}. Um komplexe und Verhaltensweisen modellieren zu können, werden spezielle Tools innerhalb von Simulink genutzt \cite{chatterjee2020applications}:
 
-Stateflow dient zur Modellierung der Logik von Systemen mittels Zustandsautomaten, Flussdiagrammen oder Wahrheitstafeln. Es wird insbesondere für die übergeordnete Steuerung (Supervisory Control) und dem Fehlermanagement genutzt \cite{chatterjee2020applications}. Die Fähigkeit, ereignisdiskrete Systeme zu modellieren/ analysieren, wird durch SimEvents ermöglicht. Mithilfe von Nachrichten- und Entitätenbasierten Konzepten können Leistungsmerkmale wie der Durchsatz oder die Latenz optimiert werden \cite{chatterjee2020applications}.
+Stateflow dient zur Modellierung der Logik von Systemen mittels Zustandsautomaten, Flussdiagrammen oder Wahrheitstafeln. Es wird insbesondere für die übergeordnete Steuerung (Supervisory Control) und dem Fehlermanagement genutzt \cite{chatterjee2020applications}. Die Fähigkeit, ereignisdiskrete Systeme zu modellieren oder analysieren, wird durch SimEvents ermöglicht. Mithilfe von nachrichten- und entitätenbasierten Konzepten können Leistungsmerkmale, wie der Durchsatz oder die Latenz optimiert werden \cite{chatterjee2020applications}.
 
-Wie auch bei PREEvision, unterstützt dieser gesamte Ansatz die zentralen System-Engineering Prinzipien: Abstraktion, Dekomposition und Wiederverwendung\cite{The24}.
+Wie auch bei PREEvision, unterstützt dieser gesamte Ansatz die zentralen System-Engineering Prinzipien: Abstraktion, Dekomposition und Wiederverwendung \cite{The24}.
 
 \subsection{Eclipse Capella}
 Capella ist ein nicht-kommerzielles Modellierungstool, das auf der Engineering-Methode ARCADIA\footnote{ARChitecture Analysis and Design Integrated Approach} basiert \cite{roques2016mbse}. Diese umfassende Methodik gibt einen klaren, schrittweisen Konstruktionsprozess vor, der den Anwender von der Bedarfsanalyse bis zum detaillierten Architektur-Design führt \cite{let24}.
@@ -58,13 +58,13 @@ Capella ist ein nicht-kommerzielles Modellierungstool, das auf der Engineering-M
   \label{fig:capella_modell}
 \end{figure}
 
-Die Abbildung~\ref{fig:capella_modell} zeigt die vier Konstruktionsphasen von Arcadia. Der Prozess beginnt mit der Betriebsanalyse, die analysiert, was die Erwartungen, Anwendungsbedingungen, Integrations-, Verifikations- und Validierungsvorraussetzungen des Endnutzer sind. Darauf aufbauend folgt die Funktionale \& Nicht-Funktionale Bedarfsanalyse, in der die Systemfunktionen und nicht-funktionalen Anforderungen abgeleitet werden.
+Die Abbildung~\ref{fig:capella_modell} zeigt die vier Konstruktionsphasen von Arcadia. Der Prozess beginnt mit der Betriebsanalyse, in der untersucht wird, was die Erwartungen, Anwendungsbedingungen, Integrations-, Verifikations- und Validierungsvorraussetzungen des Endnutzer sind. Darauf aufbauend folgt die Funktionale \& Nicht-Funktionale Bedarfsanalyse, in der die Systemfunktionen und nicht-funktionalen Anforderungen abgeleitet werden.
 
 Bei Arcadia haben Bedarfsanalyse und Modellierung, Architekturentwicklung und -validierung sowie Anforderungsanalyse die gleiche Wichtigkeit. Wobei die Anforderungen gegen eine frühe Version des Architekturmodells auf Robustheit und Machbarkeit geprüft werden.
 
 Nachdem System, Hardware und Software modelliert wurden, wird eine logische Architektur entwickelt. Dabei wird nach einem Kompromiss zwischen Entwurfsfaktoren, (nicht-funktionalen) Bedingungen und Ansichten gesucht. Jede Ansicht beschäftigt sich mit bestimmten Aspekten wie funktionale Konsistenz, Schnittstellen, Leistung, Echtzeit, Sicherheit, Integration, Wiederverwendung, Kosten und Risiko.
 
-Abschließend beschreibt die physische Architektur die Umsetzung auf konkrete Hardware- und Softwarekomponenten und sichert durch die Trennung der Aspekte, Schichtenarchitekturen und standardisierte Interaktionsmuster eine effiziente, sichere Entwicklung und IVVQ\footnote{Integration, Verifizierung \& Validierung, Qualifizierungsaktivitäten (Testing)} \cite{let24}.
+Abschließend beschreibt die physische Architektur die Umsetzung auf konkrete Hardware- und Softwarekomponenten und sichert durch die Trennung der Aspekte, Schichtenarchitekturen und standardisierte Interaktionsmuster eine effiziente, sichere Entwicklung und Integration, Verifizierung \& Validierung, Qualifizierungsaktivitäten \cite{let24}.
 
 Während Arcadia die komplette linke Seite des V-Modells abdeckt, deckt das Produktlebenszyklusmanagement (PLM) die rechte Seite des Modells ab und garantiert somit eine vollständige Umsetzung des V-Modells \cite{2024arcadia}.
 

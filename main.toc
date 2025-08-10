@@ -1,5 +1,7 @@
 \babel@toc {ngerman}{}\relax 
 \babel@toc {ngerman}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {ngerman}{}\relax 
 \contentsline {chapter}{\numberline {1}Einleitung}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Aufgabenstellung}{1}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Aufbau der Arbeit}{2}{section.1.2}%
@@ -42,9 +44,9 @@
 \contentsline {subsection}{\numberline {6.1.1}Anbindung des Validierungsalgorithmus}{39}{subsection.6.1.1}%
 \contentsline {subsection}{\numberline {6.1.2}Ausführung der Validierung und Ergebnisdarstellung}{40}{subsection.6.1.2}%
 \contentsline {section}{\numberline {6.2}Bewertung der Ergebnisse}{42}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Fazit der Evaluation}{42}{section.6.3}%
+\contentsline {section}{\numberline {6.3}Fazit der Evaluation}{44}{section.6.3}%
 \contentsline {chapter}{\numberline {7}Fazit}{45}{chapter.7}%
 \contentsline {section}{\numberline {7.1}Ausblick}{45}{section.7.1}%
-\contentsline {chapter}{Literaturverzeichnis}{47}{chapter*.49}%
+\contentsline {chapter}{Literaturverzeichnis}{47}{chapter*.51}%
 \contentsline {chapter}{\numberline {A}Appendix}{53}{appendix.A}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

@@ -1,28 +1,31 @@
 \babel@toc {ngerman}{}\relax 
 \babel@toc {ngerman}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {ngerman}{}\relax 
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Eine Übersicht des Datenmodells. (Von \cite {architekturtooldocu2024} hergenommen)}}{4}{figure.caption.5}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Vergleich zwischen funktionsorientierter (Domäne) und positionsorientierter (Zone) E/E-Architektur(Nachgezeichnet von \cite {wang2024review})}}{5}{figure.caption.7}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Schematische Darstellung einer serviceorientierten Middleware-Architektur (Nachzeichnung von \cite {neely2006adaptive})}}{9}{figure.caption.8}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Eine Übersicht des Datenmodells. (Entnommen aus \cite {architekturtooldocu2024})}}{4}{figure.caption.7}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Vergleich zwischen funktionsorientierter (Domäne) und positionsorientierter (Zone) E/E-Architektur (Nachgezeichnet von \cite {wang2024review})}}{5}{figure.caption.9}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Schematische Darstellung einer serviceorientierten Middleware-Architektur (Nachzeichnung von \cite {neely2006adaptive})}}{9}{figure.caption.10}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Schematische PREEvision Schichtenarchitektur. (Nachzeichnung von \cite {Vec23})}}{14}{figure.caption.13}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Verknüpfung einer System Composer Architektur mit einem Simulink Verhaltensmodell. (Entnommen aus \cite {chatterjee2020applications})}}{15}{figure.caption.14}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Das Arcadia-Vorgehensmodell in Capella als vier übereinander gestapelte Architekturebenen (Entnommen aus \cite {let24})}}{16}{figure.caption.15}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Schematische PREEvision Schichtenarchitektur. (Nachzeichnung von \cite {Vec23})}}{14}{figure.caption.15}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Verknüpfung einer System Composer Architektur mit einem Simulink Verhaltensmodell. (Entnommen aus \cite {chatterjee2020applications})}}{15}{figure.caption.16}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Das Arcadia-Vorgehensmodell in Capella als vier übereinander gestapelte Architekturebenen (Entnommen aus \cite {let24})}}{16}{figure.caption.17}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Blockdiagramm des ArchitekturTool's}}{22}{figure.caption.21}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Blockdiagramm des ArchitekturTool's}}{22}{figure.caption.23}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Verlauf einer Architekturvalidierung im Framework}}{31}{figure.caption.34}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Anbindungsprozess innerhalb des Validierungs-Frameworks}}{35}{figure.caption.40}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Das Ergebnis als Liniendiagramm samt Grenzwert visualisiert}}{37}{figure.caption.42}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Verlauf einer Architekturvalidierung im Framework}}{31}{figure.caption.36}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Anbindungsprozess innerhalb des Validierungs-Frameworks}}{35}{figure.caption.42}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Eine Beispielvisualisierung des Liniendiagramms samt Grenzwert visualisiert}}{37}{figure.caption.44}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Das Formular zum Erstellen und Hochladen des Validierungsalgorithmus}}{40}{figure.caption.44}%
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Detailansicht des für die Evaluation genutzten Algorithmus}}{41}{figure.caption.45}%
-\contentsline {figure}{\numberline {6.3}{\ignorespaces Auswahl des Algorithmus und der zu validierenden Architektursicht.}}{41}{figure.caption.46}%
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Darstellung des Reports mit der korrekt identifizierten Anforderungen ohne Garantien.}}{42}{figure.caption.47}%
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Das Formular zum Erstellen und Hochladen des Validierungsalgorithmus}}{40}{figure.caption.46}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Detailansicht des für die Evaluation genutzten Algorithmus}}{41}{figure.caption.47}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Auswahl des Algorithmus und der zu validierenden Architektursicht.}}{41}{figure.caption.48}%
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Darstellung des Reports mit den korrekt identifizierten Anforderungen ohne Garantien.}}{42}{figure.caption.49}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {A.1}{\ignorespaces Python-Codegerüst für die Validierungsalgorithmen}}{53}{figure.caption.50}%
-\contentsline {figure}{\numberline {A.2}{\ignorespaces Vollständiger Bericht des Traceability-Checks}}{54}{figure.caption.51}%
-\contentsline {figure}{\numberline {A.3}{\ignorespaces Weitere Visualisierungsmöglichkeiten wie Balken-, und Flächendiagramm}}{55}{figure.caption.52}%
+\contentsline {figure}{\numberline {A.1}{\ignorespaces Python-Codegerüst für die Validierungsalgorithmen}}{53}{figure.caption.52}%
+\contentsline {figure}{\numberline {A.2}{\ignorespaces Vollständiger Bericht des Traceability-Checks}}{54}{figure.caption.53}%
+\contentsline {figure}{\numberline {A.3}{\ignorespaces Weitere Visualisierungsmöglichkeiten wie Balken-, und Flächendiagramm}}{55}{figure.caption.54}%
+\contentsline {figure}{\numberline {A.4}{\ignorespaces Die letzten Validierungsdurchläufe nach Zeitstempel sortiert}}{55}{figure.caption.55}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

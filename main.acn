@@ -3,9 +3,8 @@
 \glossaryentry{E/E-Architektur?\glossentry{eea}|setentrycounter[]{page}"\glsnumberformat}{1}
 \glossaryentry{ECU?\glossentry{ecu}|setentrycounter[]{page}"\glsnumberformat}{1}
 \glossaryentry{E/E-Architektur?\glossentry{eea}|setentrycounter[]{page}"\glsnumberformat}{1}
-\glossaryentry{SOA?\glossentry{soa}|setentrycounter[]{page}"\glsnumberformat}{1}
-\glossaryentry{ASOA?\glossentry{asoa}|setentrycounter[]{page}"\glsnumberformat}{1}
 \glossaryentry{E/E-Architektur?\glossentry{eea}|setentrycounter[]{page}"\glsnumberformat}{1}
+\glossaryentry{ASOA?\glossentry{asoa}|setentrycounter[]{page}"\glsnumberformat}{1}
 \glossaryentry{API?\glossentry{api}|setentrycounter[]{page}"\glsnumberformat}{2}
 \glossaryentry{GUI?\glossentry{gui}|setentrycounter[]{page}"\glsnumberformat}{2}
 \glossaryentry{GUI?\glossentry{gui}|setentrycounter[]{page}"\glsnumberformat}{2}
@@ -55,7 +54,7 @@
 \glossaryentry{IVN?\glossentry{ivn}|setentrycounter[]{page}"\glsnumberformat}{9}
 \glossaryentry{GUI?\glossentry{gui}|setentrycounter[]{page}"\glsnumberformat}{10}
 \glossaryentry{GUI?\glossentry{gui}|setentrycounter[]{page}"\glsnumberformat}{10}
-\glossaryentry{GUI?\glossentry{gui}|setentrycounter[]{page}"\glsnumberformat}{10}
+\glossaryentry{GUI?\glossentry{gui}|setentrycounter[]{page}"\glsnumberformat}{11}
 \glossaryentry{API?\glossentry{api}|setentrycounter[]{page}"\glsnumberformat}{11}
 \glossaryentry{E/E-Architektur?\glossentry{eea}|setentrycounter[]{page}"\glsnumberformat}{13}
 \glossaryentry{E/E-Architektur?\glossentry{eea}|setentrycounter[]{page}"\glsnumberformat}{13}
@@ -99,13 +98,13 @@
 \glossaryentry{API?\glossentry{api}|setentrycounter[]{page}"\glsnumberformat}{39}
 \glossaryentry{PoC?\glossentry{poc}|setentrycounter[]{page}"\glsnumberformat}{39}
 \glossaryentry{API?\glossentry{api}|setentrycounter[]{page}"\glsnumberformat}{40}
-\glossaryentry{PoC?\glossentry{poc}|setentrycounter[]{page}"\glsnumberformat}{42}
 \glossaryentry{API?\glossentry{api}|setentrycounter[]{page}"\glsnumberformat}{43}
 \glossaryentry{GUI?\glossentry{gui}|setentrycounter[]{page}"\glsnumberformat}{43}
 \glossaryentry{PoC?\glossentry{poc}|setentrycounter[]{page}"\glsnumberformat}{43}
 \glossaryentry{API?\glossentry{api}|setentrycounter[]{page}"\glsnumberformat}{43}
 \glossaryentry{REST?\glossentry{rest}|setentrycounter[]{page}"\glsnumberformat}{43}
 \glossaryentry{GUI?\glossentry{gui}|setentrycounter[]{page}"\glsnumberformat}{43}
+\glossaryentry{PoC?\glossentry{poc}|setentrycounter[]{page}"\glsnumberformat}{44}
 \glossaryentry{REST?\glossentry{rest}|setentrycounter[]{page}"\glsnumberformat}{45}
 \glossaryentry{API?\glossentry{api}|setentrycounter[]{page}"\glsnumberformat}{45}
 \glossaryentry{GUI?\glossentry{gui}|setentrycounter[]{page}"\glsnumberformat}{45}
